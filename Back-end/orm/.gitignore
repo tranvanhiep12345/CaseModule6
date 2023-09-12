@@ -1,0 +1,4 @@
+/dist
+/.idea
+/src/data-source.ts
+/node_modules
