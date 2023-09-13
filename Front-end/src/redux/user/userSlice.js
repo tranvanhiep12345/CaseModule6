@@ -11,9 +11,8 @@ const userSlice = createSlice({
     extraReducers:builder => {
         builder.addCase(login.fulfilled,(state,action)=>{
             state.currentUser = action.payload.data
-            const useInfo = jwt_decode(action.payload.data)
-            console.log(useInfo)
-            localStorage.setItem('user',JSON.stringify(useInfo))
+            // const useInfo = jwt_decode(action.payload.data)
+            localStorage.setItem('user',JSON.stringify(action.payload.data))
         });
         builder.addCase(register.fulfilled,(state,action)=>{
             state.currentUser = action.payload
