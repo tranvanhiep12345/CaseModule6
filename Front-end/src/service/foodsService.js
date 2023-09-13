@@ -9,20 +9,21 @@ export const getFood = createAsyncThunk(
 )
 
 export const addFood = createAsyncThunk(
-    'blogs/addBlogs',
+    'foods/addFoods',
     async (data) =>{
         const res  = await axios.post('http://localhost:8080/foods',data)
+        console.log('add food, foods Service: ', res.data)
         return res.data
     }
 )
 export const deleteFood = createAsyncThunk(
-    'blogs/deleteBlogs',
+    'foods/deleteFoods',
     async (id) =>{
-        return await axios.delete(`'http://localhost:8080/foods'/${id}`)
+        return await axios.delete(`http://localhost:8080/foods/${id}`)
     })
 export const updateFood = createAsyncThunk(
-    'blogs/updateBlogs',
+    'foods/updateFoods',
     async (id) =>{
-        return await axios.put(`'http://localhost:8080/foods'/${id}`)
+        return await axios.put(`http://localhost:8080/foods/${id}`)
     })
 

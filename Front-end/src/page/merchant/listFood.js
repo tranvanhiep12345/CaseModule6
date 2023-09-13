@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {getFood} from "../../service/foodsService";
+import {deleteFood, getFood} from "../../service/foodsService";
 import {useEffect} from "react";
 import './listFood.css'
 
@@ -15,7 +15,16 @@ export default function ListFood(){
         dispatch(getFood())
     }, [])
 
-    const handleDelete = useDispatch()
+    const handleDelete = (id) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this blog?")
+        if (confirmDelete) {
+            dispatch(deleteFood(id)).then(()=>{
+                dispatch(getFood())
+                navigate("/home")
+            })
+        }
+    }
+
     return(
 
         <>
@@ -46,7 +55,8 @@ export default function ListFood(){
                                             <div style={{marginTop:'30px', display:'flex', gap:'15px'}}>
                                                 <i  className="fa-solid fa-circle-plus" style={{display: 'flex', alignItems: 'center', color: 'red'}} />
                                                 <i className="fa-solid fa-pen-to-square" style={{display: 'flex', alignItems: 'center', color: 'red'}} />
-                                                <i  className="fa-solid fa-trash" style={{display: 'flex', alignItems: 'center', color: 'red'}} />
+                                                <i onClick={()=>{handleDelete(item.id)}} className="fa-solid fa-trash" style={{display: 'flex', alignItems: 'center', color: 'red'}} /> {/*deleteFood*/}
+
                                             </div>
                                         </div>
                                     </div>

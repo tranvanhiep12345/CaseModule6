@@ -1,11 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {addFood, getFood} from "../../service/foodsService";
+import {addFood, deleteFood, getFood, updateFood} from "../../service/foodsService";
 
 const initialState = {
     food: []
 }
 const foodSlice =createSlice({
-    name: 'foods',
+    name: 'food',
     initialState,
     reducers:{},
     extraReducers: builder => {
@@ -13,6 +13,18 @@ const foodSlice =createSlice({
             state.food = action.payload.data
         })
         builder.addCase(addFood.fulfilled, (state, action) =>{
+            console.log("foodSlice",action.payload)
+            state.food.push(action.payload)
+        })
+
+
+        builder.addCase(deleteFood.fulfilled, (state, action) =>{
+            console.log("foodSlice",action.payload)
+            state.food.push(action.payload)
+        })
+
+
+        builder.addCase(updateFood.fulfilled, (state, action) =>{
             console.log("foodSlice",action.payload)
             state.food.push(action.payload)
         })
