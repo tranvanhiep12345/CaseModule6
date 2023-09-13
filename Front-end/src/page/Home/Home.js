@@ -1,7 +1,14 @@
+import {Outlet} from "react-router-dom";
+import Navbar from "../../components/navbar";
+
 export default function Home(){
-    return (
+    return(
         <>
-            <h1>asdjasdjkadjs</h1>
+            <div className="container-home" style={{background: 'white'}}>
+                <Navbar/>
+                <Outlet></Outlet>
+            </div>
+
         </>
     )
 }
