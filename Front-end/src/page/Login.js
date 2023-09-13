@@ -45,7 +45,7 @@ export default function Login() {
     return (
         <>
             <div className='body-login'>
-                <div className={`container ${isSignUpActive ? "right-panel-active" : ""}`}>
+                <div className={`container-login ${isSignUpActive ? "right-panel-active" : ""}`}>
                     <div className="form-container sign-up-container">
                         <Formik initialValues={{name:'',email:'',phone:'',password:''}} onSubmit={(values)=>{
                             handleRegister(values)
