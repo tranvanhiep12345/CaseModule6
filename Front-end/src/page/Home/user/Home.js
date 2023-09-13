@@ -1,13 +1,12 @@
-import NavbarUser from "../../../component/navbar-user";
 import {Outlet} from "react-router-dom";
-import NavbarMerchance from "../../../component/navbar-merchance";
+import NavbarUser from "../../../component/navbar-user";
 
-export default function HomeMer() {
+export default function HomeUser() {
     return(
         <>
             <div>
                 <div>
-                    <NavbarMerchance></NavbarMerchance>
+                    <NavbarUser></NavbarUser>
                 </div>
             </div>
             <div className="flex mt-16">

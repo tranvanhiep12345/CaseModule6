@@ -8,6 +8,8 @@ import NavbarMerchance from "./component/navbar-merchance";
 import NavbarUser from "./component/navbar-user";
 import NavbarAdmin from "./component/navbar-admin";
 import {useSelector} from "react-redux";
+import HomeUser from "./page/Home/user/Home";
+import HomeAdmin from "./page/Home/admin/Home";
 
 function App() {
     const user = useSelector(state => {
@@ -19,8 +21,8 @@ function App() {
             {/*<div className={'container-fluid'}>*/}
                 <Routes>
                     <Route path={''} element={<Login />}></Route>
-                    <Route path={'homeUser'} element={<NavbarUser />}></Route>
-                    <Route path={'homeAdmin'} element={<NavbarAdmin />}></Route>
+                    <Route path={'homeUser'} element={<HomeUser />}></Route>
+                    <Route path={'homeAdmin'} element={<HomeAdmin />}></Route>
                     <Route path={'homeMerchance'} element={<NavbarMerchance />}></Route>
                 </Routes>
             {/*</div>*/}

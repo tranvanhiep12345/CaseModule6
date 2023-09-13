@@ -42,7 +42,7 @@ export default function Login() {
                 alert('sai ten dang nhap hoac mat khau')
                 navigate('/')
             }else{
-                    if(response.meta.arg.email === "admin@gmail.com"){
+                    if(response.payload.data.role === 'merchant'){
                         navigate('/homeAdmin')
                     }else if (response.payload.data.role === 'merchant')  {
                         navigate('/homeMerchant')
