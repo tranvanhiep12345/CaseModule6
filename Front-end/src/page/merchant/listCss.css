@@ -1,0 +1,30 @@
+.title-list{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    height: 70px;
+}
+.title-small{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 50%;
+}
+
+.body-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 25%;
+    height: 330px;
+}
+.food-img{
+    width: 100%;
+    height: 150px;
+}
+.food-img img{
+    width: 100%;
+    height: 150px;
+}
+/*style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}*/

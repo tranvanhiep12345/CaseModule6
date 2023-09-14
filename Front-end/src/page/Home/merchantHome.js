@@ -1,11 +1,12 @@
-import {Outlet} from "react-router-dom";
-import Navbar from "../../components/navbar";
 
-export default function Home(){
+import {Outlet} from "react-router-dom";
+import NavbarMerchant from "../../components/merchantNavbar";
+
+export default function MerchantHome(){
     return(
         <>
             <div className="container-home" style={{background: 'white'}}>
-                <Navbar/>
+                <NavbarMerchant/>
                 <Outlet></Outlet>
             </div>
 
