@@ -35,6 +35,10 @@ class FoodService{
             .where("restaurant.name LIKE :name", { name: `%${restName}%` })
             .getMany()
     }
+    findById = async (id) => {
+        return await this.repository.find(
+            {where: {id: id}})
+    }
 
 }
 export default new FoodService()

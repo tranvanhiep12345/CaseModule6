@@ -30,5 +30,9 @@ class FoodController {
         res.json('edit complete')
 
     }
+    findById = async (req: Request, res: Response) => {
+        let  foods= await foodService.findById(req.params.id)
+        res.json(foods);
+    }
 }
 export default new FoodController()
