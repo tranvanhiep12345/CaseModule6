@@ -1,9 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {login, register} from "../../service/usersService";
-import jwt_decode from "jwt-decode";
-
+let user = localStorage.getItem('user') === ''?null:localStorage.getItem('user')
+console.log(user)
 const initialState = {
-    currentUser: JSON.parse(localStorage.getItem('user'))
+    currentUser: JSON.parse(user)
 }
 const userSlice = createSlice({
     name: 'currentUser',
@@ -11,9 +11,7 @@ const userSlice = createSlice({
     extraReducers:builder => {
         builder.addCase(login.fulfilled,(state,action)=>{
             state.currentUser = action.payload.data
-            const useInfo = jwt_decode(action.payload.data)
-            console.log(useInfo)
-            localStorage.setItem('user',JSON.stringify(useInfo))
+            localStorage.setItem('user',JSON.stringify(action.payload.data))
         });
         builder.addCase(register.fulfilled,(state,action)=>{
             state.currentUser = action.payload

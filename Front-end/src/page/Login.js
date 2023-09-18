@@ -26,10 +26,10 @@ const validateRegister = Yup.object({
 
 const validateLogin = Yup.object({
     email: Yup.string()
-        .required('required'),
+        .required('Required'),
     password: Yup.string()
         .required('Required')
-        .min(6, 'requires a minimum of 6 characters')
+        .min(6, 'Requires a minimum of 6 characters')
 })
 
 
@@ -46,8 +46,7 @@ export default function Login() {
             role:''
         }, validationSchema: validateRegister,
         onSubmit:(values)=>{
-            console.log(values)
-            handleRegister().then()
+            handleRegister(values)
         }
     })
 
@@ -73,13 +72,16 @@ export default function Login() {
         setIsSignUpActive(false);
     };
 
-    const handleRegister = async (values) =>{
-        let a = await dispatch(register(values))
-        if (a.payload.data === 'Username already exists'){
-            toast.error('Account already exists')
-        } else {
-            navigate('/')
-        }
+    const handleRegister =  (values) =>{
+        dispatch(register(values)).then((a)=>{
+            console.log(a.payload.data)
+            if (a.payload.data === 'Username already exists'){
+                toast.error('Account already exists')
+            } else {
+                toast.success('Register Success')
+                navigate('/')
+            }
+        })
     }
 
     const handleLogin = (values) => {
@@ -210,7 +212,7 @@ export default function Login() {
 
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
 
-                                <input value={formikLogin.values.password} onChange={formikLogin.handleChange} className="input100" type="password" name="password" placeholder="Mật khẩu"
+                                <input value={formikLogin.values.password} className="input100" type="password" name="password" placeholder="Mật khẩu"
                                        id="passwordLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
