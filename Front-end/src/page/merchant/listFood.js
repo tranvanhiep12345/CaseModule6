@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {deleteFood, getFood} from "../../service/foodsService";
 import {useEffect} from "react";
-import './listFood.css'
+import './listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
 
 
