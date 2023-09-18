@@ -33,9 +33,10 @@ class UserService {
                     email: userFind.email,
                     password: userFind.password
                 }
-                return jwt.sign(payload, SECRET, {
+                payload["token"]= jwt.sign(payload, SECRET, {
                     expiresIn: 36000 * 10 * 100
                 })
+                return payload
             } else {
                 return 'Password is wrong'
             }
