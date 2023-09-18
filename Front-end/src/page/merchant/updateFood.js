@@ -68,7 +68,7 @@ export default function UpdateFood() {
                                 values.image = urlFile
                             } else if (urlFile === "") {
                                 values.image = img
-                            } else if (urlFile != img) {
+                            } else if (urlFile !== img) {
 
                                 values.image = urlFile
                             }
