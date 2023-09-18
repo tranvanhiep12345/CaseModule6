@@ -212,7 +212,7 @@ export default function Login() {
 
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
 
-                                <input value={formikLogin.values.password} className="input100" type="password" name="password" placeholder="Mật khẩu"
+                                <input value={formikLogin.values.password} onChange={formikLogin.handleChange} className="input100" type="password" name="password" placeholder="Mật khẩu"
                                        id="passwordLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
