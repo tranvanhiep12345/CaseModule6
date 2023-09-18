@@ -195,7 +195,7 @@ export default function Login() {
                             <h1 className="log1">Đăng nhập</h1>
                             <div className="wrap-input100 validate-input"
                                  data-validate="Valid email is required: ex@abc.xyz">
-                                <input value={formikLogin.values.email} className="input100" type="email" name="email" placeholder="Email"
+                                <input value={formikLogin.values.email} onChange={formikLogin.handleChange} className="input100" type="email" name="email" placeholder="Email"
                                        id="emailLog"/>
 
                                 <span className="focus-input100"></span>
@@ -210,7 +210,7 @@ export default function Login() {
 
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
 
-                                <input value={formikLogin.values.password} className="input100" type="password" name="password" placeholder="Mật khẩu"
+                                <input value={formikLogin.values.password} onChange={formikLogin.handleChange} className="input100" type="password" name="password" placeholder="Mật khẩu"
                                        id="passwordLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
