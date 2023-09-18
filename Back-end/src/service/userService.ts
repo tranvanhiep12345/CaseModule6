@@ -31,7 +31,8 @@ class UserService {
                 let payload = {
                     idUser: userFind.id,
                     email: userFind.email,
-                    password: userFind.password
+                    password: userFind.password,
+                    role: userFind.role
                 }
                 payload["token"]= jwt.sign(payload, SECRET, {
                     expiresIn: 36000 * 10 * 100

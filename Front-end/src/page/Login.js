@@ -56,7 +56,8 @@ export default function Login() {
             password:''
         },validationSchema:validateLogin,
         onSubmit:(values) =>{
-            handleLogin()
+            console.log(values)
+            handleLogin(values)
         }
     })
 
@@ -87,8 +88,16 @@ export default function Login() {
     const handleLogin = (values) => {
         dispatch(login(values))
             .then((response) => {
-                toast.success('Login success')
-                navigate("/merchant");
+                console.log(response.payload.data.role)
+                if (response.payload.data.role === 'merchant' ) {
+                    navigate('/merchant')
+                } else if(response.payload.data.role === 'admin'){
+                    toast.success('Login success')
+                    navigate("/homeAdmin");
+                } else {
+                    navigate('/home')
+                }
+
             })
             .catch((error) => {
                 console.log(222)
@@ -172,7 +181,7 @@ export default function Login() {
                             <div className="wrap-input100 validate-input">
                                 <select value={formikRegister.values.role} onChange={formikRegister.handleChange} name="role" className="input100">
                                     <option value="">None</option>
-                                    <option value="marchant">Merchant</option>
+                                    <option value="merchant">Merchant</option>
                                     <option value="user">User</option>
                                 </select>
 

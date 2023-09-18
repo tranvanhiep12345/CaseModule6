@@ -7,6 +7,12 @@ export const getFood = createAsyncThunk(
         return await axios.get('http://localhost:8080/foods')
     }
 )
+export const getFoodByName = createAsyncThunk(
+    'blogs/getFoodByName',
+    async (data) =>{
+        return await axios.get(`http://localhost:8080/foods/?name=${data}`)
+    }
+)
 
 export const addFood = createAsyncThunk(
     'foods/addFoods',

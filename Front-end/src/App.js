@@ -10,6 +10,7 @@ import ListFood from "./page/merchant/listFood";
 import UpdateFood from "./page/merchant/updateFood";
 import MerchantHome from "./page/Home/merchantHome";
 import Test from "./page/test";
+import UpdateRestaurant from "./page/restaurant/updateRestaurant";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                         <Route path={''} element={<ListFood/>}/>
                         <Route path={'add_food'} element={<AddFood/>}/>
                         <Route path={'update_food/:id'} element={<UpdateFood/>}/>
+                        <Route path={'update_restaurant/:id'} element={<UpdateRestaurant/>}/>
                     </Route>
 
                     <Route path={'home'} element={<Home/>}>

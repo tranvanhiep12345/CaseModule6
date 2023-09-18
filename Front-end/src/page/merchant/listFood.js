@@ -1,12 +1,23 @@
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-import {deleteFood, getFood} from "../../service/foodsService";
-import {useEffect} from "react";
+import {deleteFood, getFood, getFoodByName} from "../../service/foodsService";
+import {useEffect, useState} from "react";
 import './listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
 
 
 export default function ListFood(){
+    const [searchKeyword, setSearchKeyword] = useState("");
+    const handleFindByName = (d)=>{
+        dispatch(getFoodByName(d)).then((res)=>{
+            getRestaurant(res.payload.data)
+            console.log(res.payload.data)
+
+        })
+
+    }
+
+
     const restaurant = useSelector((state)=>{
         return state.restaurant.restaurant
     })
@@ -31,7 +42,7 @@ export default function ListFood(){
         if (confirmDelete) {
             dispatch(deleteFood(id)).then(()=>{
                 dispatch(getFood())
-                navigate("/home")
+                navigate("/merchant")
             })
         }
     }
@@ -42,22 +53,24 @@ export default function ListFood(){
                 <div className="col-10" style={{justifyContent: 'center'}}>
                     <div className="row" style={{width: '100%', height: '50px'}}>
 
-                        <div className="col-3" style={{border: '1px solid'}}>
+                        <div style={{border: '1px solid', width:'60%'}}>
                             <div style={{display: 'flex'}}>
                                 <i className="fa-solid fa-magnifying-glass" style={{marginTop: '18px'}} />
-                                <input style={{width: '100%', height: '50px', background: 'none', border: 'none', outline: 'none'}} placeholder="Từ khóa, tên,địa chỉ, doanh thu" />
+                                <input style={{width: '100%', height: '50px', background: 'none', border: 'none', outline: 'none'}} placeholder="Từ khóa, tên,địa chỉ, doanh thu" onChange={(e) => setSearchKeyword(e.target.value)} />
                             </div>
                         </div>
 
-                        <div className="col-2" style={{width: '100%', marginLeft: '20px', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                            <button style={{width: '100%'}}>Tìm kiếm</button>
+                        <div  style={{width: '40%%', marginLeft: '20px', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                            <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
                         </div>
+
                     </div>
                 </div>
             </div>
 
             {restaurant.map((item, key)=>(
                 <div>
+                    <Link to={`/merchant/update_restaurant/${item.id}`}><a>kjasdkjabkas</a></Link>
                     <div className="row" style={{width: '100%', marginTop: '20px', fontWeight: 'bold', fontSize: '25px', marginLeft:'30px'}}>
                         {item.name}
                     </div>
