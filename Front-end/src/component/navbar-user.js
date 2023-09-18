@@ -45,6 +45,41 @@ export default function NavbarUser(){
                         </div>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="body col-12" style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                        <div className="row-1 col-10" style={{ display: 'flex', justifyContent: 'center' }}>
+                            <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel" style={{ width: '100%' }}>
+                                <ol className="carousel-indicators">
+                                    <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
+                                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                                </ol>
+                                <div className="carousel-inner">
+                                    <div className="carousel-item active">
+                                        <img src="3.jpg" className="d-block w-100" alt="..." style={{ width: '100%', height: '336px' }} />
+                                        <div className="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                    <div className="carousel-item">
+                                        <img src="caro1.png" className="d-block w-100" alt="..." style={{ width: '100%', height: '336px' }} />
+                                        <div className="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                    <div className="carousel-item">
+                                        <img src="caro2.png" className="d-block w-100" alt="..." style={{ width: '100%', height: '336px' }} />
+                                        <div className="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                </div>
+                                <button className="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+                                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span className="sr-only">Previous</span>
+                                </button>
+                                <button className="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+                                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span className="sr-only">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )
