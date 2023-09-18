@@ -9,6 +9,7 @@ import AddFood from "./page/merchant/addFood";
 import ListFood from "./page/merchant/listFood";
 import UpdateFood from "./page/merchant/updateFood";
 import MerchantHome from "./page/Home/merchantHome";
+import Test from "./page/test";
 
 
 function App() {
