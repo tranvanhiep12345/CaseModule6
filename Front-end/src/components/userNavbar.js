@@ -1,5 +1,5 @@
 
-export default function Navbar(){
+export default function UserNavbar(){
     return(
         <>
             <div className="row">

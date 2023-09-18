@@ -1,11 +1,11 @@
 import {Outlet} from "react-router-dom";
-import Navbar from "../../components/navbar";
+import UserNavbar from "../../components/userNavbar";
 
 export default function Home(){
     return(
         <>
             <div className="container-home" style={{background: 'white'}}>
-                <Navbar/>
+                <UserNavbar/>
                 <Outlet></Outlet>
             </div>
 
