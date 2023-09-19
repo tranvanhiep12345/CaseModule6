@@ -56,7 +56,8 @@ export default function Login() {
             password:''
         },validationSchema:validateLogin,
         onSubmit:(values) =>{
-            handleLogin()
+            console.log(values)
+            handleLogin(values)
         }
     })
 
@@ -83,7 +84,6 @@ export default function Login() {
             }
         })
     }
-
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
             console.log(values)
@@ -95,7 +95,7 @@ export default function Login() {
                 alert('sai ten dang nhap hoac mat khau')
                 navigate('/')
             }else{
-                if(response.payload.data.role === 'merchant'){
+                if(response.payload.data.role === 'admin'){
                     navigate('/homeAdmin')
                 }else if (response.payload.data.role === 'merchant')  {
                     navigate('/homeMerchant')
@@ -104,16 +104,30 @@ export default function Login() {
                 }
             }
         })
+        dispatch(login(values))
+            .then((response) => {
+                console.log(response.payload.data.role)
+                if (response.payload.data.role === 'merchant' ) {
+                    navigate('/merchant')
+                } else if(response.payload.data.role === 'admin'){
+                    toast.success('Login success')
+                    navigate("/homeAdmin");
+                } else {
+                    navigate('/home')
+                }
 
+            })
+            .catch((error) => {
+                console.log(222)
+                console.log(error);
+            });
     };
-
     return (
         <>
 
             <div className='body-login'>
                 <div className={`container-login ${isSignUpActive ? "right-panel-active" : ""}`}>
                     <div className="form-container sign-up-container">
-
                         <form onSubmit={formikRegister.handleSubmit}>
                             <h1 className="log1">Đăng ký</h1>
                             <div className="wrap-input100 validate-input">
@@ -182,7 +196,7 @@ export default function Login() {
                             <div className="wrap-input100 validate-input">
                                 <select value={formikRegister.values.role} onChange={formikRegister.handleChange} name="role" className="input100">
                                     <option value="">None</option>
-                                    <option value="marchant">Merchant</option>
+                                    <option value="merchant">Merchant</option>
                                     <option value="user">User</option>
                                 </select>
 
