@@ -85,15 +85,26 @@ export default function Login() {
     }
 
     const handleLogin = (values) => {
-        dispatch(login(values))
-            .then((response) => {
-                toast.success('Login success')
-                navigate("/merchant");
-            })
-            .catch((error) => {
-                console.log(222)
-                console.log(error);
-            });
+        dispatch(login(values)).then((response) => {
+            console.log(values)
+            console.log(response,2342342342)
+            if (response.payload.data === "User is not exist"){
+                alert('tk k ton tai')
+                navigate('/')
+            } else if (response.payload.data === 'Password is wrong') {
+                alert('sai ten dang nhap hoac mat khau')
+                navigate('/')
+            }else{
+                if(response.payload.data.role === 'merchant'){
+                    navigate('/homeAdmin')
+                }else if (response.payload.data.role === 'merchant')  {
+                    navigate('/homeMerchant')
+                } else {
+                    navigate('/homeUser')
+                }
+            }
+        })
+
     };
 
     return (
@@ -114,7 +125,6 @@ export default function Login() {
                             {formikRegister.errors.name && formikRegister.touched.name ? (
                                 <div className="text-danger">{formikRegister.errors.name}</div>
                             ) : null}
-
                             <div className="wrap-input100 validate-input"
                                  data-validate="Valid email is required: ex@abc.xyz">
                                 <input value={formikRegister.values.email} onChange={formikRegister.handleChange} className="input100" type="email" name="email" placeholder="Email"
