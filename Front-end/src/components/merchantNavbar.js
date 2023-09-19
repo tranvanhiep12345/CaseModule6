@@ -1,7 +1,7 @@
 export default function NavbarMerchant(){
     return(
         <>
-            <div className="container col-12" style={{background: 'white'}}>
+            <div className="container-merchant-navbar" style={{background: 'white'}}>
                 <div className="row">
                     <div style={{background: 'red', width: '100%', height: '100px'}}>
                         <div className="row" style={{margin: '0px'}}>

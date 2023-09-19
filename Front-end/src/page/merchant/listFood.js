@@ -1,12 +1,14 @@
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-import {deleteFood, getFood} from "../../service/foodsService";
-import {useEffect} from "react";
+import {deleteFood, getFood, getFoodByName} from "../../service/foodsService";
+import {useEffect, useState} from "react";
 import './listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
 
 
 export default function ListFood(){
+    const [searchKeyword, setSearchKeyword] = useState("");
+    const [list,setList] = useState([])
     const restaurant = useSelector((state)=>{
         return state.restaurant.restaurant
     })
@@ -35,6 +37,17 @@ export default function ListFood(){
             })
         }
     }
+    const handleFindByName = (d)=>{
+        dispatch(getFoodByName(d)).then((res)=>{
+            setList(res.payload.data)
+            console.log(res.payload.data)
+
+        })
+
+    }
+    list.map((item)=>{
+        console.log(item)
+    })
 
     return(
         <>
@@ -44,7 +57,7 @@ export default function ListFood(){
                         <div className="col-3" style={{border: '1px solid'}}>
                             <div style={{display: 'flex'}}>
                                 <i className="fa-solid fa-magnifying-glass" style={{marginTop: '18px'}} />
-                                <input style={{width: '100%', height: '50px', background: 'none', border: 'none', outline: 'none'}} placeholder="Từ khóa, tên,địa chỉ, doanh thu" />
+                                <input style={{width: '100%', height: '50px', background: 'none', border: 'none', outline: 'none'}} placeholder="Từ khóa, tên,địa chỉ, doanh thu" onChange={(e) => setSearchKeyword(e.target.value)}/>
                             </div>
                         </div>
                         <div className="col-3" style={{display: 'flex', border: '1px solid', marginLeft: '20px'}}>
@@ -65,7 +78,7 @@ export default function ListFood(){
                             </select>
                         </div>
                         <div className="col-2" style={{width: '100%', marginLeft: '20px', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                            <button style={{width: '100%'}}>Tìm kiếm</button>
+                            <button style={{width: '100%'}} onClick={() => handleFindByName(searchKeyword)}>Tìm kiếm</button>
                         </div>
                     </div>
                 </div>
@@ -102,9 +115,9 @@ export default function ListFood(){
                 </div>
             </div>
 
-            <div style={{display:'flex', width:'100%', height:'330px'}}>
+            <div style={{display:'flex',flexWrap: 'wrap', width:'100%', height:'330px'}}>
                 {food.map((item, key)=>(
-                    <div className="card-home">
+                    <div className="card-home col-2" style={{marginBottom: '150px'}}>
                         <div className="row-1 col-10">
                             <div className="col-2" style={{height: '200px'}}>
 
