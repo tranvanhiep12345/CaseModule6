@@ -74,9 +74,7 @@ export default function NavbarMerchant(){
         dispatch(getFoodByName(d)).then((res)=>{
             getRestaurant(res.payload.data)
             console.log(res.payload.data)
-
         })
-
     }
 
 
@@ -98,16 +96,18 @@ export default function NavbarMerchant(){
 
                     <div className="container-find-food" >
                         <div className='find-food'>
-                            <div style={{width:'60%', height:'20px', background:'white',display:"flex"}}>
-                                <div>
+                            <div style={{width:'70%', height:'20px', background:'white',display:"flex", borderRadius:'10px'}}>
+
                                     <i className="fa-solid fa-magnifying-glass"/>
-                                </div>
+
                                     <input style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none'}} placeholder="Từ khóa, tên,địa chỉ, doanh thu" onChange={(e) => setSearchKeyword(e.target.value)} />
                             </div>
+
                         </div>
+
                     </div>
 
-                    <div  style={{display:"none"}}>
+                    <div  style={{width:'90px'}}>
                         <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
                     </div>
 
