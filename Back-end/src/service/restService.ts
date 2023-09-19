@@ -36,6 +36,5 @@ class RestService {
             .where("user.name LIKE :name", { name: `%${merchantName}%` })
             .getMany()
     }
-
 }
 export default new RestService()
