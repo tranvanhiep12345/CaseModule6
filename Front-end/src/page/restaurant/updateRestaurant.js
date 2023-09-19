@@ -134,7 +134,7 @@ export default function UpdateRestaurant() {
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="time" name="StartTime"
+                                    <Field className="input100" type="time" name="startTime"
                                            placeholder="Phí dịch vụ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>

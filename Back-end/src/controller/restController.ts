@@ -29,5 +29,9 @@ class RestController {
         await restService.update(req.params.id, req.body)
         res.json('edit complete')
     }
+    findById = async (req: Request, res: Response) => {
+        let  restaurant= await restService.findById(req.params.id)
+        res.json(restaurant);
+    }
 }
 export default new RestController()

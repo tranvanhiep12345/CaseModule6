@@ -7,15 +7,7 @@ import {getRestaurant} from "../../service/restaurantsService";
 
 
 export default function ListFood(){
-    const [searchKeyword, setSearchKeyword] = useState("");
-    const handleFindByName = (d)=>{
-        dispatch(getFoodByName(d)).then((res)=>{
-            getRestaurant(res.payload.data)
-            console.log(res.payload.data)
 
-        })
-
-    }
 
 
     const restaurant = useSelector((state)=>{
@@ -38,7 +30,7 @@ export default function ListFood(){
     }, [])
 
     const handleDelete = (id) => {
-        const confirmDelete = window.confirm("Are you sure you want to delete this blog?")
+        const confirmDelete = window.confirm("Are you sure you want to delete this food?")
         if (confirmDelete) {
             dispatch(deleteFood(id)).then(()=>{
                 dispatch(getFood())
@@ -49,24 +41,7 @@ export default function ListFood(){
 
     return(
         <>
-            <div className="row" style={{background: 'white', width: '100%', height: '70px', display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-                <div className="col-10" style={{justifyContent: 'center'}}>
-                    <div className="row" style={{width: '100%', height: '50px'}}>
 
-                        <div style={{border: '1px solid', width:'60%'}}>
-                            <div style={{display: 'flex'}}>
-                                <i className="fa-solid fa-magnifying-glass" style={{marginTop: '18px'}} />
-                                <input style={{width: '100%', height: '50px', background: 'none', border: 'none', outline: 'none'}} placeholder="Từ khóa, tên,địa chỉ, doanh thu" onChange={(e) => setSearchKeyword(e.target.value)} />
-                            </div>
-                        </div>
-
-                        <div  style={{width: '40%%', marginLeft: '20px', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                            <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
 
             {restaurant.map((item, key)=>(
                 <div>

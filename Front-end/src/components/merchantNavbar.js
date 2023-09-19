@@ -7,6 +7,10 @@ import Box from "@mui/material/Box";
 import MerchantOption from "./option/merchantOption";
 import {animated, useSpring} from "@react-spring/web";
 import PropTypes from "prop-types";
+import {useState} from "react";
+import {getFoodByName} from "../service/foodsService";
+import {getRestaurant} from "../service/restaurantsService";
+import {useDispatch} from "react-redux";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -61,9 +65,19 @@ const style = {
     p: 4,
 };
 export default function NavbarMerchant(){
+    const dispatch = useDispatch()
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [searchKeyword, setSearchKeyword] = useState("");
+    const handleFindByName = (d)=>{
+        dispatch(getFoodByName(d)).then((res)=>{
+            getRestaurant(res.payload.data)
+            console.log(res.payload.data)
+
+        })
+
+    }
 
 
     return(
@@ -81,9 +95,23 @@ export default function NavbarMerchant(){
 
                 </div>
                 <div className="mid-merchant-navbar">
-                    <div>
-                       <h1 className='title-navbar-merchant'>Quản lí cửa hàng</h1>
+
+                    <div className="container-find-food" >
+                        <div className='find-food'>
+                            <div style={{width:'60%', height:'20px', background:'white',display:"flex"}}>
+                                <div>
+                                    <i className="fa-solid fa-magnifying-glass"/>
+                                </div>
+                                    <input style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none'}} placeholder="Từ khóa, tên,địa chỉ, doanh thu" onChange={(e) => setSearchKeyword(e.target.value)} />
+                            </div>
+                        </div>
                     </div>
+
+                    <div  style={{display:"none"}}>
+                        <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
+                    </div>
+
+
                 </div>
                 <div className='right-navbar-merchant'>
                     <button>

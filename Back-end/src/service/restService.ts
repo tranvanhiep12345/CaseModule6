@@ -36,6 +36,9 @@ class RestService {
             .where("user.name LIKE :name", { name: `%${merchantName}%` })
             .getMany()
     }
-
+    findById = async (id) => {
+        return await this.repository.find(
+            {where: {id: id}})
+    }
 }
 export default new RestService()
