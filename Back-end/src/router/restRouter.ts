@@ -8,5 +8,7 @@ restRouter.get('/', resController.findAll)
 restRouter.post('/', resController.add)
 restRouter.delete('/:id', resController.delete)
 restRouter.put('/:id', resController.update)
+restRouter.get('/:id', resController.findById)
+
 
 export default restRouter

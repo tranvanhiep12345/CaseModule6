@@ -9,11 +9,8 @@ export class Food {
     @Column({type: "varchar", length: 255})
     name: string;
 
-    @Column({type: "varchar", length: 255})
-    imgUrl: string;
-
     @Column({type: "int"})
-    prepTime: number; // thời gian chuẩn bị
+    prepTime: number;
 
     @Column({type: "int"})
     serviceFee: number;
