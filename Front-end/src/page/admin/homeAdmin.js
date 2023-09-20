@@ -32,10 +32,6 @@ export default function HomeAdmin() {
                     <div style={{fontSize: '20px', margin: '5px'}}>
                         <div style={{margin_top: '20px'}}><i className="fa-solid fa-rhombus"></i> Danh sách Merchant
                         </div>
-                        <div style={{margin_top: '20px'}}><i className="fa-solid fa-rhombus"></i> Danh sách Merchant
-                        </div>
-                        <div style={{margin_top: '20px'}}><i className="fa-solid fa-rhombus"></i> Danh sách Merchant
-                        </div>
                     </div>
                 </div>
                 <div className="col-10" style={{height: '50px'}}>

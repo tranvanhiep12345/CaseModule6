@@ -80,7 +80,7 @@ export default function NavbarMerchant(){
 
                     <div className='text-logo'>
                         <p style={{fontSize:'50px'}} onClick={()=>{
-                            navigate('/homeUser')
+                            navigate('/homeMerchant')
                         }}>Cooky</p>
                     </div>
 

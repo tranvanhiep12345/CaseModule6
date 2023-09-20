@@ -1,12 +1,17 @@
+import {useNavigate} from "react-router-dom";
+
 
 export default function UserNavbar(){
+    const navigate = useNavigate()
     return(
         <>
             <div className="row">
                 <div style={{background: 'red', width: '100%', height: '100px'}}>
                     <div className="row" style={{margin: '0 auto', width:'100%'}}>
-                        <div className="col-2" style={{height: '80px',width: '20%', marginTop: '10px', fontSize: '50px', color: 'white'}}>
-                            Cooky
+                        <div className="col-2" style={{height: '80px',width: '20%', fontSize: '50px', color: 'white'}}>
+                            <p style={{fontSize:'50px'}} onClick={()=>{
+                                navigate('/homeUser')
+                            }}>Cooky</p>
                         </div>
                         <div className="col-4" style={{height: '50px', marginTop: '20px', display: 'flex', background: 'white', width:'20%'}}>
                             <div className="row" style={{margin: '15px', color: '#606060'}}><i style={{marginTop:'5px'}} className="fa-solid fa-magnifying-glass" />
