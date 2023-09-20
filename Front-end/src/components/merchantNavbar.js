@@ -7,6 +7,8 @@ import Box from "@mui/material/Box";
 import MerchantOption from "./option/merchantOption";
 import {animated, useSpring} from "@react-spring/web";
 import PropTypes from "prop-types";
+import {useNavigate} from "react-router-dom";
+
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -61,6 +63,7 @@ const style = {
     p: 4,
 };
 export default function NavbarMerchant(){
+    const navigate = useNavigate()
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -76,7 +79,9 @@ export default function NavbarMerchant(){
                     </div>
 
                     <div className='text-logo'>
-                        <p className='text-write'>Cooky</p>
+                        <p style={{fontSize:'50px'}} onClick={()=>{
+                            navigate('/homeUser')
+                        }}>Cooky</p>
                     </div>
 
                 </div>

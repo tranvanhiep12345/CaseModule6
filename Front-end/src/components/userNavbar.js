@@ -5,7 +5,7 @@ export default function UserNavbar(){
             <div className="row">
                 <div style={{background: 'red', width: '100%', height: '100px'}}>
                     <div className="row" style={{margin: '0 auto', width:'100%'}}>
-                        <div className="col-2" style={{height: '80px',width: '20%', marginTop: '10px', fontSize: '50px', color: 'white', fontFamily: '"Lucida Handwriting"'}}>
+                        <div className="col-2" style={{height: '80px',width: '20%', marginTop: '10px', fontSize: '50px', color: 'white'}}>
                             Cooky
                         </div>
                         <div className="col-4" style={{height: '50px', marginTop: '20px', display: 'flex', background: 'white', width:'20%'}}>

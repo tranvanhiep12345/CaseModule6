@@ -75,10 +75,6 @@ export default function HomeAdmin() {
                                     >xem thêm
                                     </button>
                                 </td>
-                                <td>
-                                    <button type="button" >nút 2
-                                    </button>
-                                </td>
                             </tr>
                             )}
 
