@@ -33,7 +33,7 @@ export default function HomeAdmin() {
             <div className="row" style={{marginTop: '20px'}}>
                 <div className="col-2" style={{height: '50px'}}>
                     <div style={{fontSize: '20px', margin: '5px'}}>
-                        <div style={{margin_top: '20px'}}><button onClick={()=>{reload(gi)}}>Danh sách Merchant</button>
+                        <div style={{margin_top: '20px'}}><button onClick={()=>{reload()}}>Danh sách Merchant</button>
                         </div>
                     </div>
                 </div>
