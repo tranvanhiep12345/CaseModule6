@@ -104,26 +104,6 @@ export default function Login() {
                 }
             }
         })
-<<<<<<< HEAD
-=======
-        dispatch(login(values))
-            .then((response) => {
-                console.log(response.payload.data.role)
-                if (response.payload.data.role === 'merchant' ) {
-                    navigate('/merchant')
-                } else if(response.payload.data.role === 'admin'){
-                    toast.success('Login success')
-                    navigate("/homeAdmin");
-                } else {
-                    navigate('/home')
-                }
-
-            })
-            .catch((error) => {
-                console.log(222)
-                console.log(error);
-            });
->>>>>>> 572357b0dff1d23a8c0f275bf05a775af82460fe
     };
     return (
         <>
