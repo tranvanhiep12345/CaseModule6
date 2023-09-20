@@ -8,7 +8,7 @@ export default function MerchantOption(){
                     <Link to={'/merchant/add_food'}>Thêm món ăn</Link>
                 </div>
                 <div>
-                    <Link to={'/'}>Sửa cửa hàng</Link>
+                    <Link to={``}>Sửa cửa hàng</Link>
                 </div>
             </div>
         </>

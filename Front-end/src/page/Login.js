@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
-import {register, login} from "../service/usersService";
+import {register, login} from "../service/userService";
 import "./style.css";
 import {useFormik} from "formik";
 import {toast} from "react-toastify";
@@ -75,7 +75,7 @@ export default function Login() {
 
     const handleRegister =  (values) =>{
         dispatch(register(values)).then((a)=>{
-            console.log(a.payload.data)
+
             if (a.payload.data === 'Username already exists'){
                 toast.error('Account already exists')
             } else {

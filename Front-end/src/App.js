@@ -9,14 +9,17 @@ import AddFood from "./page/merchant/addFood";
 import ListFood from "./page/merchant/listFood";
 import UpdateFood from "./page/merchant/updateFood";
 import MerchantHome from "./page/Home/merchantHome";
-import Test from "./page/test";
 import UpdateRestaurant from "./page/restaurant/updateRestaurant";
 import Admin from "./page/admin/admin";
 import HomeAdmin from "./page/admin/homeAdmin";
 import {Menu} from "@mui/material";
-
+import {useSelector} from "react-redux";
+import RestaurantHome from "./page/restaurant/RestaurantHome";
+import {useState} from "react";
+import AddRestaurant from "./page/restaurant/addRestaurant";
 
 function App() {
+    const [ user, allUser  ] = useState(null);
     return (
         <>
             <div>

@@ -8,7 +8,13 @@ import MerchantOption from "./option/merchantOption";
 import {animated, useSpring} from "@react-spring/web";
 import PropTypes from "prop-types";
 import {useNavigate} from "react-router-dom";
-
+import {useEffect, useState} from "react";
+import {getFoodByName} from "../service/foodsService";
+import {getRestaurant} from "../service/restaurantsService";
+import {useDispatch} from "react-redux";
+import {Field, Formik} from "formik";
+import customAxios from "../service/api";
+import AddRestaurant from "../page/restaurant/addRestaurant";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -58,15 +64,29 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
     boxShadow: 24,
     p: 4,
 };
 export default function NavbarMerchant(){
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [searchKeyword, setSearchKeyword] = useState("");
+    const handleFindByName = (d)=>{
+        dispatch(getFoodByName(d)).then((res)=>{
+            getRestaurant(res.payload.data)
+            console.log(res.payload.data)
+        })
+    }
+    // const [food, setFood] = useState({})
+    // useEffect(() => {
+    //     customAxios.get(`/foods/${name}`).then((res) => {
+    //             setFood(res.data[0])
+    //         }
+    //     )
+    // }, [])
 
 
     return(
@@ -74,10 +94,6 @@ export default function NavbarMerchant(){
             <div className="container-merchant-navbar">
 
                 <div className="logo-merchant-navbar">
-                    <div className="img-logo-merchant">
-                        <img src="https://png.pngtree.com/png-clipart/20191120/original/pngtree-store-icon-in-line-style-png-image_5053711.jpg"/>
-                    </div>
-
                     <div className='text-logo'>
                         <p style={{fontSize:'50px'}} onClick={()=>{
                             navigate('/homeMerchant')
@@ -86,36 +102,29 @@ export default function NavbarMerchant(){
 
                 </div>
                 <div className="mid-merchant-navbar">
-                    <div>
-                       <h1 className='title-navbar-merchant'>Quản lí cửa hàng</h1>
-                    </div>
-                </div>
-                <div className='right-navbar-merchant'>
-                    <button>
-                        <div>
-                            <Button sx={{color: 'white'}} onClick={handleOpen}>Open option</Button>
-                            <Modal
-                                aria-labelledby="spring-modal-title"
-                                aria-describedby="spring-modal-description"
-                                open={open}
-                                onClose={handleClose}
-                                closeAfterTransition
-                                slots={{ backdrop: Backdrop }}
-                                slotProps={{
-                                    backdrop: {
-                                        TransitionComponent: Fade,
-                                    },
-                                }}
-                            >
-                                <Fade in={open}>
-                                    <Box sx={style}>
-                                        <MerchantOption></MerchantOption>
-                                    </Box>
-                                </Fade>
-                            </Modal>
+
+                    <div className="container-find-food" >
+                        <div className='find-food'>
+                            <div style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}}>
+
+                                    <img className='icon-search' src='https://www.cooky.vn/React/Images/Icons/magnifying-glass.svg'/>
+                                    <input style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none',borderRadius:'10px'}} placeholder="   Từ khóa, tên,địa chỉ, doanh thu" />
+
+
+                            </div>
+
                         </div>
 
-                    </button>
+                    </div>
+
+                    <div  style={{width:'100px'}}>
+                        <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
+                    </div>
+
+
+                </div>
+                <div className='right-navbar-merchant'>
+
 
                 </div>
             </div>
