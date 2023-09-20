@@ -8,7 +8,7 @@ import {addFood, getFood} from "../../service/foodsService";
 import {storage} from "../../fireBase";
 
 export default function AddFood() {
-    // let a = JSON.parse(localStorage.getItem('restaurant'))
+    let a = JSON.parse(localStorage.getItem('restaurant'))
     const [imageUpload, setImageUpload] = useState(null);
     const [percent, setPercent] = useState(0);
     const [urlFile, setUrlFile] = useState("");

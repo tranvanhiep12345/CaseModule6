@@ -50,33 +50,30 @@ export default function ListFood() {
                 if (restaurant.user.email === currentUser.email) {
                     return (
                         <>
-                            <div>
-                                <Link to={`/merchant/update_restaurant/${restaurant.id}`}><>Sửa thông tin cửa hàng</>
-                                </Link>
-                                <div className="row" style={{
-                                    width: '100%',
-                                    marginTop: '20px',
-                                    fontWeight: 'bold',
-                                    fontSize: '25px',
-                                    marginLeft: '30px'
-                                }}>
+                            <div className='container-list-food'>
 
-                                    {restaurant.name}
-                                </div>
-                                <div className="row"
-                                     style={{width: '100%', marginTop: '20px', fontWeight: 'bold', fontSize: '25px'}}>
+
+                                <div className='description-restaurant'>
                                     <div className="col-6">
                                         <img src={restaurant.imgUrl} style={{width: '100%'}}/>
                                     </div>
                                     <div className="col-6">
-                                        <div style={{fontSize: '30px'}}>Tên: {restaurant.name}</div>
-                                        <div style={{marginTop: '20px'}}>Địa chỉ: {restaurant.address}</div>
-                                        <div style={{marginTop: '5px'}}>SĐT: {restaurant.phone}</div>
+                                        <div style={{fontSize: '30px', fontWeight:'bold'}}>{restaurant.name}
+
+                                        </div>
+                                        <div style={{fontWeight:"lighter"}}>{restaurant.address}</div>
+                                        <div style={{marginTop: '5px'}}>Liên hệ: {restaurant.phone}</div>
                                         <div style={{marginTop: '5px'}}>Email: {restaurant.email}</div>
                                         <div style={{marginTop: '5px'}}>Doanh Thu:</div>
                                         <div style={{marginTop: '10px', fontSize: '15px', color: '#acacac'}}>
                                             <div>Giờ mở: {restaurant.startTime}</div>
                                             <div>Giờ đóng: {restaurant.endTime}</div>
+                                        </div>
+                                        <div>
+                                            <Link to={`/merchant/update_restaurant/${restaurant.id}`}>
+                                                <i className="fa-regular fa-pen-to-square"></i>
+                                                Sửa thông tin cửa hàng
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

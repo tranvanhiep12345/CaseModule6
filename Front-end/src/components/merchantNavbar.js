@@ -11,7 +11,7 @@ import {useEffect, useState} from "react";
 import {getFoodByName} from "../service/foodsService";
 import {getRestaurant} from "../service/restaurantsService";
 import {useDispatch} from "react-redux";
-import {Field, Formik} from "formik";
+import {Field, Formik, useFormik} from "formik";
 import customAxios from "../service/api";
 import AddRestaurant from "../page/restaurant/addRestaurant";
 
@@ -56,17 +56,16 @@ Fade.propTypes = {
     ownerState: PropTypes.any,
 };
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
-};
+
 export default function NavbarMerchant(){
+    const formikFind = useFormik({
+        initialValues:{
+            search:''
+        }, onSubmit:(values)=>{
+            handleFindByName(values)
+        }
+    })
+
     const dispatch = useDispatch()
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -75,17 +74,9 @@ export default function NavbarMerchant(){
     const handleFindByName = (d)=>{
         dispatch(getFoodByName(d)).then((res)=>{
             getRestaurant(res.payload.data)
-            console.log(res.payload.data)
+            console.log('find',res.payload.data)
         })
     }
-    // const [food, setFood] = useState({})
-    // useEffect(() => {
-    //     customAxios.get(`/foods/${name}`).then((res) => {
-    //             setFood(res.data[0])
-    //         }
-    //     )
-    // }, [])
-
 
     return(
         <>
@@ -102,19 +93,13 @@ export default function NavbarMerchant(){
                     <div className="container-find-food" >
                         <div className='find-food'>
                             <div style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}}>
-
-                                    <img className='icon-search' src='https://www.cooky.vn/React/Images/Icons/magnifying-glass.svg'/>
-                                    <input style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none',borderRadius:'10px'}} placeholder="   Từ khóa, tên,địa chỉ, doanh thu" />
-
-
+                                <input name='search' value={formikFind.values.search} onChange={formikFind.handleChange}  style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none',borderRadius:'10px'}} placeholder="   Từ khóa, tên,địa chỉ, doanh thu" />
                             </div>
-
                         </div>
-
                     </div>
 
                     <div  style={{width:'100px'}}>
-                        <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
+                        <button type='submit' style={{width: '100%'}}>Tìm kiếm</button>
                     </div>
 
 

@@ -39,7 +39,7 @@ function App() {
 
                 </Routes>
             </div>
-            <ToastContainer theme={"colored"} position={"top-center"} />
+            <ToastContainer theme={"colored"} position={"top-center"} bodyStyle={{borderRadius:'10px'}} />
         </>
     );
 }
