@@ -1,12 +1,12 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {login, register} from "../../service/usersService";
+import {login, register} from "../../service/userService";
 let user = localStorage.getItem('user') === ''?null:localStorage.getItem('user')
 console.log(user)
 const initialState = {
     currentUser: JSON.parse(user)
 }
 const userSlice = createSlice({
-    name: 'currentUser',
+    name: 'user',
     initialState,
     extraReducers:builder => {
         builder.addCase(login.fulfilled,(state,action)=>{

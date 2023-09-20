@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import {storage} from "../../fireBase";
 import {getRestaurant} from "../../service/restaurantsService";
+import {toast} from "react-toastify";
 
 export default function UpdateRestaurant() {
     const [imageUpload, setImageUpload] = useState(null);
@@ -76,7 +77,7 @@ export default function UpdateRestaurant() {
                             customAxios.put(`/rests/${id}`, values).then(() => {
                                 console.log(values)
                                 // values.image = urlFile
-                                alert("da sua thanh cong")
+                                toast.success("da sua thanh cong")
                                 navigate("/merchant")
                             })
                             // handleUpdate(values);
@@ -92,6 +93,7 @@ export default function UpdateRestaurant() {
                             <i className="fa-light fa-pot-food" aria-hidden="true"></i>
                             </span>
                                 </div>
+
 
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="phone" placeholder="Phone"/>

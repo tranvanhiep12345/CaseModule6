@@ -1,6 +1,6 @@
 import './addFoodCss.css'
 import {useFormik} from "formik";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage"
 import {useEffect, useState} from "react";
@@ -35,6 +35,10 @@ export default function AddFood() {
         )
     }
 
+    const restaurant = useSelector(state => {
+        return state.restaurant.restaurant
+    })
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const formik = useFormik({
@@ -46,10 +50,8 @@ export default function AddFood() {
             note: '',
             prepTime:'',
             serviceFee:'',
-            views:'',
             description:'',
-            price:'',
-            restaurantId:''
+            price:''
         },
         onSubmit:(values)=>{
             handleAdd(values)
@@ -57,10 +59,10 @@ export default function AddFood() {
     })
     const handleAdd = (values) =>{
         values.image = urlFile
-        // let data ={...values,merchant : {id : a.idMerchant}}
-        dispatch(addFood()).then((res) => {
+        let data ={...values,restaurant : {id : restaurant}}
+        dispatch(addFood(data)).then((res) => {
             dispatch(getFood())
-            navigate("/home")
+            navigate("/merchant")
         })
     }
     useEffect(() => {
@@ -86,13 +88,13 @@ export default function AddFood() {
                             </div>
 
                             <div className="wrap-input100 validate-input">
-                                <input value={formik.values.imgUrl}
-                                       className="input100"
-                                       id="multiple_files" type="file" multiple
-                                       name='imgUrl' placeholder='Ảnh món ăn'
-                                       onChange={(event) => {
-                                           setImageUpload(event.target.files[0])
-                                       }}
+                                <input
+                                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    id="multiple_files" type="file" multiple
+                                    name={"image"}
+                                    onChange={(event) => {
+                                        setImageUpload(event.target.files[0])
+                                    }}
                                 />
                                 {isLoading && (
                                     <div className="progress">
@@ -106,7 +108,7 @@ export default function AddFood() {
                                         </div>
                                     </div>
                                 )}
-                                {urlFile && !isLoading }
+                                {urlFile && !isLoading}
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
@@ -162,14 +164,6 @@ export default function AddFood() {
                             </span>
                             </div>
 
-                            <div className="wrap-input1000 validate-input" >
-                                <input value={formik.values.views} onChange={formik.handleChange} className="input100" type="text" name="views" placeholder="Lượt xem" id="viewLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa-light fa-eye" aria-hidden="true"></i>
-                            </span>
-                            </div>
 
                             <div className="wrap-input1000 validate-input" >
                                 <input value={formik.values.description} onChange={formik.handleChange} className="input100" type="text" name="description" placeholder="Nội dung" id="emailLog"/>
@@ -182,15 +176,6 @@ export default function AddFood() {
 
                             <div  className="wrap-input1000 validate-input" >
                                 <input value={formik.values.price} onChange={formik.handleChange}  className="input100" type="text" name="price" placeholder="Giá" id="priceLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
-                            </div>
-
-                            <div className="wrap-input1000 validate-input" >
-                                <input value={formik.values.restaurantId} onChange={formik.handleChange} className="input100" type="text" name="restaurantId" placeholder="Nha hang" id="priceLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">

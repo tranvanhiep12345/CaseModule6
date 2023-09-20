@@ -24,11 +24,6 @@ export default function UserNavbar(){
                         </div>
                         <div className="col-2" style={{height: '40px', marginTop: '20px', width:'20%'}}>
                             <button style={{width: '100%', height: '50px', borderRadius: '999px', margin: '1px', color: 'white', background: 'red', border: '1px solid white'}}>
-                                Hồ Chí Minh
-                            </button>
-                        </div>
-                        <div className="col-2" style={{height: '40px', marginTop: '20px', width:'20%'}}>
-                            <button style={{width: '100%', height: '50px', borderRadius: '999px', margin: '1px', color: 'white', background: 'red', border: '1px solid white'}}>
                                 Đăng nhập
                             </button>
                         </div>

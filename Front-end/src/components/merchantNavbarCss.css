@@ -11,17 +11,7 @@
     display: flex;
     gap: 10px;
 }
-.img-logo-merchant{
-    width: 30%;
-    margin: 0 auto;
-    padding: 5px;
- }
-.img-logo-merchant img{
-    border-radius: 10px;
-    width: 50px;
-    height: 45px;
 
-}
 .text-logo{
     width: 100%;
     font-size: 50px;
@@ -39,7 +29,6 @@
     display: flex;
     gap: 20px;
     width: 60%;
-    justify-content: center;
 }
 .title-navbar-merchant{
     padding: 10px;
@@ -60,9 +49,26 @@
     justify-content: center;
 
 }
+.find-food {
+    display: flex;
+
+}
+.find-food img{
+    left: 15px;
+    top: 60%;
+    transform: translateY(-50%);
+}
+.icon-search{
+    left: 15px;
+    top: 60%;
+    transform: translateY(-50%);
+}
 
 
 
+
+
+/*style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}*/
 
 
 /*style={{height: '80px', marginTop: '10px', fontSize: '50px', color: 'white', fontFamily: 'Roboto, sans-serif;'*/
