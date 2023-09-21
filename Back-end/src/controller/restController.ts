@@ -30,8 +30,8 @@ class RestController {
         res.json('edit complete')
     }
     findById = async (req: Request, res: Response) => {
-        let  restaurant= await restService.findById(req.params.id)
-        res.json(restaurant);
+        let data = await restService.findById(req.params.id)
+        res.json(data)
     }
 }
 export default new RestController()

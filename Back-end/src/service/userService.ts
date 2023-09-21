@@ -22,24 +22,24 @@ class UserService {
     }
 
     checkUser = async (user) => {
-        let userFind = await this.userRepository.findOneBy({email: user.email});
+        let userFind = await this.userRepository.findOneBy({ email: user.email });
         if (!userFind) {
-            return 'User is not exist'
+            return 'User is not exist' ;
         } else {
-            let passWordCompare = bcrypt.compare(user.password, userFind.password);
+            let passWordCompare = await bcrypt.compare(user.password, userFind.password);
             if (passWordCompare) {
                 let payload = {
                     idUser: userFind.id,
                     email: userFind.email,
                     password: userFind.password,
-                    role: userFind.role
-                }
-                payload["token"]= jwt.sign(payload, SECRET, {
-                    expiresIn: 36000 * 10 * 100
-                })
-                return payload
+                    role: userFind.role,
+                };
+                let token = jwt.sign(payload, SECRET, {
+                    expiresIn: 36000 * 10 * 100,
+                });
+                return { token, payload};
             } else {
-                return 'Password is wrong'
+                return 'Password is wrong' ;
             }
         }
     }
