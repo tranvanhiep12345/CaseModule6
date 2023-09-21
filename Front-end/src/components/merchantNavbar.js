@@ -14,6 +14,7 @@ import {useDispatch} from "react-redux";
 import {Field, Formik, useFormik} from "formik";
 import customAxios from "../service/api";
 import AddRestaurant from "../page/restaurant/addRestaurant";
+import {head} from "axios";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -71,8 +72,8 @@ export default function NavbarMerchant(){
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [searchKeyword, setSearchKeyword] = useState("");
-    const handleFindByName = (d)=>{
-        dispatch(getFoodByName(d)).then((res)=>{
+    const handleFindByName = (values)=>{
+        dispatch(getFoodByName(values)).then((res)=>{
             getRestaurant(res.payload.data)
             console.log('find',res.payload.data)
         })
@@ -88,19 +89,21 @@ export default function NavbarMerchant(){
                     </div>
 
                 </div>
-                <div className="mid-merchant-navbar">
-
+                <div className="mid-merchant-navbar" >
+                    <form style={{height:'40px', marginTop:'20px'}} onSubmit={formikFind.handleSubmit}>
                     <div className="container-find-food" >
                         <div className='find-food'>
-                            <div style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}}>
-                                <input name='search' value={formikFind.values.search} onChange={formikFind.handleChange}  style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none',borderRadius:'10px'}} placeholder="   Từ khóa, tên,địa chỉ, doanh thu" />
-                            </div>
+                            {/*<div style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}}>*/}
+                            {/*    <input name='search' value={formikFind.values.search} onChange={formikFind.handleChange}  style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none',borderRadius:'10px'}} />*/}
+                            {/*</div>*/}
+                        </div>
+                        <div  style={{width:'100px', display:'none'}}>
+                            <button type='submit' style={{width: '100%'}}>Tìm kiếm</button>
                         </div>
                     </div>
+                </form>
 
-                    <div  style={{width:'100px'}}>
-                        <button type='submit' style={{width: '100%'}}>Tìm kiếm</button>
-                    </div>
+
 
 
                 </div>
