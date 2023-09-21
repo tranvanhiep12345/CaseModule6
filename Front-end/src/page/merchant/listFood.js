@@ -1,11 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-import {deleteFood, getFood, getFoodByName, getFoodId} from "../../service/foodsService";
-import {useEffect, useState} from "react";
+import {deleteFood, getFood} from "../../service/foodsService";
+import {useEffect} from "react";
 import './listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
-import axios from "axios";
-import {isAllOf} from "@reduxjs/toolkit";
 
 
 export default function ListFood() {
@@ -24,7 +22,6 @@ export default function ListFood() {
         return state.food.food
     })
 
-
     useEffect(() => {
         dispatch(getRestaurant())
         dispatch(getFood())
@@ -39,7 +36,7 @@ export default function ListFood() {
         if (confirmDelete) {
             dispatch(deleteFood(id)).then(() => {
                 dispatch(getFood())
-                navigate("/merchant")
+                navigate("/homeMerchant")
             })
         }
     }
@@ -51,7 +48,7 @@ export default function ListFood() {
                     return (
                         <>
                             <div>
-                                <Link to={`/merchant/update_restaurant/${restaurant.id}`}><>Sửa thông tin cửa hàng</>
+                                <Link to={`/homeMerchant/update_restaurant/${restaurant.id}`}><>Sửa thông tin cửa hàng</>
                                 </Link>
                                 <div className="row" style={{
                                     width: '100%',

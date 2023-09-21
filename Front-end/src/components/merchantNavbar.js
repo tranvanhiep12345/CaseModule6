@@ -80,15 +80,6 @@ export default function NavbarMerchant(){
             console.log(res.payload.data)
         })
     }
-    // const [food, setFood] = useState({})
-    // useEffect(() => {
-    //     customAxios.get(`/foods/${name}`).then((res) => {
-    //             setFood(res.data[0])
-    //         }
-    //     )
-    // }, [])
-
-
     return(
         <>
             <div className="container-merchant-navbar">
