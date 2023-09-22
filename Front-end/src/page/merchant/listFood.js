@@ -1,200 +1,181 @@
-import '../../css/addFoodCss.css'
-import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
-import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage"
+import {Link, useNavigate} from "react-router-dom";
+import {deleteFood, getFood, getFoodByName, getFoodId} from "../../service/foodsService";
 import {useEffect, useState} from "react";
-import {addFood, getFood} from "../../service/foodsService";
-import {storage} from "../../fireBase";
-import customAxios from "../../service/api";
+import '../../css/listFoodCss.css'
+import {getRestaurant} from "../../service/restaurantsService";
+import axios from "axios";
+import {isAllOf} from "@reduxjs/toolkit";
 import {toast} from "react-toastify";
+import {login} from "../../service/userService";
 
-export default function AddFood() {
-    let a = JSON.parse(localStorage.getItem('user'))
-    const [restaurants , setRestaurants] = useState([])
-    const [imageUpload, setImageUpload] = useState(null);
-    const [percent, setPercent] = useState(0);
-    const [urlFile, setUrlFile] = useState("");
-    const [isLoading, setIsLoading] = useState(false)
-    const uploadFile = () => {
-        if (imageUpload == null) return;
-        const storageRef = ref(storage, `/file/${imageUpload.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, imageUpload);
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                const  percent = Math.round(
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                );
-                setPercent(percent)
-            },
-            (err) => console.error(err),
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    setUrlFile(url);
-                    setIsLoading(false)
-                })
-            }
-        )
-    }
-    customAxios.get(`http://localhost:8080/user/${a.idUser}`).then((res)=>{
-        setRestaurants(res.data[0].restaurant[0].id)
-    })
 
-    const restaurant = useSelector(state => {
+export default function ListFood() {
+
+
+    const restaurants = useSelector((state) => {
         return state.restaurant.restaurant
     })
 
+
+    const currentUser = useSelector((state) => {
+        return state.user.currentUser
+    })
+
+    const foods = useSelector((state) => {
+        console.log(state)
+        return state.food.food
+    })
+
+
+    useEffect(() => {
+        dispatch(getRestaurant())
+        dispatch(getFood())
+    }, [])
+
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const formik = useFormik({
-        initialValues:{
-            name:'',
-            imgUrl:'',
-            sale: '',
-            status:'',
-            note: '',
-            prepTime:'',
-            serviceFee:'',
-            description:'',
-            price:''
-        },
-        onSubmit:(values)=>{
-            handleAdd(values)
-        }
-    })
-    const handleAdd = (values) =>{
-        values.imgUrl = urlFile
-        let data ={...values, restaurant : { id : restaurants}}
-        dispatch(addFood(data)).then((res) => {
-            toast.success('Them mon an thanh cong')
-            dispatch(getFood())
-            navigate("/homeMerchant")
-        })
-    }
-    useEffect(() => {
-        if (imageUpload) {
-            setIsLoading(true);
-            uploadFile()
-        }
-    }, [imageUpload]);
-    return(
-        <>
-            <div className='container-add'>
-                <h1 className="log1">Thêm món ăn mới</h1>
-                <form style={{height:'500px', width:'100%'}} onSubmit={formik.handleSubmit}>
-                    <div className='form-add'>
-                        <div className='add-left'>
-                            <div className="wrap-input100 validate-input">
-                                <input value={formik.values.name} onChange={formik.handleChange} className="input100" type="text" name="name" placeholder="Tên món ăn" id="name"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className ="fa-light fa-pot-food" aria-hidden="true"></i>
-                            </span>
-                            </div>
 
-                            <div className="wrap-input100 validate-input">
-                                <input
-                                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    id="multiple_files" type="file" multiple
-                                    name={"image"}
-                                    onChange={(event) => {
-                                        setImageUpload(event.target.files[0])
-                                    }}
-                                />
-                                {isLoading && (
-                                    <div className="progress">
-                                        <div className="progress-bar"
-                                             role="progressbar"
-                                             style={{width: `${percent}%`}}
-                                             aria-valuenow={percent}
-                                             aria-valuemin={0}
-                                             aria-valuemax={100}>
-                                            {percent}%
+    const handleDelete = (id) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this foods?")
+        if (confirmDelete) {
+            dispatch(deleteFood(id)).then(() => {
+                toast.warning('Delete success')
+                dispatch(getFood())
+                navigate("/homeMerchant")
+            })
+        }
+    }
+
+    return (
+        <>
+            {restaurants.map((restaurant, key) => {
+                if (restaurant.user.email === currentUser.email) {
+                    return (
+                        <>
+                            <div className='container-list-food'>
+                                <div className='description-restaurant'>
+                                    <div className="col-6">
+                                        <img src={restaurant.imgUrl} style={{width: '100%'}}/>
+                                    </div>
+                                    <div className="col-6">
+                                        <div style={{fontSize: '30px', fontWeight: 'bold'}}>{restaurant.name}
+
+                                        </div>
+                                        <div style={{fontWeight: "lighter"}}>{restaurant.address}</div>
+                                        <div style={{marginTop: '5px'}}>Liên hệ: {restaurant.phone}</div>
+                                        <div style={{marginTop: '5px'}}>Email: {restaurant.email}</div>
+                                        <div style={{marginTop: '5px'}}>Doanh Thu:</div>
+                                        <div style={{marginTop: '10px', fontSize: '15px', color: '#acacac'}}>
+                                            <div>Giờ mở: {restaurant.startTime}</div>
+                                            <div>Giờ đóng: {restaurant.endTime}</div>
+                                        </div>
+                                        <div>
+                                            <Link to={'/homeMerchant/add_food'}>
+                                                <i className="fa-light fa-plus"></i>
+                                                Thêm món ăn mới
+                                            </Link>
+                                        </div>
+                                        <div>
+                                            <Link to={`/homeMerchant/update_restaurant/${restaurant.id}`}>
+                                                <i className="fa-regular fa-pen-to-square"></i>
+                                                Sửa thông tin cửa hàng
+                                            </Link>
                                         </div>
                                     </div>
-                                )}
-                                {urlFile && !isLoading}
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa-light fa-image" aria-hidden='true'></i>
-                            </span>
+                                </div>
                             </div>
 
-                            <div className="wrap-input100 validate-input" >
-                                <input value={formik.values.sale} onChange={formik.handleChange} className="input100" type="text" name="sale" placeholder="Sale" id="saleLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                            </span>
+                            <div className="title-list">
+                                <div className="title-small">
+                                    <p style={{fontSize: '30px'}}>Những đồ ăn hiện có</p>
+                                </div>
                             </div>
 
-                            <div className="wrap-input100 validate-input" >
-                                <input value={formik.values.status} onChange={formik.handleChange} className="input100" type="text" name="status" placeholder="Status" id="statusLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                            <div style={{display: 'flex', width: '100%', height: '330px'}}>
+                                {foods && foods.map((food, key) => {
+                                    if (food.restaurant !== undefined)
+                                        if (food.restaurant.id === restaurant.id) {
+                                            console.log('f', food)
+                                            return (
+                                                <div className="card-home">
+                                                    <div className="row-1 col-10">
+                                                        <div className="col-2" style={{height: '200px'}}>
+
+                                                            <div className="card" style={{width: '200px'}}>
+                                                                <div className='food-img'>
+                                                                    <img src={food.imgUrl} className="card-img-top"
+                                                                         alt="..."/>
+                                                                </div>
+                                                                <div className="card-body">
+                                                                    <h5 className="card-title">{food.name}</h5>
+                                                                    <div className="bottom-card" style={{
+                                                                        display: 'flex',
+                                                                        justifyContent: 'space-between'
+                                                                    }}>
+                                                                        <div className="bottom-card-detail">
+                                                                            <p style={{
+                                                                                marginBottom: '1px',
+                                                                                fontSize: '12px',
+                                                                                color: '#acacac'
+                                                                            }}>{food.note}</p>
+                                                                            <p style={{fontWeight: 700}}>{food.price}</p>
+                                                                        </div>
+                                                                        <div style={{
+                                                                            marginTop: '30px',
+                                                                            display: 'flex',
+                                                                            gap: '15px'
+                                                                        }}>
+                                                                            <i className="fa-solid fa-circle-plus"
+                                                                               style={{
+                                                                                   display: 'flex',
+                                                                                   alignItems: 'center',
+                                                                                   color: 'red'
+                                                                               }}/>
+                                                                            <Link
+                                                                                to={`/homeMerchant/update_food/${food.id}`}><i
+                                                                                className="fa-solid fa-pen-to-square"
+                                                                                style={{
+                                                                                    display: 'flex',
+                                                                                    alignItems: 'center',
+                                                                                    color: 'red'
+                                                                                }}/></Link>
+                                                                            <i onClick={() => {
+                                                                                handleDelete(food.id)
+                                                                            }} className="fa-solid fa-trash" style={{
+                                                                                display: 'flex',
+                                                                                alignItems: 'center',
+                                                                                color: 'red'
+                                                                            }}/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        } else {
+                                            return (
+                                                <>
+                                                </>
+                                            )
+                                        }
+
+
+                                })}
                             </div>
 
-                            <div className="wrap-input100 validate-input" >
-                                <input value={formik.values.note} onChange={formik.handleChange} className="input100" type="text" name="note" placeholder="Note" id="noteLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
-                            </span>
-                            </div>
+                        </>
 
-                        </div>
-
-                        <div className='add-right'>
-                            <div className="wrap-input1000 validate-input" >
-                                <input value={formik.values.prepTime}  onChange={formik.handleChange} className="input100" type="text" name="prepTime" placeholder="Thời gian chuẩn bị" id="prepTimeLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
-                            </span>
-                            </div>
-
-                            <div className="wrap-input1000 validate-input" >
-                                <input value={formik.values.serviceFee} onChange={formik.handleChange} className="input100" type="text" name="serviceFee" placeholder="Phí dịch vụ" id="serviceFeeLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
-                            </div>
-
-
-                            <div className="wrap-input1000 validate-input" >
-                                <input value={formik.values.description} onChange={formik.handleChange} className="input100" type="text" name="description" placeholder="Nội dung" id="emailLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa-light fa-subtitles" aria-hidden="true"></i>
-                            </span>
-                            </div>
-
-                            <div  className="wrap-input1000 validate-input" >
-                                <input value={formik.values.price} onChange={formik.handleChange}  className="input100" type="text" name="price" placeholder="Giá" id="priceLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
-                                <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
-                            </div>
-
-                            <button type='submit' className='btn-save'>Save</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                    )
+                } else {
+                    return (
+                        <></>
+                    )
+                }
+            })}
         </>
     )
 }

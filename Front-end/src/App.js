@@ -25,14 +25,12 @@ function App() {
         <>
             <div>
                 <Routes>
-                    {/*<Route path={''} element={<UserHome/>}>*/}
-                    {/*    <Route path={''} element={<ListFoodUser/>}></Route>*/}
-                    {/*</Route>*/}
                     <Route path={'login'} element={<Login/>}></Route>
                     <Route path={'homeMerchant'} element={<MerchantHome/>}>
                         <Route path={''} element={<ListFood/>}/>
                         <Route path={'add_food'} element={<AddFood/>}/>
                         <Route path={'update_food/:id'} element={<UpdateFood/>}/>
+                        <Route path={'add_restaurant'} element={<AddRestaurant/>}/>
                         <Route path={'update_restaurant/:id'} element={<UpdateRestaurant/>}/>
                     </Route>
                     <Route path={'homeAdmin'} element={<Admin/>}>
@@ -48,7 +46,7 @@ function App() {
                     </Route>
                 </Routes>
             </div>
-            <ToastContainer theme={"colored"} position={"top-center"} />
+            <ToastContainer theme={"colored"} position={"top-center"} bodyStyle={{borderRadius:'10px'}} />
         </>
     );
 }

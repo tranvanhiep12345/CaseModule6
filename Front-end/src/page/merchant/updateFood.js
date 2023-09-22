@@ -203,8 +203,6 @@ export default function UpdateFood() {
                             <i className="fa fa-envelope" aria-hidden="true"></i>
                             </span>
                                 </div>
-
-
                                 <button type='submit' className='btn-save'>Save</button>
                             </div>
 
