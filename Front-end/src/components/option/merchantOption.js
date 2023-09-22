@@ -5,10 +5,10 @@ export default function MerchantOption(){
         <>
             <div className='select-option-merchat'>
                 <div>
-                    <Link to={'/merchant/add_food'}>Thêm món ăn</Link>
+                    <Link to={'/homeMerchant/add_food'}>Thêm món ăn</Link>
                 </div>
                 <div>
-                    <Link to={``}>Sửa cửa hàng</Link>
+                    <Link to={`/update_restaurant/:id`}>Sửa cửa hàng</Link>
                 </div>
             </div>
         </>

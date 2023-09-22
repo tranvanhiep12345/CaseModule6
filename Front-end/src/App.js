@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 import Login from "./page/Login";
@@ -12,20 +11,24 @@ import MerchantHome from "./page/merchant/merchantHome";
 import UpdateRestaurant from "./page/restaurant/updateRestaurant";
 import Admin from "./page/admin/admin";
 import HomeAdmin from "./page/admin/homeAdmin";
+<<<<<<< HEAD
 import {Menu} from "@mui/material";
 import {useSelector} from "react-redux";
 import RestaurantHome from "./page/restaurant/RestaurantHome";
 import {useState} from "react";
 import AddRestaurant from "./page/restaurant/addRestaurant";
 import ListFoodUser from "./page/user/listFood";
+=======
+
+>>>>>>> 7e7972b308f102c725d5872854532318ca263391
 
 function App() {
-    const [ user, allUser  ] = useState(null);
     return (
         <>
             <div>
                 <Routes>
-                    <Route path={''} element={<Login/>}></Route>
+                    <Route path={''} element={<Home/>}></Route>
+                    <Route path={'login'} element={<Login/>}></Route>
                     <Route path={'homeMerchant'} element={<MerchantHome/>}>
                         <Route path={''} element={<ListFood/>}/>
                         <Route path={'add_food'} element={<AddFood/>}/>
@@ -34,14 +37,16 @@ function App() {
                     </Route>
                     <Route path={'homeAdmin'} element={<Admin/>}>
                         <Route path={''} element={<HomeAdmin/>}></Route>
-
                     </Route>
                     <Route path={'/details'} element={<MerchantHome/>}></Route>
+<<<<<<< HEAD
 
                     <Route path={'homeUser'} element={<UserHome/>}>
                         <Route path={'list'} element={<ListFoodUser/>}></Route>
                     </Route>
 
+=======
+>>>>>>> 7e7972b308f102c725d5872854532318ca263391
                 </Routes>
             </div>
             <ToastContainer theme={"colored"} position={"top-center"} />
