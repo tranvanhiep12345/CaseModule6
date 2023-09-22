@@ -1,4 +1,4 @@
-import './merchantNavbarCss.css'
+import '../css/merchantNavbarCss.css'
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
@@ -59,25 +59,28 @@ Fade.propTypes = {
 
 
 export default function NavbarMerchant(){
-    const formikFind = useFormik({
-        initialValues:{
-            search:''
-        }, onSubmit:(values)=>{
-            handleFindByName(values)
-        }
-    })
+    // const [searchKeyword, setSearchKeyword] = useState("");
+    const [list,setList] = useState([])
 
-    const dispatch = useDispatch()
+    // const formikFind = useFormik({
+    //     initialValues:{
+    //         search:''
+    //     }, onSubmit:(values)=>{
+    //         handleFindByName(values)
+    //     }
+    // })
+
+    // const dispatch = useDispatch()
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [searchKeyword, setSearchKeyword] = useState("");
-    const handleFindByName = (values)=>{
-        dispatch(getFoodByName(values)).then((res)=>{
-            getRestaurant(res.payload.data)
-            console.log('find',res.payload.data)
-        })
-    }
+    // const handleFindByName = (d)=>{
+    //     dispatch(getFoodByName(d)).then((res)=>{
+    //         setList(res.payload.data)
+    //         console.log(res.payload.data)
+    //
+    //     })
 
     return(
         <>
@@ -90,7 +93,7 @@ export default function NavbarMerchant(){
 
                 </div>
                 <div className="mid-merchant-navbar" >
-                    <form style={{height:'40px', marginTop:'20px'}} onSubmit={formikFind.handleSubmit}>
+                    <form style={{height:'40px', marginTop:'20px'}}>
                     <div className="container-find-food" >
                         <div className='find-food'>
                             {/*<div style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}}>*/}

@@ -6,6 +6,8 @@ import '../../css/listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
 import axios from "axios";
 import {isAllOf} from "@reduxjs/toolkit";
+import {toast} from "react-toastify";
+import {login} from "../../service/userService";
 
 
 export default function ListFood() {
@@ -38,8 +40,9 @@ export default function ListFood() {
         const confirmDelete = window.confirm("Are you sure you want to delete this foods?")
         if (confirmDelete) {
             dispatch(deleteFood(id)).then(() => {
+                toast.warning('Delete success')
                 dispatch(getFood())
-                navigate("/merchant")
+                navigate("/homeMerchant")
             })
         }
     }
@@ -51,6 +54,7 @@ export default function ListFood() {
                     return (
                         <>
                             <div className='container-list-food'>
+                                {console.log(restaurant)}
 
 
                                 <div className='description-restaurant'>
@@ -70,13 +74,13 @@ export default function ListFood() {
                                             <div>Giờ đóng: {restaurant.endTime}</div>
                                         </div>
                                         <div>
-                                            <Link to={'/merchant/add_food'}>
+                                            <Link to={'/homeMerchant/add_food'}>
                                                 <i className="fa-light fa-plus"></i>
                                                 Thêm món ăn mới
                                             </Link>
                                         </div>
                                         <div>
-                                            <Link to={`/merchant/update_restaurant/${restaurant.id}`}>
+                                            <Link to={`/homeMerchant/update_restaurant/${restaurant.id}`}>
                                                 <i className="fa-regular fa-pen-to-square"></i>
                                                 Sửa thông tin cửa hàng
                                             </Link>
@@ -132,7 +136,7 @@ export default function ListFood() {
                                                                                    color: 'red'
                                                                                }}/>
                                                                             <Link
-                                                                                to={`/merchant/update_food/${food.id}`}><i
+                                                                                to={`/homeMerchant/update_food/${food.id}`}><i
                                                                                 className="fa-solid fa-pen-to-square"
                                                                                 style={{
                                                                                     display: 'flex',

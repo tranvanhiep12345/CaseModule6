@@ -6,6 +6,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import {storage} from "../../fireBase";
+import {toast} from "react-toastify";
 
 export default function UpdateFood() {
     const [imageUpload, setImageUpload] = useState(null);
@@ -43,8 +44,8 @@ export default function UpdateFood() {
     const [img, setImg] = useState("")
     useEffect(() => {
         customAxios.get(`/foods/${id}`).then((res) => {
+                setImg(res.data[0])
                 setFood(res.data[0])
-                setImg(res.data[0].image)
             }
         )
     }, [])
@@ -64,19 +65,18 @@ export default function UpdateFood() {
                         enableReinitialize={true}
                         onSubmit={(values,) => {
 
-                            if (values.imgURL === '') {
-                                values.imgURL = urlFile
+                            if (values.imgUrl === '') {
+                                values.imgUrl = urlFile
                             } else if (urlFile === "") {
-                                values.imgURL = img
+                                values.imgUrl = img
                             } else if (urlFile != img) {
 
-                                values.imgURL = urlFile
+                                values.imgUrl = urlFile
                             }
                             customAxios.put(`/foods/${id}`, values).then(() => {
-                                console.log(values)
                                 values.imgURL = urlFile
-                                alert("da sua thanh cong")
-                                navigate("/merchant")
+                                toast.success("Update success")
+                                navigate("/homeMerchant")
                             })
                             // handleUpdate(values);
                         }}>
@@ -96,6 +96,10 @@ export default function UpdateFood() {
 
                                 <div className="form-group">
                                     <label htmlFor="exampleInputPassword1">Image</label>
+                                    <div>
+                                        <img src={food.imgUrl} style={{width:'60%',height:'60%'}}/>
+                                    </div>
+
                                     <input type="file" className={"form-control"} name={"imgURL"} placeholder={"tradeType"}
                                            onChange={(event) => {
                                                setImageUpload(event.target.files[0])

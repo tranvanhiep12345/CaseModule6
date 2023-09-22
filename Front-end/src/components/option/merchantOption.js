@@ -1,4 +1,4 @@
-import '../merchantNavbarCss.css'
+import '../../css/merchantNavbarCss.css'
 import {Link} from "react-router-dom";
 export default function MerchantOption(){
     return(

@@ -7,12 +7,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddFood from "./page/merchant/addFood";
 import ListFood from "./page/merchant/listFood";
 import UpdateFood from "./page/merchant/updateFood";
-import MerchantHome from "./page/Home/merchantHome";
+import MerchantHome from "./page/user/merchantHome";
 import UpdateRestaurant from "./page/restaurant/updateRestaurant";
 import {useSelector} from "react-redux";
 import RestaurantHome from "./page/restaurant/RestaurantHome";
 import {useState} from "react";
 import AddRestaurant from "./page/restaurant/addRestaurant";
+import Home from "./page/user/Home";
 
 
 function App() {
@@ -21,14 +22,20 @@ function App() {
         <>
             <div>
                 <Routes>
-                    <Route path={''} element={<Login/>}/>
-                    <Route path={'merchant'} element={<MerchantHome/>}>
+
+                    <Route path={''} element={<Home/>}>
+
+                    </Route>
+
+                    <Route path={'/login'} element={<Login/>}/>
+                    <Route path={'homeMerchant'} element={<MerchantHome/>}>
                         <Route path={''} element={<ListFood/>}/>
                         <Route path={'add_restaurant'} element={<AddRestaurant/>}/>
+                        <Route path={'update_restaurant/:id'} element={<UpdateRestaurant/>}/>
 
                         <Route path={'add_food'} element={<AddFood/>}/>
                         <Route path={'update_food/:id'} element={<UpdateFood/>}/>
-                        <Route path={'update_restaurant/:id'} element={<UpdateRestaurant/>}/>
+
 
 
 

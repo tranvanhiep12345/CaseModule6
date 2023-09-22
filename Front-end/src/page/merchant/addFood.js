@@ -69,7 +69,7 @@ export default function AddFood() {
         dispatch(addFood(data)).then((res) => {
             toast.success('Them mon an thanh cong')
             dispatch(getFood())
-            navigate("/merchant")
+            navigate("/homeMerchant")
         })
     }
     useEffect(() => {

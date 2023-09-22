@@ -46,7 +46,8 @@ export default function UpdateRestaurant() {
     useEffect(() => {
         customAxios.get(`/rests/${id}`).then((res) => {
                 setRestaurant(res.data[0])
-                setImg(res.data[0].image)
+                setImg(res.data[0].imgUrl)
+            console.log('Sửa cửa hàng',res)
             }
         )
     }, [])
@@ -58,27 +59,28 @@ export default function UpdateRestaurant() {
         }
     }, [imageUpload]);
 
+
     return (
         <>
             <div className='container-add'>
-                <h1 className="log1">Sửa cửa hàng</h1>
+                <h1 className="log1">Sửa thông tin cửa hàng</h1>
                 <Formik initialValues={restaurant}
                         enableReinitialize={true}
                         onSubmit={(values,) => {
 
-                            if (values.image === '') {
-                                values.image = urlFile
+                            if (values.imgUrl === '') {
+                                values.imgUrl = urlFile
                             } else if (urlFile === "") {
-                                values.image = img
+                                values.imgUrl = img
                             } else if (urlFile != img) {
 
-                                values.image = urlFile
+                                values.imgUrl = urlFile
                             }
                             customAxios.put(`/rests/${id}`, values).then(() => {
-                                console.log(values)
-                                // values.image = urlFile
-                                toast.success("da sua thanh cong")
-                                navigate("/merchant")
+                                console.log('thong tin sua',values)
+                                values.image = urlFile
+                                toast.success("Update success")
+                                // navigate("/homeMerchant")
                             })
                             // handleUpdate(values);
                         }}>
@@ -86,7 +88,7 @@ export default function UpdateRestaurant() {
                         <div className='form-add'>
                             <div className='add-left'>
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="name" placeholder="Tên món ăn"/>
+                                    <Field className="input100" type="text" name="name" placeholder="Tên cửa hàng"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -94,9 +96,18 @@ export default function UpdateRestaurant() {
                             </span>
                                 </div>
 
+                                <div className="wrap-input100 validate-input">
+                                    <Field className="input100" type="file" name="imgUrl" placeholder="Hình ảnh"/>
+                                    <div>
+                                        <img src={restaurant.imgUrl} style={{height:'60%', width:'60%'}}/>
+                                    </div>
+                                    <span className="symbol-input100">
+                            <i className="fa-light fa-pot-food" aria-hidden="true"></i>
+                            </span>
+                                </div>
 
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="phone" placeholder="Phone"/>
+                                    <Field className="input100" type="text" name="phone" placeholder="Số diện thoại liên hệ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -114,7 +125,7 @@ export default function UpdateRestaurant() {
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="address" placeholder="Address"/>
+                                    <Field className="input100" type="text" name="address" placeholder="Địa chỉ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -126,8 +137,8 @@ export default function UpdateRestaurant() {
 
                             <div className='add-right'>
                                 <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="type" name="Type"
-                                           placeholder="Thời gian chuẩn bị"/>
+                                    <Field className="input100" type="text" name="type"
+                                           placeholder="Phân loại"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -137,7 +148,7 @@ export default function UpdateRestaurant() {
 
                                 <div className="wrap-input1000 validate-input">
                                     <Field className="input100" type="time" name="startTime"
-                                           placeholder="Phí dịch vụ"/>
+                                           placeholder="Giờ mở cửa"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -146,7 +157,7 @@ export default function UpdateRestaurant() {
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="time" name="endTime" placeholder="End Time"/>
+                                    <Field className="input100" type="time" name="endTime" placeholder="Giờ đóng cửa"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
