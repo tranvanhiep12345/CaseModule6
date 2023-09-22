@@ -20,13 +20,14 @@ import ListFoodUser from "./page/user/listFood";
 import DetailProduct from "./page/user/detailProduct";
 import Carousel from "./page/user/carousel";
 
-
 function App() {
     return (
         <>
             <div>
                 <Routes>
-                    {/*<Route path={''} element={<Home/>}></Route>*/}
+                    {/*<Route path={''} element={<UserHome/>}>*/}
+                    {/*    <Route path={''} element={<ListFoodUser/>}></Route>*/}
+                    {/*</Route>*/}
                     <Route path={'login'} element={<Login/>}></Route>
                     <Route path={'homeMerchant'} element={<MerchantHome/>}>
                         <Route path={''} element={<ListFood/>}/>
@@ -40,18 +41,15 @@ function App() {
                     <Route path={'/details'} element={<MerchantHome/>}></Route>
 
 
-                    <Route path={'homeUser'} element={<UserHome/>}>
-                        <Route path={'/homeUser'} element={<Carousel/>}></Route>
+                    <Route path={''} element={<UserHome/>}>
+                        <Route path={''} element={<Carousel/>}></Route>
                         <Route path={'list'} element={<ListFoodUser/>}></Route>
                         <Route path={'detailProduct'} element={<DetailProduct/>}></Route>
-
                     </Route>
-
                 </Routes>
             </div>
             <ToastContainer theme={"colored"} position={"top-center"} />
         </>
     );
 }
-
 export default App;

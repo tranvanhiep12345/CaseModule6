@@ -3,24 +3,34 @@ import foodService from "../service/foodService";
 
 class FoodController {
     findAll = async (req: Request, res: Response) => {
-        let {name,restName, restId,merchantName,merchantId} = req.query
-        if (name == undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined) {
+        let {
+            name,
+            restName,
+            restId,
+            merchantName,
+            merchantId,
+            type
+        } = req.query
+        if (name == undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
             let data = await foodService.findAll()
             res.json(data)
-        } else if (name != undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined) {
+        } else if (name != undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
             let data = await foodService.findByName(name)
             res.json(data)
-        } else if (name == undefined && restName != undefined && restId == undefined && merchantName == undefined && merchantId == undefined){
+        } else if (name == undefined && restName != undefined && restId == undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
             let data = await foodService.findAllByRestaurantName(restName)
             res.json(data)
-        } else if (name == undefined && restName == undefined && restId != undefined && merchantName == undefined && merchantId == undefined) {
+        } else if (name == undefined && restName == undefined && restId != undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
             let data = await foodService.findAllByRestaurantId(restId)
             res.json(data)
-        } else if (name == undefined && restName == undefined && restId == undefined && merchantName != undefined && merchantId == undefined){
+        } else if (name == undefined && restName == undefined && restId == undefined && merchantName != undefined && merchantId == undefined && type == undefined) {
             let data = await foodService.findAllByMerchantName(merchantName)
             res.json(data)
-        } else if (name == undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId != undefined){
+        } else if (name == undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId != undefined && type == undefined) {
             let data = await foodService.findAllByMerchantId(merchantId)
+            res.json(data)
+        } else if (name == undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
+            let data = await foodService.findAllByType(type)
             res.json(data)
         }
     }

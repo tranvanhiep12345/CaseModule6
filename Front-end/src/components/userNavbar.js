@@ -4,21 +4,6 @@ import ListFoodUser from "../page/user/listFood";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
-
-// export default function UserNavbar() {
-//     const [showDetails, setShowDetails] = useState()
-//     const show = (() => {
-//         setShowDetails(true)
-//     })
-//     const close = (() => {
-//         setShowDetails(false)
-//     })
-//     const navigate = useNavigate(false)
-// }
-
-
-
-
 export default function UserNavbar(){
     const [showDetails, setShowDetails] = useState()
     const show = (() => {
@@ -165,7 +150,7 @@ export default function UserNavbar(){
                                     </div>
                                 </button>
                                 :
-                                <Link to={'/'}>
+                                <Link to={'/login'}>
                                     <button style={{
                                         width: '100%',
                                         height: '50px',

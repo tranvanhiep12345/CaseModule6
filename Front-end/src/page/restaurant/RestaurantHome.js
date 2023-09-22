@@ -1,12 +1,5 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {getFood} from "../../service/foodsService";
-import {getRestaurant} from "../../service/restaurantsService";
-import {Link} from "react-router-dom";
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import AddRestaurant from "./addRestaurant";
 
@@ -25,7 +18,6 @@ export default function RestaurantHome(){
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
     return(
         <>
             <div style={{margin: "0 auto", width:'50%'}}>
@@ -40,7 +32,6 @@ export default function RestaurantHome(){
                         <div style={{width:'50%', margin:'0 auto', padding:'40px', marginTop:'100px'}}>
                             <AddRestaurant></AddRestaurant>
                         </div>
-
                     </Modal>
                 </div>
             </div>
