@@ -73,7 +73,6 @@ export default function UpdateRestaurant() {
                             } else if (urlFile === "") {
                                 values.imgUrl = img
                             } else if (urlFile != img) {
-
                                 values.imgUrl = urlFile
                             }
                             customAxios.put(`/rests/${id}`, values).then(() => {
