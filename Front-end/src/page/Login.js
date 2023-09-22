@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {register, login} from "../service/userService";
-import "./style.css";
+import "../css/style.css";
 import {useFormik} from "formik";
 import {toast} from "react-toastify";
 import * as Yup from "yup";
@@ -75,7 +75,6 @@ export default function Login() {
 
     const handleRegister =  (values) =>{
         dispatch(register(values)).then((a)=>{
-
             if (a.payload.data === 'Username already exists'){
                 toast.error('Account already exists')
             } else {
@@ -86,8 +85,6 @@ export default function Login() {
     }
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
-            console.log(values)
-            console.log(response,2342342342)
             if (response.payload.data === "User is not exist"){
                 alert('tk k ton tai')
                 navigate('/')
@@ -100,7 +97,7 @@ export default function Login() {
                 }else if (response.payload.data.role === 'merchant')  {
                     navigate('/homeMerchant')
                 } else {
-                    navigate('/homeUser')
+                    navigate('/')
                 }
             }
         })

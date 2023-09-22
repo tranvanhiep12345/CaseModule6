@@ -141,7 +141,7 @@ export default function UserNavbar(){
                                     </div>
                                 </button>
                                 :
-                                <Link to={'/'}>
+                                <Link to={'/login'}>
                                     <button style={{
                                         width: '100%',
                                         height: '50px',

@@ -1,4 +1,4 @@
-import './addFoodCss.css'
+import '../../css/addFoodCss.css'
 import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
@@ -83,10 +83,9 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className ="fa-light fa-pot-food" aria-hidden="true"></i>
-                            </span>
+                                    <i className ="fa-light fa-pot-food" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                             <div className="wrap-input100 validate-input">
                                 <input
                                     className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
@@ -112,8 +111,8 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-image" aria-hidden='true'></i>
-                            </span>
+                                    <i className="fa-light fa-image" aria-hidden='true'></i>
+                                </span>
                             </div>
 
                             <div className="wrap-input100 validate-input" >
@@ -121,38 +120,34 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                             <div className="wrap-input100 validate-input" >
                                 <input value={formik.values.status} onChange={formik.handleChange} className="input100" type="text" name="status" placeholder="Status" id="statusLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                             <div className="wrap-input100 validate-input" >
                                 <input value={formik.values.note} onChange={formik.handleChange} className="input100" type="text" name="note" placeholder="Note" id="noteLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                         </div>
-
                         <div className='add-right'>
                             <div className="wrap-input1000 validate-input" >
                                 <input value={formik.values.prepTime}  onChange={formik.handleChange} className="input100" type="text" name="prepTime" placeholder="Thời gian chuẩn bị" id="prepTimeLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-light fa-clock" aria-hidden="true"></i>
+                                </span>
                             </div>
 
                             <div className="wrap-input1000 validate-input" >
@@ -160,8 +155,8 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
                             </div>
 
 
@@ -170,10 +165,9 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-subtitles" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-light fa-subtitles" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                             <div  className="wrap-input1000 validate-input" >
                                 <input value={formik.values.price} onChange={formik.handleChange}  className="input100" type="text" name="price" placeholder="Giá" id="priceLog"/>
                                 <span className="focus-input100"></span>
@@ -182,13 +176,9 @@ export default function AddFood() {
                             <i className="fa fa-envelope" aria-hidden="true"></i>
                             </span>
                             </div>
-
                             <button type='submit' className='btn-save'>Save</button>
                         </div>
-
                     </div>
-
-
                 </form>
             </div>
         </>

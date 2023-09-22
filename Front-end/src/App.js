@@ -3,11 +3,11 @@ import {Route, Routes} from "react-router-dom";
 import Login from "./page/Login";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Home from "./page/Home/Home";
+import Home from "./page/user/userHome";
 import AddFood from "./page/merchant/addFood";
 import ListFood from "./page/merchant/listFood";
 import UpdateFood from "./page/merchant/updateFood";
-import MerchantHome from "./page/Home/merchantHome";
+import MerchantHome from "./page/merchant/merchantHome";
 import UpdateRestaurant from "./page/restaurant/updateRestaurant";
 import Admin from "./page/admin/admin";
 import HomeAdmin from "./page/admin/homeAdmin";
@@ -36,5 +36,4 @@ function App() {
         </>
     );
 }
-
 export default App;

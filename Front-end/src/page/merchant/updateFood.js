@@ -1,4 +1,4 @@
-import './updateFoodCss.css'
+import '../../css/updateFoodCss.css'
 import {Field, Form, Formik} from "formik";
 import customAxios from "../../service/api";
 import {useEffect, useState} from "react";
