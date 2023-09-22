@@ -6,9 +6,11 @@ import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage"
 import {useEffect, useState} from "react";
 import {storage} from "../../fireBase";
 import {addRestaurant, getRestaurant} from "../../service/restaurantsService";
+import {toast} from "react-toastify";
 
 export default function AddRestaurant() {
     let a = JSON.parse(localStorage.getItem('user'))
+    console.log(a)
     const [imageUpload, setImageUpload] = useState(null);
     const [percent, setPercent] = useState(0);
     const [urlFile, setUrlFile] = useState("");
@@ -48,6 +50,7 @@ export default function AddRestaurant() {
         console.log(data)
         dispatch(addRestaurant(data)).then((res) => {
             dispatch(getRestaurant())
+            toast.success('them thanh cong')
             navigate("/homeMerchant")
         })
     }
@@ -71,9 +74,10 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                                        <i className ="fa-light fa-pot-food" aria-hidden="true"></i>
-                                    </span>
+                            <i className ="fa-light fa-pot-food" aria-hidden="true"></i>
+                            </span>
                                 </div>
+
                                 <div className="wrap-input100 validate-input">
                                     <input
                                         className="input100"
@@ -99,8 +103,8 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                                        <i className="fa-light fa-image" aria-hidden='true'></i>
-                                    </span>
+                            <i className="fa-light fa-image" aria-hidden='true'></i>
+                            </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input" >
@@ -108,8 +112,8 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                                        <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                                    </span>
+                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                            </span>
                                 </div>
 
 
@@ -118,8 +122,8 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                                        <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                                    </span>
+                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                            </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input" >
@@ -127,8 +131,8 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                                        <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                                    </span>
+                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                            </span>
                                 </div>
 
 
@@ -140,8 +144,8 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                                        <i className="fa-light fa-clock" aria-hidden="true"></i>
-                                    </span>
+                            <i className="fa-light fa-clock" aria-hidden="true"></i>
+                            </span>
                                 </div>
 
                                 <div className="wrap-input1000 validate-input" >
@@ -149,8 +153,8 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                                        <i className="fa fa-envelope" aria-hidden="true"></i>
-                                    </span>
+                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
                                 </div>
 
                                 <button type='submit' className='btn-save'>Save</button>
