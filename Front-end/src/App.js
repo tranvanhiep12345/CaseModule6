@@ -4,11 +4,11 @@ import {Route, Routes} from "react-router-dom";
 import Login from "./page/Login";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Home from "./page/Home/Home";
+import UserHome from "./page/user/userHome";
 import AddFood from "./page/merchant/addFood";
 import ListFood from "./page/merchant/listFood";
 import UpdateFood from "./page/merchant/updateFood";
-import MerchantHome from "./page/Home/merchantHome";
+import MerchantHome from "./page/merchant/merchantHome";
 import UpdateRestaurant from "./page/restaurant/updateRestaurant";
 import Admin from "./page/admin/admin";
 import HomeAdmin from "./page/admin/homeAdmin";
@@ -17,6 +17,7 @@ import {useSelector} from "react-redux";
 import RestaurantHome from "./page/restaurant/RestaurantHome";
 import {useState} from "react";
 import AddRestaurant from "./page/restaurant/addRestaurant";
+import ListFoodUser from "./page/user/listFood";
 
 function App() {
     const [ user, allUser  ] = useState(null);
@@ -37,7 +38,9 @@ function App() {
                     </Route>
                     <Route path={'/details'} element={<MerchantHome/>}></Route>
 
-                    <Route path={'homeUser'} element={<Home/>}></Route>
+                    <Route path={'homeUser'} element={<UserHome/>}>
+                        <Route path={'list'} element={<ListFoodUser/>}></Route>
+                    </Route>
 
                 </Routes>
             </div>
