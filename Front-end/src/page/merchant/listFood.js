@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {deleteFood, getFood, getFoodByName, getFoodId} from "../../service/foodsService";
 import {useEffect, useState} from "react";
-import './listFoodCss.css'
+import '../../css/listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
 import axios from "axios";
 import {isAllOf} from "@reduxjs/toolkit";
@@ -68,6 +68,12 @@ export default function ListFood() {
                                         <div style={{marginTop: '10px', fontSize: '15px', color: '#acacac'}}>
                                             <div>Giờ mở: {restaurant.startTime}</div>
                                             <div>Giờ đóng: {restaurant.endTime}</div>
+                                        </div>
+                                        <div>
+                                            <Link to={'/merchant/add_food'}>
+                                                <i className="fa-light fa-plus"></i>
+                                                Thêm món ăn mới
+                                            </Link>
                                         </div>
                                         <div>
                                             <Link to={`/merchant/update_restaurant/${restaurant.id}`}>

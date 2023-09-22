@@ -1,4 +1,4 @@
-import './addFoodCss.css'
+import '../../css/addFoodCss.css'
 import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
@@ -6,9 +6,12 @@ import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage"
 import {useEffect, useState} from "react";
 import {addFood, getFood} from "../../service/foodsService";
 import {storage} from "../../fireBase";
+import customAxios from "../../service/api";
+import {toast} from "react-toastify";
 
 export default function AddFood() {
-    let a = JSON.parse(localStorage.getItem('restaurant'))
+    let a = JSON.parse(localStorage.getItem('user'))
+    const [restaurants , setRestaurants] = useState([])
     const [imageUpload, setImageUpload] = useState(null);
     const [percent, setPercent] = useState(0);
     const [urlFile, setUrlFile] = useState("");
@@ -34,6 +37,9 @@ export default function AddFood() {
             }
         )
     }
+    customAxios.get(`http://localhost:8080/user/${a.idUser}`).then((res)=>{
+        setRestaurants(res.data[0].restaurant[0].id)
+    })
 
     const restaurant = useSelector(state => {
         return state.restaurant.restaurant
@@ -58,9 +64,10 @@ export default function AddFood() {
         }
     })
     const handleAdd = (values) =>{
-        values.image = urlFile
-        let data ={...values,restaurant : {id : restaurant}}
+        values.imgUrl = urlFile
+        let data ={...values, restaurant : { id : restaurants}}
         dispatch(addFood(data)).then((res) => {
+            toast.success('Them mon an thanh cong')
             dispatch(getFood())
             navigate("/merchant")
         })
@@ -185,10 +192,7 @@ export default function AddFood() {
 
                             <button type='submit' className='btn-save'>Save</button>
                         </div>
-
                     </div>
-
-
                 </form>
             </div>
         </>

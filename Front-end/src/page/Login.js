@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {register, login} from "../service/userService";
-import "./style.css";
+import "../css/style.css";
 import {useFormik} from "formik";
 import {toast} from "react-toastify";
 import * as Yup from "yup";
@@ -91,7 +91,7 @@ export default function Login() {
                 console.log(response.payload.data.role)
                 if (response.payload.data.role === 'merchant' ) {
                     toast.success('Login success')
-                    navigate('/merchant')
+                    navigate('/homeMerchant')
                 } else if(response.payload.data.role === 'admin'){
                     toast.success('Login success')
                     navigate("/homeAdmin");

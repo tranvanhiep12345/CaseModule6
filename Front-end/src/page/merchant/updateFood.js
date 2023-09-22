@@ -1,4 +1,4 @@
-import './updateFoodCss.css'
+import '../../css/updateFoodCss.css'
 import {Field, Form, Formik} from "formik";
 import customAxios from "../../service/api";
 import {useEffect, useState} from "react";
@@ -64,17 +64,17 @@ export default function UpdateFood() {
                         enableReinitialize={true}
                         onSubmit={(values,) => {
 
-                            if (values.image === '') {
-                                values.image = urlFile
+                            if (values.imgURL === '') {
+                                values.imgURL = urlFile
                             } else if (urlFile === "") {
-                                values.image = img
+                                values.imgURL = img
                             } else if (urlFile != img) {
 
-                                values.image = urlFile
+                                values.imgURL = urlFile
                             }
                             customAxios.put(`/foods/${id}`, values).then(() => {
                                 console.log(values)
-                                // values.image = urlFile
+                                values.imgURL = urlFile
                                 alert("da sua thanh cong")
                                 navigate("/merchant")
                             })
@@ -92,6 +92,33 @@ export default function UpdateFood() {
                             </span>
                                 </div>
 
+
+
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputPassword1">Image</label>
+                                    <input type="file" className={"form-control"} name={"imgURL"} placeholder={"tradeType"}
+                                           onChange={(event) => {
+                                               setImageUpload(event.target.files[0])
+                                           }}
+                                    />
+                                </div>
+                                {isLoading && (
+                                    <div className="progress">
+                                        <div className="progress-bar"
+                                             role="progressbar"
+                                             style={{width: `${percent}%`}}
+                                             aria-valuenow={percent}
+                                             aria-valuemin={0}
+                                             aria-valuemax={100}>
+                                            {percent}%
+                                        </div>
+                                    </div>
+                                )}
+
+                                {urlFile && !isLoading}
+
+
+
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="sale" placeholder="Sale"/>
                                     <span className="focus-input100"></span>
@@ -100,6 +127,9 @@ export default function UpdateFood() {
                             <i className="fa-light fa-universal-access" aria-hidden="true"></i>
                             </span>
                                 </div>
+
+
+
 
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="status" placeholder="Status"/>

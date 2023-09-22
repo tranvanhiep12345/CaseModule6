@@ -6,6 +6,7 @@ import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage"
 import {useEffect, useState} from "react";
 import {storage} from "../../fireBase";
 import {addRestaurant, getRestaurant} from "../../service/restaurantsService";
+import {toast} from "react-toastify";
 
 export default function AddRestaurant() {
     let a = JSON.parse(localStorage.getItem('user'))
@@ -49,7 +50,8 @@ export default function AddRestaurant() {
         console.log(data)
         dispatch(addRestaurant(data)).then((res) => {
             dispatch(getRestaurant())
-            navigate("/merchant")
+            toast.success('them thanh cong')
+            navigate("/homeMerchant")
         })
     }
     useEffect(() => {
