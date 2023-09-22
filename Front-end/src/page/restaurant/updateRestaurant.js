@@ -46,7 +46,7 @@ export default function UpdateRestaurant() {
     useEffect(() => {
         customAxios.get(`/rests/${id}`).then((res) => {
                 setRestaurant(res.data[0])
-                setImg(res.data[0].imgUrl)
+                setImg(res.data[0])
             console.log('Sửa cửa hàng',res)
             }
         )

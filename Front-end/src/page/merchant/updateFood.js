@@ -74,7 +74,7 @@ export default function UpdateFood() {
                                 values.imgUrl = urlFile
                             }
                             customAxios.put(`/foods/${id}`, values).then(() => {
-                                values.imgURL = urlFile
+                                values.imgUrl = urlFile
                                 toast.success("Update success")
                                 navigate("/homeMerchant")
                             })
