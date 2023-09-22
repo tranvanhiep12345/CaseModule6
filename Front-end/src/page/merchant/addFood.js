@@ -62,7 +62,7 @@ export default function AddFood() {
         let data ={...values,restaurant : {id : restaurant}}
         dispatch(addFood(data)).then((res) => {
             dispatch(getFood())
-            navigate("/merchant")
+            navigate("/homeMerchant")
         })
     }
     useEffect(() => {

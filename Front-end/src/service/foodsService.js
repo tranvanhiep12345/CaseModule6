@@ -1,39 +1,39 @@
-import axios from "axios";
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import customAxios from "./api";
 
 export const getFood = createAsyncThunk(
     'food/getFoods',
     async () =>{
-        return await axios.get('http://localhost:8080/foods')
+        return await customAxios.get('/foods')
     }
 )
 export const getFoodId = createAsyncThunk(
     'food/getFoods',
     async (id) =>{
-        return await axios.get(`http://localhost:8080/foods/${id}`)
+        return await customAxios.get(`/foods/${id}`)
     }
 )
 export const getFoodByName = createAsyncThunk(
     'food/getFoodByName',
     async (data) =>{
-        return await axios.get(`http://localhost:8080/foods/?name=${data}`)
+        return await customAxios.get(`/foods/?name=${data}`)
     }
 )
 
 export const addFood = createAsyncThunk(
     'food/addFoods',
     async (data) =>{
-        const res  = await axios.post('http://localhost:8080/foods',data)
+        const res  = await customAxios.post('/foods',data)
         return res.data
     }
 )
 export const deleteFood = createAsyncThunk(
     'food/deleteFoods',
     async (id) =>{
-        return await axios.delete(`http://localhost:8080/foods/${id}`)
+        return await customAxios.delete(`/foods/${id}`)
     })
 export const updateFood = createAsyncThunk(
     'food/updateFoods',
     async (id) =>{
-        return await axios.put(`http://localhost:8080/foods/${id}`)
+        return await customAxios.put(`/foods/${id}`)
     })

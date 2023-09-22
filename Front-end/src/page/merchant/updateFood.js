@@ -63,22 +63,17 @@ export default function UpdateFood() {
                 <Formik initialValues={food}
                         enableReinitialize={true}
                         onSubmit={(values,) => {
-
                             if (values.image === '') {
                                 values.image = urlFile
                             } else if (urlFile === "") {
                                 values.image = img
-                            } else if (urlFile != img) {
-
+                            } else if (urlFile !== img) {
                                 values.image = urlFile
                             }
                             customAxios.put(`/foods/${id}`, values).then(() => {
-                                console.log(values)
-                                // values.image = urlFile
                                 alert("da sua thanh cong")
-                                navigate("/merchant")
+                                navigate("/homeMerchant")
                             })
-                            // handleUpdate(values);
                         }}>
                     <Form style={{height: '500px', width: '100%'}}>
                         <div className='form-add'>
@@ -88,8 +83,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-pot-food" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-pot-food" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
@@ -97,8 +92,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
@@ -106,8 +101,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
@@ -115,8 +110,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                             </div>
@@ -128,8 +123,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-clock" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
@@ -138,8 +133,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
@@ -147,8 +142,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-eye" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-eye" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
@@ -156,8 +151,8 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-subtitles" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-subtitles" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
 
@@ -166,14 +161,11 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
-
                                 <button type='submit' className='btn-save'>Save</button>
                             </div>
-
                         </div>
 
                     </Form>

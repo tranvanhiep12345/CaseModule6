@@ -48,7 +48,7 @@ export default function AddRestaurant() {
         console.log(data)
         dispatch(addRestaurant(data)).then((res) => {
             dispatch(getRestaurant())
-            navigate("/merchant")
+            navigate("/homeMerchant")
         })
     }
     useEffect(() => {
