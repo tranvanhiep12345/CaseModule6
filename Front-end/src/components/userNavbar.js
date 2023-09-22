@@ -1,30 +1,36 @@
-<<<<<<< HEAD
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import ListFoodUser from "../page/user/listFood";
+import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+
+
+// export default function UserNavbar() {
+//     const [showDetails, setShowDetails] = useState()
+//     const show = (() => {
+//         setShowDetails(true)
+//     })
+//     const close = (() => {
+//         setShowDetails(false)
+//     })
+//     const navigate = useNavigate(false)
+// }
+
+
 
 
 export default function UserNavbar(){
-    const [showDetails , setShowDetails] = useState()
-    const show = (()=>{
+    const [showDetails, setShowDetails] = useState()
+    const show = (() => {
         setShowDetails(true)
     })
-    const close = (() =>{
+    const close = (() => {
         setShowDetails(false)
     })
     const navigate = useNavigate(false)
-
-=======
-import {Link, useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
-
-
-export default function UserNavbar(){
-    const navigate = useNavigate()
     const user = useSelector(state => {
         return state.user.currentUser
     })
->>>>>>> 7e7972b308f102c725d5872854532318ca263391
     return(
         <>
             <div className="row">
@@ -188,22 +194,16 @@ export default function UserNavbar(){
                                         <div className="carousel-item active">
                                             <img src="https://image.cooky.vn/abn/s1065x333/e0365a95-ae59-4828-b7c7-d2d545a989c9.png" className="d-block w-100" alt="..." style={{ width: '100%', height: '336px' }} />
                                             <div className="carousel-caption d-none d-md-block">
-                                                {/* <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p> */}
                                             </div>
                                         </div>
                                         <div className="carousel-item">
                                             <img src="https://image.cooky.vn/abn/s1065x333/bd42a9d7-f38c-4f2b-8e69-b651ca3b4790.png" className="d-block w-100" alt="..." style={{ width: '100%', height: '336px' }} />
                                             <div className="carousel-caption d-none d-md-block">
-                                                {/* <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p> */}
                                             </div>
                                         </div>
                                         <div className="carousel-item">
                                             <img src="https://image.cooky.vn/abn/s1065x333/e0365a95-ae59-4828-b7c7-d2d545a989c9.png" className="d-block w-100" alt="..." style={{ width: '100%', height: '336px' }} />
                                             <div className="carousel-caption d-none d-md-block">
-                                                {/* <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p> */}
                                             </div>
                                         </div>
                                     </div>
@@ -228,11 +228,9 @@ export default function UserNavbar(){
                                 </div>
                             ) : (
                                 <div onClick={show}
-                                    className="row" style={{ display: 'flex', justifyContent: 'space-between', margin: '10px',marginTop:'50px' }}>
+                                     className="row" style={{ display: 'flex', justifyContent: 'space-between', margin: '10px',marginTop:'50px' }}>
                                     <div className="col-2" style={{ height: '180px',justifyContent:'center',display:'flex',flexDirection:'column' }}>
-                                        <img src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/128/Drink-Coke-icon.png" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}
-
-                                        />
+                                        <img src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/128/Drink-Coke-icon.png" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
                                         <p style={{ fontFamily: 'Candara', marginTop: '10px', textAlign: 'center', fontWeight: 'bold' }}>Đồ Uống</p>
                                     </div>
                                 </div>
@@ -241,7 +239,6 @@ export default function UserNavbar(){
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )
