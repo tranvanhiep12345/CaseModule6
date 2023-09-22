@@ -35,5 +35,4 @@ export class Food {
 
     @ManyToOne(() => Restaurant, (restaurant) => restaurant.id)
     restaurant: Restaurant
-
 }

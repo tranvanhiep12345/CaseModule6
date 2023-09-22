@@ -17,6 +17,8 @@ import RestaurantHome from "./page/restaurant/RestaurantHome";
 import {useState} from "react";
 import AddRestaurant from "./page/restaurant/addRestaurant";
 import ListFoodUser from "./page/user/listFood";
+import DetailProduct from "./page/user/detailProduct";
+import Carousel from "./page/user/carousel";
 
 
 function App() {
@@ -39,7 +41,10 @@ function App() {
 
 
                     <Route path={'homeUser'} element={<UserHome/>}>
+                        <Route path={'/homeUser'} element={<Carousel/>}></Route>
                         <Route path={'list'} element={<ListFoodUser/>}></Route>
+                        <Route path={'detailProduct'} element={<DetailProduct/>}></Route>
+
                     </Route>
 
                 </Routes>
