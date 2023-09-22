@@ -7,8 +7,6 @@ import {getFood} from "../../service/foodsService";
 export default function Carousel(){
     const [showDetails, setShowDetails] = useState()
     const dispatch = useDispatch();
-    const [list, setListFood] = useState([])
-
     const show = (() => {
         setShowDetails(true)
     })
@@ -16,20 +14,14 @@ export default function Carousel(){
         setShowDetails(false)
     })
     const navigate = useNavigate()
-    // const user = useSelector(state => {
-    //     return state.user.currentUser
-    // })
-
-    const listFood = useSelector(state => state.food.food);
-    // setListFood(listFood)
-
-
+    const listFood = useSelector(state => {
+        console.log(state)
+        return state.food.food
+    });
     useEffect(()=>{
         dispatch(getFood())
-        setListFood(dispatch(getFood()))
     },[])
 
-    console.log(listFood)
 
     return(
         <>

@@ -12,6 +12,7 @@ class FoodController {
             type
         } = req.query
         if (name == undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
+            console.log(1)
             let data = await foodService.findAll()
             res.json(data)
         } else if (name != undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
@@ -30,6 +31,7 @@ class FoodController {
             let data = await foodService.findAllByMerchantId(merchantId)
             res.json(data)
         } else if (name == undefined && restName == undefined && restId == undefined && merchantName == undefined && merchantId == undefined && type == undefined) {
+            console.log(2)
             let data = await foodService.findAllByType(type)
             res.json(data)
         }
