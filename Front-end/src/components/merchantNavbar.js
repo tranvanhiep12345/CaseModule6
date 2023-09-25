@@ -1,16 +1,8 @@
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 export default function NavbarMerchant(){
-    const [showDetails, setShowDetails] = useState()
-    const show = (() => {
-        setShowDetails(true)
-    })
-    const close = (() => {
-        setShowDetails(false)
-    })
     const navigate = useNavigate(false)
     const user = useSelector(state => {
         return state.user.currentUser

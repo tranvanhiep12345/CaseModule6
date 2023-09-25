@@ -40,11 +40,9 @@ export default function AddFood() {
     customAxios.get(`http://localhost:8080/user/${a.idUser}`).then((res)=>{
         setRestaurants(res.data[0].restaurant[0].id)
     })
-
     const restaurant = useSelector(state => {
         return state.restaurant.restaurant
     })
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const formik = useFormik({
@@ -119,47 +117,42 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-image" aria-hidden='true'></i>
-                            </span>
+                                    <i className="fa-light fa-image" aria-hidden='true'></i>
+                                </span>
                             </div>
-
                             <div className="wrap-input100 validate-input" >
                                 <input value={formik.values.sale} onChange={formik.handleChange} className="input100" type="text" name="sale" placeholder="Sale" id="saleLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                             <div className="wrap-input100 validate-input" >
                                 <input value={formik.values.status} onChange={formik.handleChange} className="input100" type="text" name="status" placeholder="Status" id="statusLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                             <div className="wrap-input100 validate-input" >
                                 <input value={formik.values.note} onChange={formik.handleChange} className="input100" type="text" name="note" placeholder="Note" id="noteLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                         </div>
-
                         <div className='add-right'>
                             <div className="wrap-input1000 validate-input" >
                                 <input value={formik.values.prepTime}  onChange={formik.handleChange} className="input100" type="text" name="prepTime" placeholder="Thời gian chuẩn bị" id="prepTimeLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-light fa-clock" aria-hidden="true"></i>
+                                </span>
                             </div>
 
                             <div className="wrap-input1000 validate-input" >
@@ -167,8 +160,8 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
                             </div>
 
 
@@ -177,8 +170,8 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-subtitles" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa-light fa-subtitles" aria-hidden="true"></i>
+                                </span>
                             </div>
 
                             <div  className="wrap-input1000 validate-input" >
@@ -186,10 +179,9 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                             <button type='submit' className='btn-save'>Save</button>
                         </div>
                     </div>

@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/listFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/listFood.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +99,7 @@
       <workItem from="1695384692582" duration="12000" />
       <workItem from="1695604266666" duration="14438000" />
       <workItem from="1695623656524" duration="4259000" />
-      <workItem from="1695650513920" duration="604000" />
+      <workItem from="1695650513920" duration="1039000" />
     </task>
     <task id="LOCAL-00001" summary="phan quyen">
       <created>1694589887433</created>

@@ -32,10 +32,7 @@ const validateLogin = Yup.object({
         .min(6, 'Requires a minimum of 6 characters')
 })
 
-
-
 export default function Login() {
-
     const formikRegister = useFormik({
         initialValues:{
             name:'',
@@ -104,7 +101,6 @@ export default function Login() {
     };
     return (
         <>
-
             <div className='body-login'>
                 <div className={`container-login ${isSignUpActive ? "right-panel-active" : ""}`}>
                     <div className="form-container sign-up-container">
@@ -170,9 +166,6 @@ export default function Login() {
                             {formikRegister.errors.confirmPassword && formikRegister.touched.confirmPassword ? (
                                 <div className="text-danger">{formikRegister.errors.confirmPassword}</div>
                             ) : null}
-
-
-
                             <div className="wrap-input100 validate-input">
                                 <select value={formikRegister.values.role} onChange={formikRegister.handleChange} name="role" className="input100">
                                     <option value="">None</option>
@@ -187,15 +180,11 @@ export default function Login() {
                             {formikRegister.errors.role && formikRegister.touched.role ? (
                                 <div className="text-danger">{formikRegister.errors.role}</div>
                             ) : null}
-
                             <button type="submit" className="log">
                                 Đăng ký
                             </button>
-
                         </form>
                     </div>
-
-
                     <div className="form-container sign-in-container">
                         <form onSubmit={formikLogin.handleSubmit}>
                             <h1 className="log1">Đăng nhập</h1>
@@ -203,7 +192,6 @@ export default function Login() {
                                  data-validate="Valid email is required: ex@abc.xyz">
                                 <input value={formikLogin.values.email} onChange={formikLogin.handleChange} className="input100" type="email" name="email" placeholder="Email"
                                        id="emailLog"/>
-
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
@@ -213,9 +201,7 @@ export default function Login() {
                             {formikLogin.errors.email && formikLogin.touched.email? (
                                 <div className="text-danger">{formikLogin.errors.email}</div>
                             ) : null}
-
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
-
                                 <input value={formikLogin.values.password} onChange={formikLogin.handleChange} className="input100" type="password" name="password" placeholder="Mật khẩu"
                                        id="passwordLog"/>
                                 <span className="focus-input100"></span>
@@ -249,12 +235,9 @@ export default function Login() {
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
         </>
     );
 }

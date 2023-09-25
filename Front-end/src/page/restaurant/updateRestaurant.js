@@ -5,7 +5,6 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import {storage} from "../../fireBase";
-import {getRestaurant} from "../../service/restaurantsService";
 import {toast} from "react-toastify";
 
 export default function UpdateRestaurant() {
@@ -38,26 +37,21 @@ export default function UpdateRestaurant() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {id} = useParams()
-
-
     const [restaurant, setRestaurant] = useState({})
     const [img, setImg] = useState("")
     useEffect(() => {
         customAxios.get(`/rests/${id}`).then((res) => {
                 setRestaurant(res.data[0])
                 setImg(res.data[0])
-                console.log('Sửa cửa hàng',res)
             }
         )
     }, [])
-
     useEffect(() => {
         if (imageUpload) {
             setIsLoading(true);
             uploadFile()
         }
     }, [imageUpload]);
-
 
     return (
         <>
@@ -66,21 +60,17 @@ export default function UpdateRestaurant() {
                 <Formik initialValues={restaurant}
                         enableReinitialize={true}
                         onSubmit={(values,) => {
-
                             if (values.imgUrl === '') {
                                 values.imgUrl = urlFile
                             } else if (urlFile === "") {
                                 values.imgUrl = img
-                            } else if (urlFile != img) {
+                            } else if (urlFile !== img) {
                                 values.imgUrl = urlFile
                             }
                             customAxios.put(`/rests/${id}`, values).then(() => {
-                                console.log('thong tin sua',values)
                                 values.image = urlFile
                                 toast.success("Update success")
-                                // navigate("/homeMerchant")
                             })
-                            // handleUpdate(values);
                         }}>
                     <Form style={{height: '500px', width: '100%'}}>
                         <div className='form-add'>
@@ -90,49 +80,43 @@ export default function UpdateRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-pot-food" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-pot-food" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="file" name="imgUrl" placeholder="Hình ảnh"/>
                                     <div>
                                         <img src={restaurant.imgUrl} style={{height:'60%', width:'60%'}}/>
                                     </div>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-pot-food" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-pot-food" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="phone" placeholder="Số diện thoại liên hệ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="email" placeholder="Email"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="address" placeholder="Địa chỉ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                             </div>
-
                             <div className='add-right'>
                                 <div className="wrap-input1000 validate-input">
                                     <Field className="input100" type="text" name="type"
@@ -140,8 +124,8 @@ export default function UpdateRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-clock" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
@@ -150,8 +134,8 @@ export default function UpdateRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
@@ -159,15 +143,12 @@ export default function UpdateRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-eye" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-eye" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <button type='submit' className='btn-save'>Save</button>
                             </div>
-
                         </div>
-
                     </Form>
                 </Formik>
             </div>

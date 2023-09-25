@@ -10,8 +10,9 @@ export default function ListFoodUser({list, close,setShowDetails}){
     const [listFood, setListFood] = useState([]);
     useEffect(()=>{
         dispatch(getFoodByType(type))
-            .then(res => {setListFood(res.payload.data)})
-            .catch(e => {
+            .then(res => {
+                setListFood(res.payload.data)
+            }).catch(e => {
                 console.log(e)
             })
     },[])
@@ -56,7 +57,6 @@ export default function ListFoodUser({list, close,setShowDetails}){
                                 );
                             }
                         })}
-
                     </div>
                 </div>
             </div>
