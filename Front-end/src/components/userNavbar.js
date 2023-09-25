@@ -45,7 +45,7 @@ export default function UserNavbar(){
                                 margin: '25px',
                                 fontSize:'50px'}}
                                onClick={()=>{
-                                   navigate('/homeUser')
+                                   navigate('')
                                }}>
                                 Cooky</p>
                         </div>

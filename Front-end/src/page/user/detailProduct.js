@@ -1,4 +1,19 @@
+import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getFoodById, getFoodByType} from "../../service/foodsService";
+import {useDispatch} from "react-redux";
+
 export default function DetailProduct(){
+    const { id} = useParams()
+    const dispatch = useDispatch()
+    const [food,setFood] = useState(null)
+    useEffect(()=>{
+        dispatch(getFoodById(id))
+            .then(res => {setFood(res.payload.data[0])})
+            .catch(e => {
+                console.log(e)
+            })
+    },[])
     return(
         <>
             <div className="container col-12" style={{ justifyContent: 'center', display: 'flex',marginTop:"100px"}}>
@@ -9,13 +24,13 @@ export default function DetailProduct(){
                         </div>
                         <div className="col-7">
                             <div className="row" style={{ fontSize: '30px', fontWeight: 'bold' }}>
-                                Bò Viên Trứng Muối Thượng Hạng
+                                {food?.name}
                             </div>
                             <div className="row" style={{ fontSize: '15px', color: '#acacac' }}>
-                                Đồ tươi
+                                {food?.type}
                             </div>
                             <div className="row" style={{ fontSize: '20px', fontWeight: 'bold' }}>
-                                79,000d
+                                {food?.price}
                             </div>
                             <div className="row">
                                 <button style={{ height: '50px', width: '80%', background: 'deepskyblue', color: 'white', border: 'none' }}>
@@ -40,7 +55,7 @@ export default function DetailProduct(){
                                 Thành Phần
                             </div>
                             <div className="row" style={{ height: '50px', width: '85%', background: '#E3E6E7', marginTop: '10px', alignItems: 'center' }}>
-                                1.Bò viên trứng muối
+                                {food?.description}
                             </div>
                         </div>
                     </div>

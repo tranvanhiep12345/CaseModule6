@@ -15,12 +15,15 @@ export default function Carousel(){
     })
     const navigate = useNavigate()
     const listFood = useSelector(state => {
-        console.log(state)
         return state.food.food
     });
     useEffect(()=>{
         dispatch(getFood())
     },[])
+
+    const handleToList = (type) => {
+        navigate(`list/${type}`)
+    }
 
 
     return(
@@ -87,7 +90,7 @@ export default function Carousel(){
                                 <ListFoodUser  list={listFood} setShowDetails={setShowDetails} close={close}></ListFoodUser>
                             </div>
                         ) : (
-                            <div onClick={show}
+                            <div
                                  className="row" style={{
                                 display: 'flex',
                                 justifyContent: 'space-between',
@@ -99,7 +102,9 @@ export default function Carousel(){
                                     height: '180px',
                                     justifyContent: 'center',
                                     display: 'flex',
-                                    flexDirection: 'column'}}>
+                                    flexDirection: 'column'}}
+                                onClick={() => {handleToList('drink')}}
+                                >
                                     <img
                                         src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/128/Drink-Coke-icon.png"
                                         style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -115,7 +120,42 @@ export default function Carousel(){
                                     justifyContent: 'center',
                                     display: 'flex',
                                     flexDirection: 'column'
-                                }}>
+                                }}
+                                     onClick={() => {handleToList('food')}}>
+                                <img
+                                        src="https://icons.iconarchive.com/icons/jamespeng/cuisine/128/Pork-Chop-Set-icon.png"
+                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                    <p style={{
+                                        fontFamily: 'Candara',
+                                        marginTop: '10px',
+                                        textAlign: 'center',
+                                        fontWeight: 'bold'
+                                    }}> Đồ ăn</p>
+                                </div>
+                                <div className="col-2" style={{
+                                    height: '180px',
+                                    justifyContent: 'center',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                                     onClick={() => {handleToList('vegan')}}>
+                                    <img
+                                        src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Salad-icon.png"
+                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                    <p style={{
+                                        fontFamily: 'Candara',
+                                        marginTop: '10px',
+                                        textAlign: 'center',
+                                        fontWeight: 'bold'
+                                    }}> Đồ chay</p>
+                                </div>
+                                <div className="col-2" style={{
+                                    height: '180px',
+                                    justifyContent: 'center',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                                     onClick={() => {handleToList('fruit')}}>
                                     <img
                                         src="https://icons.iconarchive.com/icons/iconarchive/fruit-illustration/256/Currant-Illustration-icon.png"
                                         style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -131,16 +171,34 @@ export default function Carousel(){
                                     justifyContent: 'center',
                                     display: 'flex',
                                     flexDirection: 'column'
-                                }}>
+                                }}
+                                     onClick={() => {handleToList('dessert')}}>
                                     <img
-                                        src="https://icons.iconarchive.com/icons/iconarchive/fruit-illustration/256/Currant-Illustration-icon.png"
+                                        src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Piece-of-cake-icon.png"
                                         style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
                                     <p style={{
                                         fontFamily: 'Candara',
                                         marginTop: '10px',
                                         textAlign: 'center',
                                         fontWeight: 'bold'
-                                    }}>Hoa Quả</p>
+                                    }}>Tráng miệng</p>
+                                </div>
+                                <div className="col-2" style={{
+                                    height: '180px',
+                                    justifyContent: 'center',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                                     onClick={() => {handleToList('other')}}>
+                                    <img
+                                        src="https://icons.iconarchive.com/icons/iconka/saint-whiskers/128/cat-food-hearts-icon.png"
+                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                    <p style={{
+                                        fontFamily: 'Candara',
+                                        marginTop: '10px',
+                                        textAlign: 'center',
+                                        fontWeight: 'bold'
+                                    }}>Khác</p>
                                 </div>
                             </div>
                         )

@@ -41,8 +41,8 @@ function App() {
 
                     <Route path={''} element={<UserHome/>}>
                         <Route path={''} element={<Carousel/>}></Route>
-                        <Route path={'list'} element={<ListFoodUser/>}></Route>
-                        <Route path={'detailProduct'} element={<DetailProduct/>}></Route>
+                        <Route path={'list/:type'} element={<ListFoodUser/>}></Route>
+                        <Route path={'list/:type/detailProduct/:id'} element={<DetailProduct/>}></Route>
                     </Route>
                 </Routes>
             </div>
