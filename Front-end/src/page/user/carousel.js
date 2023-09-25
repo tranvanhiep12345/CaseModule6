@@ -26,8 +26,6 @@ export default function Carousel(){
     return(
         <>
             <div>
-                {/*{list.map((item)=>(*/}
-
                 <div className="row" style={{marginTop: '20px'}}>
                     <div className="body col-12" style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
                         <div className="row-1 col-10" style={{display: 'flex', justifyContent: 'center'}}>

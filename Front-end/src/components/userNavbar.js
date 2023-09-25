@@ -1,19 +1,15 @@
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 export default function UserNavbar(){
-    const [showDetails, setShowDetails] = useState()
-    const show = (() => {
-        setShowDetails(true)
-    })
-    const close = (() => {
-        setShowDetails(false)
-    })
     const navigate = useNavigate(false)
     const user = useSelector(state => {
         return state.user.currentUser
+    })
+    const logOut = (()=>{
+        localStorage.clear()
+        window.location.reload()
     })
     return(
         <>
@@ -126,7 +122,10 @@ export default function UserNavbar(){
                                     border: '1px solid white',
                                     fontSize:'15px',
                                     display:'flex'
-                                }}>
+                                }}
+                                        onClick={() => {
+                                            logOut()
+                                        }}>
                                     <div style={{
                                         width: '60%',
                                         marginLeft: '-50px'
@@ -165,7 +164,6 @@ export default function UserNavbar(){
                             }
                         </div>
                     </div>
-
                 </div>
             </div>
         </>

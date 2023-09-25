@@ -1,114 +1,169 @@
-import '../css/merchantNavbarCss.css'
-import * as React from "react";
-import {animated, useSpring} from "@react-spring/web";
-import PropTypes from "prop-types";
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
-import {getFoodByName} from "../service/foodsService";
-import {getRestaurant} from "../service/restaurantsService";
-import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
-const Fade = React.forwardRef(function Fade(props, ref) {
-    const {
-        children,
-        in: open,
-        onClick,
-        onEnter,
-        onExited,
-        ownerState,
-        ...other
-    } = props;
-    const style = useSpring({
-        from: { opacity: 0 },
-        to: { opacity: open ? 1 : 0 },
-        onStart: () => {
-            if (open && onEnter) {
-                onEnter(null, true);
-            }
-        },
-        onRest: () => {
-            if (!open && onExited) {
-                onExited(null, true);
-            }
-        },
-    });
-
-    return (
-        <animated.div ref={ref} style={style} {...other}>
-            {React.cloneElement(children, { onClick })}
-        </animated.div>
-    );
-});
-
-Fade.propTypes = {
-    children: PropTypes.element.isRequired,
-    in: PropTypes.bool,
-    onClick: PropTypes.any,
-    onEnter: PropTypes.func,
-    onExited: PropTypes.func,
-    ownerState: PropTypes.any,
-};
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
-};
-export default function NavbarMerchant(){
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const [searchKeyword, setSearchKeyword] = useState("");
-    const handleFindByName = (d)=>{
-        dispatch(getFoodByName(d)).then((res)=>{
-            getRestaurant(res.payload.data)
-            console.log(res.payload.data)
-        })
-    }
+export default function UserNavbar(){
+    const navigate = useNavigate(false)
+    const user = useSelector(state => {
+        return state.user.currentUser
+    })
+    const logOut = (()=>{
+        localStorage.clear()
+        window.location.reload()
+    })
     return(
         <>
-            <div className="container-merchant-navbar">
-
-                <div className="logo-merchant-navbar">
-                    <div className='text-logo'>
-                        <p style={{fontSize:'50px'}} onClick={()=>{
-                            navigate('/homeMerchant')
-                        }}>Cooky</p>
-                    </div>
-
-                </div>
-                <div className="mid-merchant-navbar">
-
-                    <div className="container-find-food" >
-                        <div className='find-food'>
-                            <div style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}}>
-
-                                    <img className='icon-search' src='https://www.cooky.vn/React/Images/Icons/magnifying-glass.svg'/>
-                                    <input style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none',borderRadius:'10px'}} placeholder="   Từ khóa, tên,địa chỉ, doanh thu" />
-
-
-                            </div>
-
+            <div className="row">
+                <div
+                    style={{
+                        background: 'red',
+                        width: '100%',
+                        height: '80px'
+                    }}
+                >
+                    <div className="row"
+                         style={{
+                             margin: '0 auto',
+                             width:'100%'
+                         }}
+                    >
+                        <div className="col-2"
+                             style={{
+                                 height: '80px',
+                                 width: '20%',
+                                 fontSize: '50px',
+                                 color: 'white'
+                             }}>
+                            <p style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                margin: '25px',
+                                fontSize:'50px'}}
+                               onClick={()=>{
+                                   navigate('/homeUser')
+                               }}>
+                                Cooky</p>
                         </div>
-
+                        <div className="col-3"
+                             style={{
+                                 height: '50px',
+                                 marginTop: '15px',
+                                 display: 'flex',
+                                 background: 'white',
+                                 width:'100%',
+                                 borderRadius: '20px'
+                             }}>
+                            <div className="row"
+                                 style={{
+                                     display:'flex',
+                                     margin: '15px',
+                                     color: 'red',
+                                     marginTop:'15px',
+                                     fontSize:'20px'
+                                 }}>
+                                <i className="fa-solid fa-magnifying-glass" />
+                            </div>
+                            <div className="row"
+                                 style={{
+                                     color: 'red',
+                                     width: '100%'
+                                 }}>
+                                <input style={{
+                                    height: '40px',
+                                    width: '100%',
+                                    background: 'none',
+                                    outline: 'none',
+                                    display: 'flex',
+                                    marginTop:'5px'
+                                }}
+                                       placeholder="Tìm kiếm sản phẩm" />
+                            </div>
+                        </div>
+                        <div className="col-4"
+                             style={{
+                                 height: '50px',
+                                 display: 'flex',
+                                 width:'20%',
+                                 justifyContent: 'right',
+                                 backgroundColor: 'red'
+                             }}>
+                            <div className="row"
+                                 style={{
+                                     marginTop: '20px'
+                                 }}>
+                                <button className="col-3"
+                                        style={{
+                                            height: '50px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            fontSize:'20px',
+                                            backgroundColor: 'red',
+                                            border:'50px red'
+                                        }}>
+                                    <i className="fa-solid fa-cart-shopping"
+                                       style={{color: 'white'}} />
+                                </button>
+                            </div>
+                        </div>
+                        <div className="col-2"
+                             style={{
+                                 height: '40px',
+                                 marginTop: '15px',
+                                 width:'100%'
+                             }}>
+                            {user != null ?
+                                <button style={{
+                                    width: '100%',
+                                    height: '50px',
+                                    borderRadius: '20px',
+                                    color: 'red',
+                                    background: 'white',
+                                    border: '1px solid white',
+                                    fontSize:'15px',
+                                    display:'flex'
+                                }}
+                                        onClick={() => {
+                                            logOut()
+                                        }}>
+                                    <div style={{
+                                        width: '60%',
+                                        marginLeft: '-50px'
+                                    }}>
+                                        <i className="fa-regular fa-user"
+                                           style={{
+                                               color: 'red',
+                                               fontSize: '25px'
+                                           }}>
+                                        </i>
+                                    </div>
+                                    <div style={{
+                                        display: 'flex',
+                                        width: '100%',
+                                        height: '30px',
+                                        marginTop: '0px',
+                                        justifyContent:'center'
+                                    }}>
+                                        {user.email.split("@")[0]}
+                                    </div>
+                                </button>
+                                :
+                                <Link to={'/login'}>
+                                    <button style={{
+                                        width: '100%',
+                                        height: '50px',
+                                        borderRadius: '20px',
+                                        color: 'red',
+                                        background: 'white',
+                                        border: '1px solid white',
+                                        fontSize:'15px'
+                                    }}>
+                                        Đăng nhập
+                                    </button>
+                                </Link>
+                            }
+                        </div>
                     </div>
-
-                    <div  style={{width:'100px'}}>
-                        <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
-                    </div>
-
-
-                </div>
-                <div className='right-navbar-merchant'>
-
-
                 </div>
             </div>
         </>
