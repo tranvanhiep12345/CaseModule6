@@ -9,11 +9,8 @@ export class Food {
     @Column({type: "varchar", length: 255})
     name: string;
 
-    @Column({type: "varchar", length: 255})
-    imgUrl: string;
-
     @Column({type: "int"})
-    prepTime: number; // thời gian chuẩn bị
+    prepTime: number;
 
     @Column({type: "int"})
     serviceFee: number;
@@ -34,9 +31,11 @@ export class Food {
     status: string;
 
     @Column({type: "varchar", length: 255, nullable: true})
+    type: string;
+
+    @Column({type: "varchar", length: 255, nullable: true})
     note: string;
 
     @ManyToOne(() => Restaurant, (restaurant) => restaurant.id)
     restaurant: Restaurant
-
 }

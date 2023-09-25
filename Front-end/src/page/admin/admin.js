@@ -1,14 +1,13 @@
 import {Outlet} from "react-router-dom";
-import Navbar from "../../components/navbar";
+import NavbarAdmin from "../../components/adminNavbar";
 
-export default function Home(){
+export default function Admin(){
     return(
         <>
             <div className="container-home" style={{background: 'white'}}>
-                <Navbar/>
+                <NavbarAdmin/>
                 <Outlet></Outlet>
             </div>
-
         </>
     )
 }

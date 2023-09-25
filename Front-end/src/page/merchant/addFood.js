@@ -39,7 +39,10 @@ export default function AddFood() {
     }
     customAxios.get(`http://localhost:8080/user/${a.idUser}`).then((res)=>{
         setRestaurants(res.data[0].restaurant[0].id)
+<<<<<<< HEAD
         console.log(res.data[0].restaurant[0].id)
+=======
+>>>>>>> na
     })
 
     const restaurant = useSelector(state => {

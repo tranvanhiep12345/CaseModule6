@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {addFood, deleteFood, getFood, updateFood} from "../../service/foodsService";
+import {addFood, deleteFood, getFood, getFoodByName, updateFood} from "../../service/foodsService";
 
 const initialState = {
     food: []
@@ -12,20 +12,16 @@ const foodSlice =createSlice({
         builder.addCase(getFood.fulfilled, (state, action) =>{
             state.food = action.payload.data
         })
+        builder.addCase(getFoodByName.fulfilled, (state, action) =>{
+            state.food = action.payload.data
+        })
         builder.addCase(addFood.fulfilled, (state, action) =>{
-            console.log("foodSlice",action.payload)
             state.food.push(action.payload)
         })
-
-
         builder.addCase(deleteFood.fulfilled, (state, action) =>{
-            console.log("foodSlice",action.payload)
             state.food.push(action.payload)
         })
-
-
         builder.addCase(updateFood.fulfilled, (state, action) =>{
-            console.log("foodSlice",action.payload)
             state.food.push(action.payload)
         })
     }

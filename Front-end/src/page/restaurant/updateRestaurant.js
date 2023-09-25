@@ -1,4 +1,4 @@
-import '../../css/updateFoodCss.css'
+
 import {Field, Form, Formik} from "formik";
 import customAxios from "../../service/api";
 import {useEffect, useState} from "react";
@@ -6,9 +6,10 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import {storage} from "../../fireBase";
+import {getRestaurant} from "../../service/restaurantsService";
 import {toast} from "react-toastify";
 
-export default function UpdateFood() {
+export default function UpdateRestaurant() {
     const [imageUpload, setImageUpload] = useState(null);
     const [percent, setPercent] = useState(0);
     const [urlFile, setUrlFile] = useState("");
@@ -40,12 +41,13 @@ export default function UpdateFood() {
     const {id} = useParams()
 
 
-    const [food, setFood] = useState({})
+    const [restaurant, setRestaurant] = useState({})
     const [img, setImg] = useState("")
     useEffect(() => {
-        customAxios.get(`/foods/${id}`).then((res) => {
+        customAxios.get(`/rests/${id}`).then((res) => {
+                setRestaurant(res.data[0])
                 setImg(res.data[0])
-                setFood(res.data[0])
+                console.log('Sửa cửa hàng',res)
             }
         )
     }, [])
@@ -57,11 +59,12 @@ export default function UpdateFood() {
         }
     }, [imageUpload]);
 
+
     return (
         <>
             <div className='container-add'>
-                <h1 className="log1">Sửa món ăn mới</h1>
-                <Formik initialValues={food}
+                <h1 className="log1">Sửa thông tin cửa hàng</h1>
+                <Formik initialValues={restaurant}
                         enableReinitialize={true}
                         onSubmit={(values,) => {
 
@@ -70,13 +73,13 @@ export default function UpdateFood() {
                             } else if (urlFile === "") {
                                 values.imgUrl = img
                             } else if (urlFile != img) {
-
                                 values.imgUrl = urlFile
                             }
-                            customAxios.put(`/foods/${id}`, values).then(() => {
-                                values.imgUrl = urlFile
+                            customAxios.put(`/rests/${id}`, values).then(() => {
+                                console.log('thong tin sua',values)
+                                values.image = urlFile
                                 toast.success("Update success")
-                                navigate("/homeMerchant")
+                                // navigate("/homeMerchant")
                             })
                             // handleUpdate(values);
                         }}>
@@ -84,7 +87,7 @@ export default function UpdateFood() {
                         <div className='form-add'>
                             <div className='add-left'>
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="name" placeholder="Tên món ăn"/>
+                                    <Field className="input100" type="text" name="name" placeholder="Tên cửa hàng"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -92,39 +95,18 @@ export default function UpdateFood() {
                             </span>
                                 </div>
 
-
-
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputPassword1">Image</label>
+                                <div className="wrap-input100 validate-input">
+                                    <Field className="input100" type="file" name="imgUrl" placeholder="Hình ảnh"/>
                                     <div>
-                                        <img src={food.imgUrl} style={{width:'60%',height:'60%'}}/>
+                                        <img src={restaurant.imgUrl} style={{height:'60%', width:'60%'}}/>
                                     </div>
-
-                                    <input type="file" className={"form-control"} name={"imgURL"} placeholder={"tradeType"}
-                                           onChange={(event) => {
-                                               setImageUpload(event.target.files[0])
-                                           }}
-                                    />
+                                    <span className="symbol-input100">
+                            <i className="fa-light fa-pot-food" aria-hidden="true"></i>
+                            </span>
                                 </div>
-                                {isLoading && (
-                                    <div className="progress">
-                                        <div className="progress-bar"
-                                             role="progressbar"
-                                             style={{width: `${percent}%`}}
-                                             aria-valuenow={percent}
-                                             aria-valuemin={0}
-                                             aria-valuemax={100}>
-                                            {percent}%
-                                        </div>
-                                    </div>
-                                )}
-
-                                {urlFile && !isLoading}
-
-
 
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="sale" placeholder="Sale"/>
+                                    <Field className="input100" type="text" name="phone" placeholder="Số diện thoại liên hệ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -132,11 +114,8 @@ export default function UpdateFood() {
                             </span>
                                 </div>
 
-
-
-
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="status" placeholder="Status"/>
+                                    <Field className="input100" type="text" name="email" placeholder="Email"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -145,7 +124,7 @@ export default function UpdateFood() {
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="note" placeholder="Note"/>
+                                    <Field className="input100" type="text" name="address" placeholder="Địa chỉ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -157,8 +136,8 @@ export default function UpdateFood() {
 
                             <div className='add-right'>
                                 <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="number" name="prepTime"
-                                           placeholder="Thời gian chuẩn bị"/>
+                                    <Field className="input100" type="text" name="type"
+                                           placeholder="Phân loại"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -167,8 +146,8 @@ export default function UpdateFood() {
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="number" name="serviceFee"
-                                           placeholder="Phí dịch vụ"/>
+                                    <Field className="input100" type="time" name="startTime"
+                                           placeholder="Giờ mở cửa"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -177,7 +156,7 @@ export default function UpdateFood() {
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="number" name="views" placeholder="Lượt xem"/>
+                                    <Field className="input100" type="time" name="endTime" placeholder="Giờ đóng cửa"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
@@ -185,24 +164,6 @@ export default function UpdateFood() {
                             </span>
                                 </div>
 
-                                <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="text" name="description" placeholder="Nội dung"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
-                            <i className="fa-light fa-subtitles" aria-hidden="true"></i>
-                            </span>
-                                </div>
-
-
-                                <div className="wrap-input1000 validate-input">
-                                    <Field className="input100" type="number" name="price" placeholder="Giá"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
-                                </div>
                                 <button type='submit' className='btn-save'>Save</button>
                             </div>
 

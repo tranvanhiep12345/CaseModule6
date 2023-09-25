@@ -1,12 +1,12 @@
-
 import {Outlet} from "react-router-dom";
-import NavbarMerchant from "../../components/merchantNavbar";
+import UserNavbar from "../../components/userNavbar";
+import Carousel from "./carousel";
 
-export default function MerchantHome(){
+export default function UserHome(){
     return(
         <>
             <div className="container-home" style={{background: 'white'}}>
-                <NavbarMerchant/>
+                <UserNavbar/>
                 <Outlet></Outlet>
             </div>
 

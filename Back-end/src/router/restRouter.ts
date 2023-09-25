@@ -3,10 +3,11 @@ import resController from "../controller/restController";
 import auth from "../middleware/jwt";
 
 const restRouter = Router();
-restRouter.use(auth)
+// restRouter.use(auth)
 restRouter.get('/', resController.findAll)
 restRouter.post('/', resController.add)
 restRouter.delete('/:id', resController.delete)
 restRouter.put('/:id', resController.update)
+restRouter.get('/:id', resController.findById)
 
 export default restRouter
