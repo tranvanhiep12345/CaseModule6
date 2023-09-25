@@ -56,10 +56,10 @@ export default function ListFood() {
                         <>
                             <div className='container-list-food'>
                                 <div className='description-restaurant'>
-                                    <div className="col-6">
+                                    <div style={{width:'50%'}}>
                                         <img src={restaurant.imgUrl} style={{width: '100%'}}/>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="information-restaurant">
                                         <div style={{fontSize: '30px', fontWeight: 'bold'}}>{restaurant.name}
 
                                         </div>
@@ -139,7 +139,8 @@ export default function ListFood() {
                                                                                 style={{
                                                                                     display: 'flex',
                                                                                     alignItems: 'center',
-                                                                                    color: 'red'
+                                                                                    color: 'red',
+                                                                                    margin: '34px 0'
                                                                                 }}/></Link>
                                                                             <i onClick={() => {
                                                                                 handleDelete(food.id)

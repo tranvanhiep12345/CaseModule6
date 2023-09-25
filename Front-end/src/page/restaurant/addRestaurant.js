@@ -1,4 +1,3 @@
-
 import {Field, Form, Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
@@ -10,7 +9,6 @@ import {toast} from "react-toastify";
 
 export default function AddRestaurant() {
     let a = JSON.parse(localStorage.getItem('user'))
-    console.log(a)
     const [imageUpload, setImageUpload] = useState(null);
     const [percent, setPercent] = useState(0);
     const [urlFile, setUrlFile] = useState("");
@@ -40,14 +38,14 @@ export default function AddRestaurant() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector((state)=>{
+        console.log(state)
         return state.user.currentUser
     })
 
     const handleAdd = (values) =>{
         values.imgUrl = urlFile
         let data ={...values,user : {id : a.idUser}}
-        console.log(a)
-        console.log(data)
+        console.log(data,'âa')
         dispatch(addRestaurant(data)).then((res) => {
             dispatch(getRestaurant())
             toast.success('them thanh cong')
@@ -64,7 +62,7 @@ export default function AddRestaurant() {
         <>
             <div className='container-add'>
                 <Formik initialValues={{
-                    name:'', phone:'', email:'',address:'', imgUrl:'',startTime:'',endTime:''
+                    name:'', phone:'', email:'',address:'', imgUrl:'',startTime:'',endTime:'',type:''
                 }} onSubmit={(values)=>handleAdd(values)}>
                     <Form style={{height:'500px', width:'100%'}}>
                         <div className='form-add'>
@@ -109,6 +107,14 @@ export default function AddRestaurant() {
 
                                 <div className="wrap-input100 validate-input" >
                                     <Field className="input100" type="text" name="phone" placeholder="Số điện thoại liên lạc"/>
+                                    <span className="focus-input100"></span>
+                                    <span className="form-message2"></span>
+                                    <span className="symbol-input100">
+                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                            </span>
+                                </div>
+                                <div className="wrap-input100 validate-input" >
+                                    <Field className="input100" type="text" name="type" placeholder="thể loại"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">

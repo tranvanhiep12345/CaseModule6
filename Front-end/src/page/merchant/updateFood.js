@@ -70,7 +70,6 @@ export default function UpdateFood() {
                             } else if (urlFile === "") {
                                 values.imgUrl = img
                             } else if (urlFile != img) {
-
                                 values.imgUrl = urlFile
                             }
                             customAxios.put(`/foods/${id}`, values).then(() => {

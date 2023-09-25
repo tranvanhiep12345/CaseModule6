@@ -1,4 +1,3 @@
-
 import {Field, Form, Formik} from "formik";
 import customAxios from "../../service/api";
 import {useEffect, useState} from "react";
@@ -14,7 +13,6 @@ export default function UpdateRestaurant() {
     const [percent, setPercent] = useState(0);
     const [urlFile, setUrlFile] = useState("");
     const [isLoading, setIsLoading] = useState(false)
-
     const uploadFile = () => {
         if (imageUpload == null) return;
         const storageRef = ref(storage, `/file/${imageUpload.name}`);
@@ -46,8 +44,8 @@ export default function UpdateRestaurant() {
     useEffect(() => {
         customAxios.get(`/rests/${id}`).then((res) => {
                 setRestaurant(res.data[0])
-                setImg(res.data[0])
-                console.log('Sửa cửa hàng',res)
+                setImg(res.data[0].imgUrl)
+                console.log('Sửa cửa hàng', res)
             }
         )
     }, [])
@@ -67,6 +65,7 @@ export default function UpdateRestaurant() {
                 <Formik initialValues={restaurant}
                         enableReinitialize={true}
                         onSubmit={(values,) => {
+                            console.log(values, 'values 2')
 
                             if (values.imgUrl === '') {
                                 values.imgUrl = urlFile
@@ -75,11 +74,12 @@ export default function UpdateRestaurant() {
                             } else if (urlFile != img) {
                                 values.imgUrl = urlFile
                             }
+                            console.log(values, 'values')
                             customAxios.put(`/rests/${id}`, values).then(() => {
                                 console.log('thong tin sua',values)
                                 values.image = urlFile
                                 toast.success("Update success")
-                                // navigate("/homeMerchant")
+                                navigate("/homeMerchant")
                             })
                             // handleUpdate(values);
                         }}>
@@ -96,17 +96,39 @@ export default function UpdateRestaurant() {
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="file" name="imgUrl" placeholder="Hình ảnh"/>
+                                    <label htmlFor="exampleInputPassword1">Image</label>
                                     <div>
-                                        <img src={restaurant.imgUrl} style={{height:'60%', width:'60%'}}/>
+                                        <img src={restaurant.imgUrl} style={{width: '60%', height: '60%'}}/>
                                     </div>
+
+                                    <input type="file" className={"form-control"} name='imgUrl' placeholder={"Hinh anh"}
+                                           onChange={(event) => {
+                                               console.log(1, urlFile)
+                                               setImageUpload(event.target.files[0])
+                                           }}
+                                    />
+                                    {isLoading && (
+                                        <div className="progress">
+                                            <div className="progress-bar"
+                                                 role="progressbar"
+                                                 style={{width: `${percent}%`}}
+                                                 aria-valuenow={percent}
+                                                 aria-valuemin={0}
+                                                 aria-valuemax={100}>
+                                                {percent}%
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {urlFile && !isLoading}
                                     <span className="symbol-input100">
                             <i className="fa-light fa-pot-food" aria-hidden="true"></i>
                             </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
-                                    <Field className="input100" type="text" name="phone" placeholder="Số diện thoại liên hệ"/>
+                                    <Field className="input100" type="text" name="phone"
+                                           placeholder="Số diện thoại liên hệ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">

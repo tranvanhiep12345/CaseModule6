@@ -27,4 +27,14 @@
     width: 100%;
     height: 150px;
 }
+.description-restaurant{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px;
+}
+.information-restaurant{
+    width: 50%;
+    margin-left: 70px;
+}
 /*style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}*/
