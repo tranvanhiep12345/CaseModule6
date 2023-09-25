@@ -4,6 +4,5 @@ const customAxios = axios.create({
         Authorization: `Bearer ${localStorage.getItem("token")}`
     },
     baseURL:'http://localhost:8080'
-
 })
 export default customAxios;

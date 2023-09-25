@@ -49,3 +49,4 @@ export const getFoodById = createAsyncThunk(
         return await customAxios.get(`/foods/${data}`);
     }
 )
+

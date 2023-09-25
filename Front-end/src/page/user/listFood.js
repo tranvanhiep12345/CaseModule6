@@ -15,6 +15,7 @@ export default function ListFoodUser({list, close,setShowDetails}){
                 console.log(e)
             })
     },[])
+    console.log(listFood)
 
     return(
         <>
@@ -23,8 +24,10 @@ export default function ListFoodUser({list, close,setShowDetails}){
                     <div className="row-1 col-10" style={{ display: 'flex', justifyContent: 'center', height: '30px', textAlign: 'center' }}>
                         <p style={{ fontSize: '20px', margin: '0 auto' }}>Danh sách sản phẩm</p>
                     </div>
-                    <p style={{ marginRight: '0',fontSize:'20px'}} onClick={()=>{navigate('/')}}>
-                       Quay lại <i className="fa-solid fa-hand-back-point-left"></i>
+                    <p style={{ marginRight: '50px',fontSize:'20px'}} onClick={()=>{navigate('/')}}>
+                        <button>
+                       Quay lại <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                        </button>
                     </p>
                 </div>
             </div>
@@ -52,7 +55,6 @@ export default function ListFoodUser({list, close,setShowDetails}){
                                         </div>
                                     </div>
                                 );
-
                             }
                         })}
 

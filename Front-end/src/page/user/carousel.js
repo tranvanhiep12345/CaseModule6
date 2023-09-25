@@ -1,6 +1,6 @@
 import ListFoodUser from "./listFood";
 import {useEffect, useState} from "react";
-import {Outlet, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getFood} from "../../service/foodsService";
 
@@ -24,7 +24,6 @@ export default function Carousel(){
     const handleToList = (type) => {
         navigate(`list/${type}`)
     }
-
 
     return(
         <>
@@ -90,115 +89,119 @@ export default function Carousel(){
                                 <ListFoodUser  list={listFood} setShowDetails={setShowDetails} close={close}></ListFoodUser>
                             </div>
                         ) : (
-                            <div
-                                 className="row" style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                margin: '10px',
-                                marginTop: '50px',
 
-                            }}>
-                                <div className="col-2" style={{
-                                    height: '180px',
-                                    justifyContent: 'center',
+                            <div>
+                                <div onClick={show}
+                                     className="row" style={{
                                     display: 'flex',
-                                    flexDirection: 'column'}}
-                                onClick={() => {handleToList('drink')}}
-                                >
-                                    <img
-                                        src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/128/Drink-Coke-icon.png"
-                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
-                                    <p style={{
-                                        fontFamily: 'Candara',
-                                        marginTop: '10px',
-                                        textAlign: 'center',
-                                        fontWeight: 'bold'
-                                    }}>Đồ Uống</p>
-                                </div>
-                                <div className="col-2" style={{
-                                    height: '180px',
-                                    justifyContent: 'center',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
-                                     onClick={() => {handleToList('food')}}>
-                                <img
-                                        src="https://icons.iconarchive.com/icons/jamespeng/cuisine/128/Pork-Chop-Set-icon.png"
-                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
-                                    <p style={{
-                                        fontFamily: 'Candara',
-                                        marginTop: '10px',
-                                        textAlign: 'center',
-                                        fontWeight: 'bold'
-                                    }}> Đồ ăn</p>
-                                </div>
-                                <div className="col-2" style={{
-                                    height: '180px',
-                                    justifyContent: 'center',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
-                                     onClick={() => {handleToList('vegan')}}>
-                                    <img
-                                        src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Salad-icon.png"
-                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
-                                    <p style={{
-                                        fontFamily: 'Candara',
-                                        marginTop: '10px',
-                                        textAlign: 'center',
-                                        fontWeight: 'bold'
-                                    }}> Đồ chay</p>
-                                </div>
-                                <div className="col-2" style={{
-                                    height: '180px',
-                                    justifyContent: 'center',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
-                                     onClick={() => {handleToList('fruit')}}>
-                                    <img
-                                        src="https://icons.iconarchive.com/icons/iconarchive/fruit-illustration/256/Currant-Illustration-icon.png"
-                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
-                                    <p style={{
-                                        fontFamily: 'Candara',
-                                        marginTop: '10px',
-                                        textAlign: 'center',
-                                        fontWeight: 'bold'
-                                    }}>Hoa Quả</p>
-                                </div>
-                                <div className="col-2" style={{
-                                    height: '180px',
-                                    justifyContent: 'center',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
-                                     onClick={() => {handleToList('dessert')}}>
-                                    <img
-                                        src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Piece-of-cake-icon.png"
-                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
-                                    <p style={{
-                                        fontFamily: 'Candara',
-                                        marginTop: '10px',
-                                        textAlign: 'center',
-                                        fontWeight: 'bold'
-                                    }}>Tráng miệng</p>
-                                </div>
-                                <div className="col-2" style={{
-                                    height: '180px',
-                                    justifyContent: 'center',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
-                                     onClick={() => {handleToList('other')}}>
-                                    <img
-                                        src="https://icons.iconarchive.com/icons/iconka/saint-whiskers/128/cat-food-hearts-icon.png"
-                                        style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
-                                    <p style={{
-                                        fontFamily: 'Candara',
-                                        marginTop: '10px',
-                                        textAlign: 'center',
-                                        fontWeight: 'bold'
-                                    }}>Khác</p>
+                                    justifyContent: 'space-between',
+                                    margin: '10px',
+                                    marginTop: '50px',
+
+                                }}>
+                                    <div className="col-2" style={{
+                                        height: '180px',
+                                        justifyContent: 'center',
+                                        display: 'flex',
+                                        flexDirection: 'column'}}
+                                         onClick={() => {handleToList('drink')}}
+                                    >
+                                        <img
+                                            src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/128/Drink-Coke-icon.png"
+                                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                        <p style={{
+                                            fontFamily: 'Candara',
+                                            marginTop: '10px',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold'
+                                        }}><button>Đồ uống</button></p>
+                                    </div>
+                                    <div className="col-2" style={{
+                                        height: '180px',
+                                        justifyContent: 'center',
+                                        display: 'flex',
+                                        flexDirection: 'column'
+                                    }}
+                                         onClick={() => {handleToList('food')}}>
+                                        <img
+                                            src="https://icons.iconarchive.com/icons/jamespeng/cuisine/128/Pork-Chop-Set-icon.png"
+                                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                        <p style={{
+                                            fontFamily: 'Candara',
+                                            marginTop: '10px',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold'
+                                        }}><button>Đồ ăn</button></p>
+                                    </div>
+                                    <div className="col-2" style={{
+                                        height: '180px',
+                                        justifyContent: 'center',
+                                        display: 'flex',
+                                        flexDirection: 'column'
+                                    }}
+                                         onClick={() => {handleToList('vegan')}}>
+                                        <img
+                                            src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Salad-icon.png"
+                                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                        <p style={{
+                                            fontFamily: 'Candara',
+                                            marginTop: '10px',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold'
+                                        }}><button>Đồ chay</button></p>
+                                    </div>
+                                    <div className="col-2" style={{
+                                        height: '180px',
+                                        justifyContent: 'center',
+                                        display: 'flex',
+                                        flexDirection: 'column'
+                                    }}
+                                         onClick={() => {handleToList('fruit')}}>
+                                        <img
+                                            src="https://icons.iconarchive.com/icons/iconarchive/fruit-illustration/256/Currant-Illustration-icon.png"
+                                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                        <p style={{
+                                            fontFamily: 'Candara',
+                                            marginTop: '10px',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold'
+                                        }}><button>Hoa quả</button></p>
+                                    </div>
+                                    <div className="col-2" style={{
+                                        height: '180px',
+                                        justifyContent: 'center',
+                                        display: 'flex',
+                                        flexDirection: 'column'
+                                    }}
+                                         onClick={() => {handleToList('dessert')}}>
+                                        <img
+                                            src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Piece-of-cake-icon.png"
+                                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                        <p style={{
+                                            fontFamily: 'Candara',
+                                            marginTop: '10px',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold'
+                                        }}>
+                                            <button>Đồ ngọt</button></p>
+                                    </div>
+                                    <div className="col-2" style={{
+                                        height: '180px',
+                                        justifyContent: 'center',
+                                        display: 'flex',
+                                        flexDirection: 'column'
+                                    }}
+                                         onClick={() => {handleToList('other')}}>
+                                        <img
+                                            src="https://icons.iconarchive.com/icons/iconka/saint-whiskers/128/cat-food-hearts-icon.png"
+                                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+                                        <p style={{
+                                            fontFamily: 'Candara',
+                                            marginTop: '10px',
+                                            textAlign: 'center',
+                                            fontWeight: 'bold'
+                                        }}><button>Khác</button></p>
+                                    </div>
                                 </div>
                             </div>
                         )

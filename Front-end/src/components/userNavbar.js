@@ -166,7 +166,6 @@ export default function UserNavbar(){
                             }
                         </div>
                     </div>
-
                 </div>
             </div>
         </>

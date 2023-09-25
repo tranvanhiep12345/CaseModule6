@@ -56,7 +56,6 @@ export default function Login() {
             password:''
         },validationSchema:validateLogin,
         onSubmit:(values) =>{
-            console.log(values)
             handleLogin(values)
         }
     })
