@@ -84,16 +84,17 @@ export default function Login() {
     }
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
-            if (response.payload.data === "User is not exist"){
+            console.log(response)
+            if (response.payload.data.payload === "User is not exist"){
                 alert('tk k ton tai')
                 navigate('/')
-            } else if (response.payload.data === 'Password is wrong') {
+            } else if (response.payload.data.payload === 'Password is wrong') {
                 alert('sai ten dang nhap hoac mat khau')
                 navigate('/')
             }else{
-                if(response.payload.data.role === 'admin'){
+                if(response.payload.data.payload.role === 'admin'){
                     navigate('/homeAdmin')
-                }else if (response.payload.data.role === 'merchant')  {
+                }else if (response.payload.data.payload.role === 'merchant')  {
                     navigate('/homeMerchant')
                 } else {
                     navigate('/')

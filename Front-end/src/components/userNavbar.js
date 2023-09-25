@@ -1,6 +1,5 @@
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
-import ListFoodUser from "../page/user/listFood";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
@@ -16,6 +15,10 @@ export default function UserNavbar(){
     const user = useSelector(state => {
         return state.user.currentUser
     })
+    const logOut = () => {
+        localStorage.clear()
+        window.location.reload()
+    }
     return(
         <>
             <div className="row">
@@ -111,7 +114,7 @@ export default function UserNavbar(){
                                 </button>
                             </div>
                         </div>
-                        <div className="col-2"
+                        <div className={"col-2"}
                              style={{
                                  height: '40px',
                                  marginTop: '15px',
@@ -127,7 +130,10 @@ export default function UserNavbar(){
                                     border: '1px solid white',
                                     fontSize:'15px',
                                     display:'flex'
-                                }}>
+                                }}
+                                    onClick={() => {
+                                        logOut()
+                                    }}>
                                     <div style={{
                                         width: '60%',
                                         marginLeft: '-50px'
@@ -146,7 +152,7 @@ export default function UserNavbar(){
                                         marginTop: '0px',
                                         justifyContent:'center'
                                     }}>
-                                        {user.email.split("@")[0]}
+                                        {user.payload.email.split("@")[0]}
                                     </div>
                                 </button>
                                 :

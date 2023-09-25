@@ -15,7 +15,6 @@ export default function ListFoodUser({list, close,setShowDetails}){
                 console.log(e)
             })
     },[])
-    console.log(listFood)
 
     return(
         <>
