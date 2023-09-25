@@ -1,5 +1,6 @@
 import {Request, Response} from "express";
 import userService from "../service/userService";
+import foodService from "../service/foodService";
 
 class UserController {
 
@@ -27,6 +28,10 @@ class UserController {
     update = async (req: Request, res: Response) => {
         await userService.update(req.params.id, req.body)
         res.json("complete")
+    }
+    findById = async (req: Request, res: Response) => {
+        let  user= await userService.findById(req.params.id)
+        res.json(user);
     }
 }
 

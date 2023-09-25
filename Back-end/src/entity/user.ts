@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Restaurant} from "./restaurant";
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
@@ -21,5 +22,8 @@ export class User {
 
     @Column({type: 'varchar', nullable: true})
     status: string
+
+    @OneToMany(() => Restaurant, (userObj) => userObj.user)
+    restaurant: Restaurant
 
 }

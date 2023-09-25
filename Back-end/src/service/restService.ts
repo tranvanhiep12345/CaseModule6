@@ -40,6 +40,9 @@ class RestService {
         return await this.repository.find({
             where: {
                 id: id
+            },
+            relations:{
+                user:true
             }
         })
     }

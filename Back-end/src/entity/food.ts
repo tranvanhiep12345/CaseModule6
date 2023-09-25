@@ -12,14 +12,17 @@ export class Food {
     @Column({type: "int"})
     prepTime: number;
 
+    @Column({type:"varchar"})
+    imgUrl:string;
+
     @Column({type: "int"})
     serviceFee: number;
 
     @Column({type: "int"})
     price: number;
 
-    @Column({type: "int"})
-    views: number;
+    // @Column({type: "int"})
+    // views: number;
 
     @Column({type: "varchar", length: 255})
     sale: string;

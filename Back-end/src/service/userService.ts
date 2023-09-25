@@ -59,6 +59,16 @@ class UserService {
             }
         });
     }
+    findById = async (id)=>{
+        return this.userRepository.find({
+            where:{
+                id: id
+            },
+            relations : {
+                restaurant : true
+            }
+        })
+    }
 }
 
 export default new UserService();

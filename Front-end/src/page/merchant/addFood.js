@@ -38,11 +38,9 @@ export default function AddFood() {
         )
     }
     customAxios.get(`http://localhost:8080/user/${a.idUser}`).then((res)=>{
-        setRestaurants(res.data[0].restaurant[0].id)
-<<<<<<< HEAD
-        console.log(res.data[0].restaurant[0].id)
-=======
->>>>>>> na
+        console.log(res.data[0])
+        setRestaurants(res.data[0]?.restaurant[0].id)
+        console.log(res.data[0].restaurant[0].id,'aaa')
     })
 
     const restaurant = useSelector(state => {
@@ -61,7 +59,8 @@ export default function AddFood() {
             prepTime:'',
             serviceFee:'',
             description:'',
-            price:''
+            price:'',
+            type:''
         },
         onSubmit:(values)=>{
             handleAdd(values)
@@ -71,7 +70,7 @@ export default function AddFood() {
         values.imgUrl = urlFile
         let data ={...values, restaurant : { id : restaurants}}
         dispatch(addFood(data)).then((res) => {
-            toast.success('Them mon an thanh cong')
+            toast.success('Add food success')
             dispatch(getFood())
             navigate("/homeMerchant")
         })
