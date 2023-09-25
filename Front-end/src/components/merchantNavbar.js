@@ -2,15 +2,15 @@ import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
-export default function UserNavbar(){
+export default function NavbarMerchant(){
     const navigate = useNavigate(false)
     const user = useSelector(state => {
         return state.user.currentUser
     })
-    const logOut = (()=>{
+    const logOut = () => {
         localStorage.clear()
-        window.location.reload()
-    })
+        navigate('/login')
+    }
     return(
         <>
             <div className="row">
@@ -40,7 +40,7 @@ export default function UserNavbar(){
                                 margin: '25px',
                                 fontSize:'50px'}}
                                onClick={()=>{
-                                   navigate('/homeUser')
+                                   navigate('')
                                }}>
                                 Cooky</p>
                         </div>
@@ -79,33 +79,7 @@ export default function UserNavbar(){
                                        placeholder="Tìm kiếm sản phẩm" />
                             </div>
                         </div>
-                        <div className="col-4"
-                             style={{
-                                 height: '50px',
-                                 display: 'flex',
-                                 width:'20%',
-                                 justifyContent: 'right',
-                                 backgroundColor: 'red'
-                             }}>
-                            <div className="row"
-                                 style={{
-                                     marginTop: '20px'
-                                 }}>
-                                <button className="col-3"
-                                        style={{
-                                            height: '50px',
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            fontSize:'20px',
-                                            backgroundColor: 'red',
-                                            border:'50px red'
-                                        }}>
-                                    <i className="fa-solid fa-cart-shopping"
-                                       style={{color: 'white'}} />
-                                </button>
-                            </div>
-                        </div>
+                        <div className="col-4"></div>
                         <div className="col-2"
                              style={{
                                  height: '40px',
@@ -144,7 +118,7 @@ export default function UserNavbar(){
                                         marginTop: '0px',
                                         justifyContent:'center'
                                     }}>
-                                        {user.email.split("@")[0]}
+                                        {user.payload.email.split("@")[0]}
                                     </div>
                                 </button>
                                 :

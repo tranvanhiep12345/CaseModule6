@@ -35,11 +35,8 @@ export default function UpdateFood() {
             }
         )
     }
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const {id} = useParams()
-
-
     const [food, setFood] = useState({})
     const [img, setImg] = useState("")
     useEffect(() => {
@@ -64,13 +61,11 @@ export default function UpdateFood() {
                 <Formik initialValues={food}
                         enableReinitialize={true}
                         onSubmit={(values,) => {
-
                             if (values.imgUrl === '') {
                                 values.imgUrl = urlFile
                             } else if (urlFile === "") {
                                 values.imgUrl = img
-                            } else if (urlFile != img) {
-
+                            } else if (urlFile !== img) {
                                 values.imgUrl = urlFile
                             }
                             customAxios.put(`/foods/${id}`, values).then(() => {
@@ -78,7 +73,6 @@ export default function UpdateFood() {
                                 toast.success("Update success")
                                 navigate("/homeMerchant")
                             })
-                            // handleUpdate(values);
                         }}>
                     <Form style={{height: '500px', width: '100%'}}>
                         <div className='form-add'>
@@ -88,18 +82,14 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-pot-food" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-pot-food" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
-
-
                                 <div className="form-group">
                                     <label htmlFor="exampleInputPassword1">Image</label>
                                     <div>
                                         <img src={food.imgUrl} style={{width:'60%',height:'60%'}}/>
                                     </div>
-
                                     <input type="file" className={"form-control"} name={"imgURL"} placeholder={"tradeType"}
                                            onChange={(event) => {
                                                setImageUpload(event.target.files[0])
@@ -118,30 +108,22 @@ export default function UpdateFood() {
                                         </div>
                                     </div>
                                 )}
-
                                 {urlFile && !isLoading}
-
-
-
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="sale" placeholder="Sale"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
-
-
-
                                 <div className="wrap-input100 validate-input">
                                     <Field className="input100" type="text" name="status" placeholder="Status"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
@@ -149,12 +131,10 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                             </div>
-
                             <div className='add-right'>
                                 <div className="wrap-input1000 validate-input">
                                     <Field className="input100" type="number" name="prepTime"
@@ -162,18 +142,17 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-clock" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input1000 validate-input">
                                     <Field className="input100" type="number" name="serviceFee"
                                            placeholder="Phí dịch vụ"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input1000 validate-input">
@@ -181,33 +160,28 @@ export default function UpdateFood() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-eye" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-eye" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input1000 validate-input">
                                     <Field className="input100" type="text" name="description" placeholder="Nội dung"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-subtitles" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-subtitles" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
-
                                 <div className="wrap-input1000 validate-input">
                                     <Field className="input100" type="number" name="price" placeholder="Giá"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                                    </span>
                                 </div>
                                 <button type='submit' className='btn-save'>Save</button>
                             </div>
-
                         </div>
-
                     </Form>
                 </Formik>
             </div>

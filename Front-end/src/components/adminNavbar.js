@@ -1,26 +1,125 @@
 import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 export default function NavbarAdmin(){
-    const navigate = useNavigate()
+    const navigate = useNavigate(false)
+    const user = useSelector(state => {
+        return state.user.currentUser
+    })
+    const logOut = () => {
+        localStorage.clear()
+        navigate('/login')
+    }
     return(
         <>
-            <div className="container col-12" style={{ background: 'white' }}>
-                <div className="row">
-                    <div style={{ background: 'red', width: '100%', height: '100px' }}>
-                        <div className="row" style={{ margin: '0px' }}>
-                            <div className="col-2" style={{ height: '80px', marginTop: '10px', fontSize: '50px', color: 'white' }}>
-                                <p style={{fontSize:'50px'}} onClick={()=>{
-                                    navigate('/homeAdmin')
-                                }}>Cooky</p>
-                            </div>
-                            <div className="col-4">
-                                <div className="row">
-                                    <div className="col-2"></div>
-                                    <div className="col-10" style={{ color: 'white', marginTop: '30px', fontSize: '30px' }}>
-                                        Hệ thống quản lý
+            <div className="row">
+                <div
+                    style={{
+                        background: 'red',
+                        width: '100%',
+                        height: '80px'
+                    }}
+                >
+                    <div className="row"
+                         style={{
+                             margin: '0 auto',
+                             width:'100%'
+                         }}
+                    >
+                        <div className="col-2"
+                             style={{
+                                 height: '80px',
+                                 width: '20%',
+                                 fontSize: '50px',
+                                 color: 'white'
+                             }}>
+                            <p style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                margin: '25px',
+                                fontSize:'50px'}}
+                               onClick={()=>{
+                                   navigate('')
+                               }}>
+                                Cooky</p>
+                        </div>
+                        <div className="col-7"
+                             style={{
+                                 height: '50px',
+                                 marginTop: '15px',
+                                 display: 'flex',
+                                 width:'100%',
+                                 borderRadius: '20px'
+                             }}>
+                            <p style={{
+                                width: '100%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                margin: '25px',
+                                color: 'white',
+                                marginTop:'15px',
+                                fontSize:'45px'}}
+                            >
+                                Quản Lý Cửa Hàng
+                            </p>
+                        </div>
+                        <div className={"col-2"}
+                             style={{
+                                 height: '40px',
+                                 marginTop: '15px',
+                                 width:'100%'
+                             }}>
+                            {user != null ?
+                                <button style={{
+                                    width: '100%',
+                                    height: '50px',
+                                    borderRadius: '20px',
+                                    color: 'red',
+                                    background: 'white',
+                                    border: '1px solid white',
+                                    fontSize:'15px',
+                                    display:'flex'
+                                }}
+                                        onClick={() => {
+                                            logOut()
+                                        }}>
+                                    <div style={{
+                                        width: '60%',
+                                        marginLeft: '-50px'
+                                    }}>
+                                        <i className="fa-regular fa-user"
+                                           style={{
+                                               color: 'red',
+                                               fontSize: '25px'
+                                           }}>
+                                        </i>
                                     </div>
-                                </div>
-                            </div>
+                                    <div style={{
+                                        display: 'flex',
+                                        width: '100%',
+                                        height: '30px',
+                                        marginTop: '0px',
+                                        justifyContent:'center'
+                                    }}>
+                                        {user.payload.email.split("@")[0]}
+                                    </div>
+                                </button>
+                                :
+                                <Link to={'/login'}>
+                                    <button style={{
+                                        width: '100%',
+                                        height: '50px',
+                                        borderRadius: '20px',
+                                        color: 'red',
+                                        background: 'white',
+                                        border: '1px solid white',
+                                        fontSize:'15px'
+                                    }}>
+                                        Đăng nhập
+                                    </button>
+                                </Link>
+                            }
                         </div>
                     </div>
                 </div>

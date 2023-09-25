@@ -5,7 +5,6 @@ import customAxios from "./api";
 export const login = createAsyncThunk(
     'user/login',
     async (data)=>{
-        console.log(data)
         return await customAxios.post('/login', data)
     }
 )

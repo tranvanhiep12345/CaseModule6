@@ -65,6 +65,13 @@ class FoodService {
         })
     }
 
+    findAllByType = async (type) => {
+        return await this.repository.createQueryBuilder("food")
+            .leftJoinAndSelect("food.restaurant", "restaurant")
+            .where("food.type LIKE :type", {type : `%${type}%`})
+            .getMany()
+    }
+
 }
 
 export default new FoodService()

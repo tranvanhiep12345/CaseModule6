@@ -35,18 +35,12 @@ export default function AddRestaurant() {
             }
         )
     }
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const user = useSelector((state)=>{
-        return state.user.currentUser
-    })
 
     const handleAdd = (values) =>{
         values.imgUrl = urlFile
         let data ={...values,user : {id : a.idUser}}
-        console.log(a)
-        console.log(data)
         dispatch(addRestaurant(data)).then((res) => {
             dispatch(getRestaurant())
             toast.success('them thanh cong')
@@ -73,8 +67,8 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className ="fa-light fa-pot-food" aria-hidden="true"></i>
-                            </span>
+                                        <i className ="fa-light fa-pot-food" aria-hidden="true"></i>
+                                    </span>
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
@@ -102,68 +96,55 @@ export default function AddRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-image" aria-hidden='true'></i>
-                            </span>
+                                        <i className="fa-light fa-image" aria-hidden='true'></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input100 validate-input" >
                                     <Field className="input100" type="text" name="phone" placeholder="Số điện thoại liên lạc"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
-
                                 <div className="wrap-input100 validate-input" >
                                     <Field className="input100" type="text" name="email" placeholder="email"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input100 validate-input" >
                                     <Field className="input100" type="text" name="address" placeholder="Address"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
-
                             </div>
-
                             <div className='add-right'>
                                 <div className="wrap-input1000 validate-input" >
                                     <Field className="input100" type="time" name="startTime" placeholder="Giờ mở cửa" id="prepTimeLog"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa-light fa-clock" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <div className="wrap-input1000 validate-input" >
                                     <Field className="input100" type="time" name="endTime" placeholder="Giờ đóng cửa" id="serviceFeeLog"/>
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+                                        <i className="fa fa-envelope" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-
                                 <button type='submit' className='btn-save'>Save</button>
                             </div>
-
                         </div>
-
-
                     </Form>
-
                 </Formik>
             </div>
         </>

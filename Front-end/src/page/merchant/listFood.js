@@ -1,38 +1,28 @@
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
-import {deleteFood, getFood, getFoodByName, getFoodId} from "../../service/foodsService";
-import {useEffect, useState} from "react";
+import {deleteFood, getFood} from "../../service/foodsService";
+import {useEffect} from "react";
 import '../../css/listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
-import axios from "axios";
-import {isAllOf} from "@reduxjs/toolkit";
 import {toast} from "react-toastify";
-import {login} from "../../service/userService";
-
 
 export default function ListFood() {
-
-
     const restaurants = useSelector((state) => {
         return state.restaurant.restaurant
     })
-
 
     const currentUser = useSelector((state) => {
         return state.user.currentUser
     })
 
     const foods = useSelector((state) => {
-        console.log(state)
         return state.food.food
     })
-
 
     useEffect(() => {
         dispatch(getRestaurant())
         dispatch(getFood())
     }, [])
-
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -47,7 +37,6 @@ export default function ListFood() {
             })
         }
     }
-
     return (
         <>
             {restaurants.map((restaurant, key) => {
@@ -61,7 +50,6 @@ export default function ListFood() {
                                     </div>
                                     <div className="col-6">
                                         <div style={{fontSize: '30px', fontWeight: 'bold'}}>{restaurant.name}
-
                                         </div>
                                         <div style={{fontWeight: "lighter"}}>{restaurant.address}</div>
                                         <div style={{marginTop: '5px'}}>Liên hệ: {restaurant.phone}</div>
@@ -102,7 +90,6 @@ export default function ListFood() {
                                                 <div className="card-home">
                                                     <div className="row-1 col-10">
                                                         <div className="col-2" style={{height: '200px'}}>
-
                                                             <div className="card" style={{width: '200px'}}>
                                                                 <div className='food-img'>
                                                                     <img src={food.imgUrl} className="card-img-top"
@@ -156,23 +143,10 @@ export default function ListFood() {
                                                     </div>
                                                 </div>
                                             )
-                                        } else {
-                                            return (
-                                                <>
-                                                </>
-                                            )
                                         }
-
-
                                 })}
                             </div>
-
                         </>
-
-                    )
-                } else {
-                    return (
-                        <></>
                     )
                 }
             })}

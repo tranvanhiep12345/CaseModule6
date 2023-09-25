@@ -7,10 +7,10 @@ export default function UserNavbar(){
     const user = useSelector(state => {
         return state.user.currentUser
     })
-    const logOut = (()=>{
+    const logOut = () => {
         localStorage.clear()
         window.location.reload()
-    })
+    }
     return(
         <>
             <div className="row">
@@ -40,7 +40,7 @@ export default function UserNavbar(){
                                 margin: '25px',
                                 fontSize:'50px'}}
                                onClick={()=>{
-                                   navigate('/homeUser')
+                                   navigate('')
                                }}>
                                 Cooky</p>
                         </div>
@@ -106,7 +106,7 @@ export default function UserNavbar(){
                                 </button>
                             </div>
                         </div>
-                        <div className="col-2"
+                        <div className={"col-2"}
                              style={{
                                  height: '40px',
                                  marginTop: '15px',
@@ -123,9 +123,9 @@ export default function UserNavbar(){
                                     fontSize:'15px',
                                     display:'flex'
                                 }}
-                                        onClick={() => {
-                                            logOut()
-                                        }}>
+                                    onClick={() => {
+                                        logOut()
+                                    }}>
                                     <div style={{
                                         width: '60%',
                                         marginLeft: '-50px'
@@ -144,7 +144,7 @@ export default function UserNavbar(){
                                         marginTop: '0px',
                                         justifyContent:'center'
                                     }}>
-                                        {user.email.split("@")[0]}
+                                        {user.payload.email.split("@")[0]}
                                     </div>
                                 </button>
                                 :

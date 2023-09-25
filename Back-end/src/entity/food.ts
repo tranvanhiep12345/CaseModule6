@@ -31,9 +31,11 @@ export class Food {
     status: string;
 
     @Column({type: "varchar", length: 255, nullable: true})
+    type: string;
+
+    @Column({type: "varchar", length: 255, nullable: true})
     note: string;
 
     @ManyToOne(() => Restaurant, (restaurant) => restaurant.id)
     restaurant: Restaurant
-
 }
