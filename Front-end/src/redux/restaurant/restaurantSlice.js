@@ -13,19 +13,16 @@ const foodSlice =createSlice({
             state.restaurant = action.payload.data
         })
         builder.addCase(addRestaurant.fulfilled, (state, action) =>{
-            console.log("foodSlice",action.payload)
             state.restaurant.push(action.payload)
         })
 
 
         builder.addCase(deleteRestaurant.fulfilled, (state, action) =>{
-            console.log("foodSlice",action.payload)
             state.restaurant.push(action.payload)
         })
 
 
         builder.addCase(updateRestaurant.fulfilled, (state, action) =>{
-            console.log("foodSlice",action.payload)
             state.food.push(action.payload)
         })
     }

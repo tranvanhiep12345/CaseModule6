@@ -1,23 +1,114 @@
+import '../css/merchantNavbarCss.css'
+import * as React from "react";
+import {animated, useSpring} from "@react-spring/web";
+import PropTypes from "prop-types";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import {getFoodByName} from "../service/foodsService";
+import {getRestaurant} from "../service/restaurantsService";
+import {useDispatch} from "react-redux";
+
+const Fade = React.forwardRef(function Fade(props, ref) {
+    const {
+        children,
+        in: open,
+        onClick,
+        onEnter,
+        onExited,
+        ownerState,
+        ...other
+    } = props;
+    const style = useSpring({
+        from: { opacity: 0 },
+        to: { opacity: open ? 1 : 0 },
+        onStart: () => {
+            if (open && onEnter) {
+                onEnter(null, true);
+            }
+        },
+        onRest: () => {
+            if (!open && onExited) {
+                onExited(null, true);
+            }
+        },
+    });
+
+    return (
+        <animated.div ref={ref} style={style} {...other}>
+            {React.cloneElement(children, { onClick })}
+        </animated.div>
+    );
+});
+
+Fade.propTypes = {
+    children: PropTypes.element.isRequired,
+    in: PropTypes.bool,
+    onClick: PropTypes.any,
+    onEnter: PropTypes.func,
+    onExited: PropTypes.func,
+    ownerState: PropTypes.any,
+};
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+};
 export default function NavbarMerchant(){
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const [searchKeyword, setSearchKeyword] = useState("");
+    const handleFindByName = (d)=>{
+        dispatch(getFoodByName(d)).then((res)=>{
+            getRestaurant(res.payload.data)
+            console.log(res.payload.data)
+        })
+    }
     return(
         <>
-            <div className="container col-12" style={{background: 'white'}}>
-                <div className="row">
-                    <div style={{background: 'red', width: '100%', height: '100px'}}>
-                        <div className="row" style={{margin: '0px'}}>
-                            <div className="col-2" style={{height: '80px', marginTop: '10px', fontSize: '50px', color: 'white', fontFamily: '"Lucida Handwriting"'}}>
-                                Cooky
-                            </div>
-                            <div className="col-4">
-                                <div className="row">
-                                    <div className="col-2"><img src="https://png.pngtree.com/png-clipart/20191120/original/pngtree-store-icon-in-line-style-png-image_5053711.jpg" style={{width: '80px', marginTop: '10px'}} /></div>
-                                    <div className="col-10" style={{color: 'white', fontFamily: '"Arial Black"', marginTop: '30px', fontSize: '30px'}}>
-                                        Hệ thống quản lý
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div className="container-merchant-navbar">
+
+                <div className="logo-merchant-navbar">
+                    <div className='text-logo'>
+                        <p style={{fontSize:'50px'}} onClick={()=>{
+                            navigate('/homeMerchant')
+                        }}>Cooky</p>
                     </div>
+
+                </div>
+                <div className="mid-merchant-navbar">
+
+                    <div className="container-find-food" >
+                        <div className='find-food'>
+                            <div style={{width:'40%', height:'20px', background:'white',display:"flex", borderRadius:'10px', margin:'5px'}}>
+
+                                    <img className='icon-search' src='https://www.cooky.vn/React/Images/Icons/magnifying-glass.svg'/>
+                                    <input style={{width: '100%', height: '50px', background: 'white', border: 'none', outline: 'none',borderRadius:'10px'}} placeholder="   Từ khóa, tên,địa chỉ, doanh thu" />
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div  style={{width:'100px'}}>
+                        <button onClick={() => handleFindByName(searchKeyword)} style={{width: '100%'}}>Tìm kiếm</button>
+                    </div>
+
+
+                </div>
+                <div className='right-navbar-merchant'>
+
+
                 </div>
             </div>
         </>

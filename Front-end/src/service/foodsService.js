@@ -1,29 +1,39 @@
-import axios from "axios";
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import customAxios from "./api";
 
 export const getFood = createAsyncThunk(
-    'blogs/getBlogs',
+    'food/getFoods',
     async () =>{
-        return await axios.get('http://localhost:8080/foods')
+        return await customAxios.get('/foods')
+    }
+)
+export const getFoodId = createAsyncThunk(
+    'food/getFoodsId',
+    async (id) =>{
+        return await customAxios.get(`/foods/${id}`)
+    }
+)
+export const getFoodByName = createAsyncThunk(
+    'food/getFoodByName',
+    async (data) =>{
+        return await customAxios.get(`/foods/?name=${data}`)
     }
 )
 
 export const addFood = createAsyncThunk(
-    'foods/addFoods',
+    'food/addFoods',
     async (data) =>{
-        const res  = await axios.post('http://localhost:8080/foods',data)
-        console.log('add food, foods Service: ', res.data)
+        const res  = await customAxios.post('/foods',data)
         return res.data
     }
 )
 export const deleteFood = createAsyncThunk(
-    'foods/deleteFoods',
+    'food/deleteFoods',
     async (id) =>{
-        return await axios.delete(`http://localhost:8080/foods/${id}`)
+        return await customAxios.delete(`/foods/${id}`)
     })
 export const updateFood = createAsyncThunk(
-    'foods/updateFoods',
+    'food/updateFoods',
     async (id) =>{
-        return await axios.put(`http://localhost:8080/foods/${id}`)
+        return await customAxios.put(`/foods/${id}`)
     })
-
