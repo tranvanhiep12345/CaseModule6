@@ -36,7 +36,7 @@ function App() {
                     <Route path={'homeAdmin'} element={<Admin/>}>
                         <Route path={''} element={<HomeAdmin/>}></Route>
                     </Route>
-                    <Route path={'/details'} element={<MerchantHome/>}></Route>
+
 
 
                     <Route path={''} element={<UserHome/>}>

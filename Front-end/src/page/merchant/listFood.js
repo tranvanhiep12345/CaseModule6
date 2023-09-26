@@ -4,10 +4,7 @@ import {deleteFood, getFood, getFoodByName, getFoodId} from "../../service/foods
 import {useEffect, useState} from "react";
 import '../../css/listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
-import axios from "axios";
-import {isAllOf} from "@reduxjs/toolkit";
 import {toast} from "react-toastify";
-import {login} from "../../service/userService";
 
 
 export default function ListFood() {
@@ -54,10 +51,10 @@ export default function ListFood() {
                 if (restaurant.user.email === currentUser.email) {
                     return (
                         <>
-                            <div className='container-list-food'>
+                            <div className='container-restaurant'>
                                 <div className='description-restaurant'>
-                                    <div style={{width:'50%'}}>
-                                        <img src={restaurant.imgUrl} style={{width: '100%'}}/>
+                                    <div className='image-restaurant'>
+                                        <img src={restaurant.imgUrl} style={{width: '50%', height:'70%'}}/>
                                     </div>
                                     <div className="information-restaurant">
                                         <div style={{fontSize: '30px', fontWeight: 'bold'}}>{restaurant.name}
@@ -109,7 +106,7 @@ export default function ListFood() {
                                                                          alt="..."/>
                                                                 </div>
                                                                 <div className="card-body">
-                                                                    <h5 className="card-title">{food.name}</h5>
+                                                                    <h5 className="card-title">{food.name} ({<food className="note"></food>})</h5>
                                                                     <div className="bottom-card" style={{
                                                                         display: 'flex',
                                                                         justifyContent: 'space-between'
@@ -163,17 +160,14 @@ export default function ListFood() {
                                                 </>
                                             )
                                         }
-
-
                                 })}
                             </div>
-
                         </>
-
                     )
                 } else {
                     return (
-                        <></>
+                        <>
+                        </>
                     )
                 }
             })}

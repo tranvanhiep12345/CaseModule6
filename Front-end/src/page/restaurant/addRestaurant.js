@@ -9,6 +9,7 @@ import {toast} from "react-toastify";
 
 export default function AddRestaurant() {
     let a = JSON.parse(localStorage.getItem('user'))
+    console.log(a,1111)
     const [imageUpload, setImageUpload] = useState(null);
     const [percent, setPercent] = useState(0);
     const [urlFile, setUrlFile] = useState("");

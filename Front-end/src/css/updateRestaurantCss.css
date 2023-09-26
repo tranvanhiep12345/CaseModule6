@@ -1,0 +1,42 @@
+.container-update-restaurant{
+    width: 100%;
+    height: 100vh;
+}
+.update-restaurant-form{
+    display: flex;
+    width: 80%;
+    padding-top: 100px;
+    margin: 0 auto;
+    gap: 30px;
+}
+.update-restaurant-left{
+    width: 50%;
+}
+.left-update-restaurant-form{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+.left-update-restaurant-form img{
+    width: 5%;
+    height: 5%;
+
+}
+
+.update-restaurant-right{
+    width: 50%;
+
+}
+
+.update-restaurant-input{
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    display: block;
+    width: 80%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 30px 0 68px
+}

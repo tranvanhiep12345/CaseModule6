@@ -8,6 +8,7 @@ import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import {storage} from "../../fireBase";
 import {toast} from "react-toastify";
 
+
 export default function UpdateFood() {
     const [imageUpload, setImageUpload] = useState(null);
     const [percent, setPercent] = useState(0);
