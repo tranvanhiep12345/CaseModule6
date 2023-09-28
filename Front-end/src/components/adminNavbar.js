@@ -5,12 +5,19 @@ import {Link} from "react-router-dom";
 export default function NavbarAdmin(){
     const navigate = useNavigate(false)
     const user = useSelector(state => {
+<<<<<<< HEAD
         console.log(state.user.currentUser)
+=======
+>>>>>>> na
         return state.user.currentUser
     })
     const logOut = () => {
         localStorage.clear()
+<<<<<<< HEAD
         navigate('/login')
+=======
+        window.location.reload()
+>>>>>>> na
     }
     return(
         <>
@@ -53,6 +60,7 @@ export default function NavbarAdmin(){
                                  width:'100%',
                                  borderRadius: '20px'
                              }}>
+<<<<<<< HEAD
                             <p style={{
                                 width: '100%',
                                 display: 'flex',
@@ -64,6 +72,9 @@ export default function NavbarAdmin(){
                             >
                                 Quản Lý Cửa Hàng
                             </p>
+=======
+
+>>>>>>> na
                         </div>
                         <div className={"col-2"}
                              style={{

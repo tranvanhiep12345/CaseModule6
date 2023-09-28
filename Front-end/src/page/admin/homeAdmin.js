@@ -1,8 +1,7 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {getRestaurant} from "../../service/restaurantsService";
 import MerchantDetail from "./merchantDetail";
-import {useNavigate} from "react-router-dom";
 
 export default function HomeAdmin() {
     const dispatch = useDispatch()
@@ -12,14 +11,18 @@ export default function HomeAdmin() {
 
     const [list, setList] = useState(null)
     useEffect(() => {
-        dispatch(getRestaurant()).then((res) => {
-            console.log(res)
+        dispatch(getRestaurant())
+            .then((res) => {
+                console.log(res)
             setList(res.payload.data)
         })
+            .catch(e => {
+                console.log(e)
+            })
     }, [])
-    console.log(list)
     const handle = (item) => {
         setSelectedRestaurant(item);
+<<<<<<< HEAD
         if (showOnlySelected){
             setShowOnlySelected(false)
             setSelectedRestaurant(null)
@@ -27,12 +30,14 @@ export default function HomeAdmin() {
             setShowOnlySelected(true)
             setSelectedRestaurant(item)
         }
+=======
+        (showOnlySelected) ?
+            setShowOnlySelected(false) : setShowOnlySelected(true)
+>>>>>>> na
     };
     const reload = () => {
         window.location.reload()
     }
-
-
     return (
         <>
             <div className="row" style={{marginTop: '20px'}}>
@@ -41,7 +46,7 @@ export default function HomeAdmin() {
                         <div style={{marginTop: '20px'}}>
                             <button onClick={()=>{
                                 reload()
-                            }}>
+                            }}  style={{background: 'red'}}>
                                 Danh sách Merchant
                             </button>
                         </div>
@@ -81,7 +86,9 @@ export default function HomeAdmin() {
                                 <td>
                                     <button type="button"
                                         onClick={()=>{handle(item)}}
+                                    style={{background: 'red'}}
                                     >xem thêm
+
                                     </button>
                                 </td>
                             </tr>
@@ -93,7 +100,6 @@ export default function HomeAdmin() {
                         <MerchantDetail restaurant={selectedRestaurant} />
                     )}
                 </div>
-
             </div>
         </>
     )

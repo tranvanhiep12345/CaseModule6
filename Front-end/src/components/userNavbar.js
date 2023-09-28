@@ -124,9 +124,15 @@ export default function UserNavbar(){
                                     fontSize:'15px',
                                     display:'flex'
                                 }}
+<<<<<<< HEAD
                                         onClick={() => {
                                             logOut()
                                         }}>
+=======
+                                    onClick={() => {
+                                        logOut()
+                                    }}>
+>>>>>>> na
                                     <div style={{
                                         width: '60%',
                                         marginLeft: '-50px'
@@ -145,7 +151,11 @@ export default function UserNavbar(){
                                         marginTop: '0px',
                                         justifyContent:'center'
                                     }}>
+<<<<<<< HEAD
                                         {user?.payload.email.split("@")[0]}
+=======
+                                        {user.payload.email.split("@")[0]}
+>>>>>>> na
                                     </div>
                                 </button>
                                 :

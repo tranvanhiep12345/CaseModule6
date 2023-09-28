@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> na
 import React, {useEffect, useState} from 'react';
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
@@ -12,8 +16,13 @@ export default function ListFoodUser({list, close,setShowDetails}){
             .then(res => {
                 setListFood(res.payload.data)
             }).catch(e => {
+<<<<<<< HEAD
             console.log(e)
         })
+=======
+                console.log(e)
+            })
+>>>>>>> na
     },[])
 
     return(
@@ -25,7 +34,11 @@ export default function ListFoodUser({list, close,setShowDetails}){
                     </div>
                     <p style={{ marginRight: '50px',fontSize:'20px'}} onClick={()=>{navigate('/')}}>
                         <button>
+<<<<<<< HEAD
                             Quay lại <i className="fa fa-arrow-left" aria-hidden="true"></i>
+=======
+                       Quay lại <i className="fa fa-arrow-left" aria-hidden="true"></i>
+>>>>>>> na
                         </button>
                     </p>
                 </div>

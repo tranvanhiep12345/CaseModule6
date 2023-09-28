@@ -9,13 +9,16 @@ import {useFormik} from "formik";
 
 
 
+
 export default function ListFoodMerchant() {
     const {id} = useParams()
+
+
+export default function ListFood() {
 
     const restaurants = useSelector((state) => {
         return state.restaurant.restaurant
     })
-
 
     const currentUser = useSelector((state) => {
         return state.user.currentUser
@@ -26,12 +29,10 @@ export default function ListFoodMerchant() {
         return state.food.food
     })
 
-
     useEffect(() => {
         dispatch(getRestaurant())
         dispatch(getFood())
     }, [])
-
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -47,6 +48,7 @@ export default function ListFoodMerchant() {
             })
         }
     }
+
     const formikSearch = useFormik({
         initialValues:{
             search:''
@@ -61,6 +63,8 @@ export default function ListFoodMerchant() {
         })
     }
 
+
+
     return (
         <>
             {restaurants.map((restaurant, key) => {
@@ -74,7 +78,6 @@ export default function ListFoodMerchant() {
                                     </div>
                                     <div className="information-restaurant">
                                         <div style={{fontSize: '30px', fontWeight: 'bold'}}>{restaurant.name}
-
                                         </div>
                                         <div style={{fontWeight: "lighter"}}>{restaurant.address}</div>
                                         <div style={{marginTop: '5px'}}>Liên hệ: {restaurant.phone}</div>
@@ -115,7 +118,6 @@ export default function ListFoodMerchant() {
                                                 <div className="card-home">
                                                     <div className="row-1 col-10">
                                                         <div className="col-2" style={{height: '200px'}}>
-
                                                             <div className="card" style={{width: '200px'}}>
                                                                 <div className='food-img'>
                                                                     <img src={food.imgUrl} className="card-img-top"
@@ -180,8 +182,7 @@ export default function ListFoodMerchant() {
                                 })}
                             </div>
                         </>
-                    )
-                } else {
+                    )} else {
                     return (
                         <>
                         </>

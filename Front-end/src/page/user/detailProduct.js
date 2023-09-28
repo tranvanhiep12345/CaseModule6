@@ -38,6 +38,7 @@ export default function DetailProduct() {
                                 {food?.price}
                             </div>
 
+
                             <div className="row">
                                 <button style={{
                                     height: '50px',
@@ -83,8 +84,53 @@ export default function DetailProduct() {
                                 {food?.description}
                             </div>
                         </div> </div>
+
+                        <div className="row">
+                            <button style={{
+                                height: '50px',
+                                width: '80%',
+                                background: 'deepskyblue',
+                                color: 'white',
+                                border: 'none'
+                            }}>
+                                <i className="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng
+                            </button>
+                        </div>
+                        <div className="row" style={{
+                            height: '50px',
+                            width: '85%',
+                            border: '1px solid #E3E6E7',
+                            marginTop: '10px',
+                            display: 'flex',
+                            justifyContent: 'space-around'
+                        }}>
+                            <div>
+                                <div style={{fontSize: '10px', textAlign: 'center'}}>Chất lượng</div>
+                                <div style={{fontWeight: 'bold'}}>Hảo hạng</div>
+                            </div>
+                            <div>
+                                <div style={{fontSize: '10px', textAlign: 'center'}}>Thương hiệu</div>
+                                <div style={{fontWeight: 'bold'}}>CooKyMade</div>
+                            </div>
+                            <div>
+                                <div style={{fontSize: '10px', textAlign: 'center'}}>Xuất xứ</div>
+                                <div style={{fontWeight: 'bold'}}>Việt Nam</div>
+                            </div>
+                        </div>
+                        <div className="row" style={{fontWeight: 'bold', fontSize: '20px'}}>
+                            Thành Phần
+                        </div>
+                        <div className="row" style={{
+                            height: '50px',
+                            width: '85%',
+                            background: '#E3E6E7',
+                            marginTop: '10px',
+                            alignItems: 'center'
+                        }}>
+                            {food?.description}
+                        </div>
+                    </div>
                 </div>
-            </div>
         </>
     )
 }

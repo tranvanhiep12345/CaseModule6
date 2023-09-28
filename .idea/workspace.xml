@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CaseModule6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HieuHiepNghia.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/entity/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/entity/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/router/foodRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/foodRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/router/restRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/restRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/userService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/listFoodMerchant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/listFoodMerchant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/service/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="admin" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2VJxCNp7Z7BWsKxCapAK9J7DdNE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging feature/addFood",
+    "last_opened_file_path": "D:/WebstormPJ/HieuHiepNghia",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/nghia/Library/Mobile Documents/com~apple~CloudDocs/Code/CaseModule6/Back-end/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\src\page\merchant" />
+      <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\src\page\admin" />
+      <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\public" />
+      <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\src\page\Home\admin" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="" />
+      <created>1694567855245</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694567855245</updated>
+      <workItem from="1694567856486" duration="52000" />
+      <workItem from="1694567910838" duration="13493000" />
+      <workItem from="1694586868476" duration="8438000" />
+      <workItem from="1694597204894" duration="3095000" />
+      <workItem from="1694604976928" duration="478000" />
+      <workItem from="1694999161214" duration="16817000" />
+      <workItem from="1695026051928" duration="2301000" />
+      <workItem from="1695029191249" duration="32000" />
+      <workItem from="1695084910821" duration="3442000" />
+      <workItem from="1695088676989" duration="7663000" />
+      <workItem from="1695105576945" duration="3108000" />
+      <workItem from="1695111466244" duration="8131000" />
+      <workItem from="1695171683541" duration="9952000" />
+      <workItem from="1695257762221" duration="10095000" />
+      <workItem from="1695286827833" duration="2048000" />
+      <workItem from="1695345079405" duration="11997000" />
+      <workItem from="1695364586497" duration="6379000" />
+      <workItem from="1695371509527" duration="4447000" />
+      <workItem from="1695384290005" duration="82000" />
+      <workItem from="1695384692582" duration="12000" />
+      <workItem from="1695604266666" duration="14438000" />
+      <workItem from="1695623656524" duration="4259000" />
+      <workItem from="1695650513920" duration="1039000" />
+    </task>
+    <task id="LOCAL-00001" summary="phan quyen">
+      <created>1694589887433</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694589887433</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/newNavbarMerchant" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="phan quyen" />
+    <MESSAGE value="merge xong" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge xong" />
+  </component>
+</project>
