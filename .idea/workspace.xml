@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CaseModule6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HieuHiepNghia.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/entity/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/entity/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/router/foodRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/foodRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/router/restRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/restRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/userService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/listFoodMerchant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/listFoodMerchant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/service/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" afterDir="false" />
-    </list>
+    <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging feature/addFood",
+    "git-widget-placeholder": "feature/addFood",
     "last_opened_file_path": "D:/WebstormPJ/HieuHiepNghia",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
