@@ -1,14 +1,16 @@
 import {useDispatch, useSelector} from "react-redux";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {deleteFood, getFood, getFoodByName, getFoodId} from "../../service/foodsService";
 import {useEffect, useState} from "react";
 import '../../css/listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
 import {toast} from "react-toastify";
+import {useFormik} from "formik";
 
 
-export default function ListFood() {
 
+export default function ListFoodMerchant() {
+    const {id} = useParams()
 
     const restaurants = useSelector((state) => {
         return state.restaurant.restaurant
@@ -36,19 +38,33 @@ export default function ListFood() {
 
     const handleDelete = (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this foods?")
+        console.log(id)
         if (confirmDelete) {
             dispatch(deleteFood(id)).then(() => {
                 toast.warning('Delete success')
                 dispatch(getFood())
-                navigate("/homeMerchant")
+                // navigate("/homeMerchant")
             })
         }
+    }
+    const formikSearch = useFormik({
+        initialValues:{
+            search:''
+        }, onSubmit:(values)=>{
+            handleSearch(values)
+        }
+    })
+    const handleSearch = (values)=>{
+        dispatch(values).then((res)=>{
+            console.log(res)
+            getFoodByName(res)
+        })
     }
 
     return (
         <>
             {restaurants.map((restaurant, key) => {
-                if (restaurant.user.email === currentUser.email) {
+                if (restaurant.user.email === currentUser.payload.email) {
                     return (
                         <>
                             <div className='container-restaurant'>
@@ -106,7 +122,7 @@ export default function ListFood() {
                                                                          alt="..."/>
                                                                 </div>
                                                                 <div className="card-body">
-                                                                    <h5 className="card-title">{food.name} ({<food className="note"></food>})</h5>
+                                                                    <h5 className="card-title">{food.name}</h5>
                                                                     <div className="bottom-card" style={{
                                                                         display: 'flex',
                                                                         justifyContent: 'space-between'
@@ -157,6 +173,7 @@ export default function ListFood() {
                                         } else {
                                             return (
                                                 <>
+
                                                 </>
                                             )
                                         }

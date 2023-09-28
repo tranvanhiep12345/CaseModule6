@@ -85,16 +85,21 @@ export default function Login() {
     }
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
-            if (response.payload.data === "User is not exist"){
-                alert('tk k ton tai')
-                navigate('/')
-            } else if (response.payload.data === 'Password is wrong') {
-                alert('sai ten dang nhap hoac mat khau')
-                navigate('/')
+            let user = response.payload.data
+            console.log(response.payload)
+            if (user.payload === "User is not exist"){
+                toast.error('tk k ton tai')
+                navigate('/login')
+            } else if (user.payload === 'Password is wrong') {
+                toast.error('Email or password incorrectly')
+                navigate('/login')
             }else{
-                if(response.payload.data.role === 'admin'){
+                if(user.payload.role === 'admin'){
+                    console.log(user.payload.role,'role')
+                    toast.success('Login success')
                     navigate('/homeAdmin')
-                }else if (response.payload.data.role === 'merchant')  {
+                }else if (user.payload.role === 'merchant')  {
+                    toast.success('Login success')
                     navigate('/homeMerchant')
                 } else {
                     navigate('/')

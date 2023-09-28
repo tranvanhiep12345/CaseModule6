@@ -1,7 +1,7 @@
 import '../../css/addFoodCss.css'
 import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage"
 import {useEffect, useState} from "react";
 import {addFood, getFood} from "../../service/foodsService";
@@ -10,6 +10,7 @@ import customAxios from "../../service/api";
 import {toast} from "react-toastify";
 
 export default function AddFood() {
+    const {id} = useParams()
     let a = JSON.parse(localStorage.getItem('user'))
     const [restaurants , setRestaurants] = useState([])
     const [imageUpload, setImageUpload] = useState(null);
@@ -37,7 +38,7 @@ export default function AddFood() {
             }
         )
     }
-    customAxios.get(`http://localhost:8080/user/${a.idUser}`).then((res)=>{
+    customAxios.get(`http://localhost:8080/user/${a.payload.idUser}`).then((res)=>{
         console.log(res.data[0])
         setRestaurants(res.data[0]?.restaurant[0].id)
         console.log(res.data[0].restaurant[0].id,'aaa')

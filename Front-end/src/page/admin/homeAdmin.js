@@ -20,8 +20,13 @@ export default function HomeAdmin() {
     console.log(list)
     const handle = (item) => {
         setSelectedRestaurant(item);
-
-        setShowOnlySelected(true);
+        if (showOnlySelected){
+            setShowOnlySelected(false)
+            setSelectedRestaurant(null)
+        }else {
+            setShowOnlySelected(true)
+            setSelectedRestaurant(item)
+        }
     };
     const reload = () => {
         window.location.reload()

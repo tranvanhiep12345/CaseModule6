@@ -1,21 +1,17 @@
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
-import ListFoodUser from "../page/user/listFood";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 export default function UserNavbar(){
-    const [showDetails, setShowDetails] = useState()
-    const show = (() => {
-        setShowDetails(true)
-    })
-    const close = (() => {
-        setShowDetails(false)
-    })
     const navigate = useNavigate(false)
     const user = useSelector(state => {
+        console.log(state.user.currentUser)
         return state.user.currentUser
     })
+    const logOut = () => {
+        localStorage.clear()
+        window.location.reload()
+    }
     return(
         <>
             <div className="row">
@@ -30,7 +26,7 @@ export default function UserNavbar(){
                          style={{
                              margin: '0 auto',
                              width:'100%'
-                        }}
+                         }}
                     >
                         <div className="col-2"
                              style={{
@@ -45,34 +41,34 @@ export default function UserNavbar(){
                                 margin: '25px',
                                 fontSize:'50px'}}
                                onClick={()=>{
-                                   navigate('/homeUser')
+                                   navigate('')
                                }}>
                                 Cooky</p>
                         </div>
                         <div className="col-3"
                              style={{
-                                height: '50px',
-                                marginTop: '15px',
-                                display: 'flex',
-                                background: 'white',
-                                width:'100%',
-                                borderRadius: '20px'
-                            }}>
+                                 height: '50px',
+                                 marginTop: '15px',
+                                 display: 'flex',
+                                 background: 'white',
+                                 width:'100%',
+                                 borderRadius: '20px'
+                             }}>
                             <div className="row"
                                  style={{
-                                    display:'flex',
-                                    margin: '15px',
-                                    color: 'red',
-                                    marginTop:'15px',
-                                    fontSize:'20px'
-                                }}>
+                                     display:'flex',
+                                     margin: '15px',
+                                     color: 'red',
+                                     marginTop:'15px',
+                                     fontSize:'20px'
+                                 }}>
                                 <i className="fa-solid fa-magnifying-glass" />
                             </div>
                             <div className="row"
                                  style={{
                                      color: 'red',
                                      width: '100%'
-                            }}>
+                                 }}>
                                 <input style={{
                                     height: '40px',
                                     width: '100%',
@@ -91,11 +87,11 @@ export default function UserNavbar(){
                                  width:'20%',
                                  justifyContent: 'right',
                                  backgroundColor: 'red'
-                        }}>
+                             }}>
                             <div className="row"
                                  style={{
                                      marginTop: '20px'
-                            }}>
+                                 }}>
                                 <button className="col-3"
                                         style={{
                                             height: '50px',
@@ -105,18 +101,18 @@ export default function UserNavbar(){
                                             fontSize:'20px',
                                             backgroundColor: 'red',
                                             border:'50px red'
-                                }}>
+                                        }}>
                                     <i className="fa-solid fa-cart-shopping"
                                        style={{color: 'white'}} />
                                 </button>
                             </div>
                         </div>
-                        <div className="col-2"
+                        <div className={"col-2"}
                              style={{
                                  height: '40px',
                                  marginTop: '15px',
                                  width:'100%'
-                        }}>
+                             }}>
                             {user != null ?
                                 <button style={{
                                     width: '100%',
@@ -127,7 +123,10 @@ export default function UserNavbar(){
                                     border: '1px solid white',
                                     fontSize:'15px',
                                     display:'flex'
-                                }}>
+                                }}
+                                        onClick={() => {
+                                            logOut()
+                                        }}>
                                     <div style={{
                                         width: '60%',
                                         marginLeft: '-50px'
@@ -136,7 +135,7 @@ export default function UserNavbar(){
                                            style={{
                                                color: 'red',
                                                fontSize: '25px'
-                                        }}>
+                                           }}>
                                         </i>
                                     </div>
                                     <div style={{
@@ -146,7 +145,7 @@ export default function UserNavbar(){
                                         marginTop: '0px',
                                         justifyContent:'center'
                                     }}>
-                                        {user.email.split("@")[0]}
+                                        {user?.payload.email.split("@")[0]}
                                     </div>
                                 </button>
                                 :
@@ -166,7 +165,6 @@ export default function UserNavbar(){
                             }
                         </div>
                     </div>
-
                 </div>
             </div>
         </>

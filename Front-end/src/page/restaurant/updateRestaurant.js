@@ -60,13 +60,11 @@ export default function UpdateRestaurant() {
 
     return (
         <>
-            <div className='container-add'>
+            <div className='container-update-restaurant-title'>
                 <h1 className="log1">Sửa thông tin cửa hàng</h1>
                 <Formik initialValues={restaurant}
                         enableReinitialize={true}
                         onSubmit={(values,) => {
-                            console.log(values, 'values 2')
-
                             if (values.imgUrl === '') {
                                 values.imgUrl = urlFile
                             } else if (urlFile === "") {
@@ -83,7 +81,7 @@ export default function UpdateRestaurant() {
                             })
                             // handleUpdate(values);
                         }}>
-                    <Form style={{height: '500px', width: '100%'}}>
+                    <Form style={{height: '300px', width: '100%'}}>
                         <div className='update-restaurant-form'>
                             <div className='update-restaurant-left'>
                                 <div className='left-update-restaurant-form'>
@@ -155,13 +153,39 @@ export default function UpdateRestaurant() {
                                     <span className="focus-input100"></span>
                                     <span className="form-message2"></span>
                                     <span className="symbol-input100">
-                            <i className="fa-light fa-eye" aria-hidden="true"></i>
                             </span>
+
+
                                 </div>
 
-                                <button type='submit' className='btn-save'>Save</button>
-                            </div>
 
+                                <div>
+                                    <input type="file" className='update-restaurant-input' name={"imgURL"} placeholder={"tradeType"}
+                                           onChange={(event) => {
+                                               setImageUpload(event.target.files[0])
+                                           }}
+                                    />
+                                </div>
+                                {isLoading && (
+                                    <div className="progress">
+                                        <div className="progress-bar"
+                                             role="progressbar"
+                                             style={{width: `${percent}%`}}
+                                             aria-valuenow={percent}
+                                             aria-valuemin={0}
+                                             aria-valuemax={100}>
+                                            {percent}%
+                                        </div>
+                                    </div>
+                                )}
+
+                                {urlFile && !isLoading}
+
+
+                            </div>
+                        </div>
+                        <div className='update-restaurant-submit'>
+                            <button type='submit' className='btn-save'>Save</button>
                         </div>
 
                     </Form>

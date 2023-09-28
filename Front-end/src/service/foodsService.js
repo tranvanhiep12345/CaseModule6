@@ -13,6 +13,12 @@ export const getFoodId = createAsyncThunk(
         return await customAxios.get(`/foods/${id}`)
     }
 )
+export const getFoodByType = createAsyncThunk(
+    'food/getFoodByType',
+    async (data) => {
+        return await customAxios.get(`/foods/?type=${data}`);
+    }
+)
 export const getFoodByName = createAsyncThunk(
     'food/getFoodByName',
     async (data) =>{
@@ -37,3 +43,10 @@ export const updateFood = createAsyncThunk(
     async (id) =>{
         return await customAxios.put(`/foods/${id}`)
     })
+
+export const getFoodById = createAsyncThunk(
+    'food/getFoodById',
+    async (data) => {
+        return await customAxios.get(`/foods/${data}`);
+    }
+)
