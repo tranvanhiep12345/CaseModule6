@@ -104,7 +104,7 @@ export default function UpdateRestaurant() {
                                         <span className="focus-input100"></span>
                                         <span className="form-message2"></span>
                                         <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                            <i className="fa-light fa-phone" aria-hidden="true"></i>
                             </span>
                                     </div>
 
@@ -113,7 +113,7 @@ export default function UpdateRestaurant() {
                                         <span className="focus-input100"></span>
                                         <span className="form-message2"></span>
                                         <span className="symbol-input100">
-                            <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                            <i className="fa-regular fa-envelope" aria-hidden="true"></i>
                             </span>
                                     </div>
 
@@ -122,7 +122,7 @@ export default function UpdateRestaurant() {
                                         <span className="focus-input100"></span>
                                         <span className="form-message2"></span>
                                         <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
+                            <i className="fa-light fa-location-dot" aria-hidden="true"></i>
                             </span>
                                     </div>
 
@@ -135,7 +135,7 @@ export default function UpdateRestaurant() {
                                         <span className="focus-input100"></span>
                                         <span className="form-message2"></span>
                                         <span className="symbol-input100">
-                            <i className="fa-light fa-clock" aria-hidden="true"></i>
+                           <i className="fa-light fa-filter" aria-hidden="true"></i>
                             </span>
                                     </div>
 
@@ -145,7 +145,7 @@ export default function UpdateRestaurant() {
                                         <span className="focus-input100"></span>
                                         <span className="form-message2"></span>
                                         <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                                        <i className="fa-regular fa-clock" aria-hidden="true"></i>
                             </span>
                                     </div>
 
@@ -154,7 +154,8 @@ export default function UpdateRestaurant() {
                                         <span className="focus-input100"></span>
                                         <span className="form-message2"></span>
                                         <span className="symbol-input100">
-                            </span>
+                                            <i className="fa-regular fa-clock"></i>
+                                        </span>
 
 
                                     </div>
