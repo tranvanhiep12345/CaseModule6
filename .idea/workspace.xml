@@ -5,36 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CaseModule6.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/controller/foodController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/controller/foodController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/controller/orderController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/controller/orderDetailController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/entity/order.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/entity/orderDetail.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/router/orderDetailRouter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/router/orderRouter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/service/orderDetailService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Back-end/src/service/orderService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/src/redux/imageFood/imageFoodSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/src/service/imageService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/controller/imageFoodController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/controller/imageFoodController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/entity/food.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/entity/food.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/service/foodService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/foodService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/service/restService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/restService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/userService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/router/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/service/imageFoodService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/imageFoodService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/listFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/listFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/service/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/service/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -65,6 +59,7 @@
 }</component>
   <component name="ProjectId" id="2VJxCNp7Z7BWsKxCapAK9J7DdNE" />
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -89,10 +84,11 @@
       <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\WebstormProjects\untitled\CaseModule6\Front-end\public\image" />
+      <recent name="C:\Users\admin\WebstormProjects\untitled\CaseModule6\Front-end\public" />
       <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\src\page\merchant" />
       <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\src\page\admin" />
       <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\public" />
-      <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\src\page\Home\admin" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -126,6 +122,17 @@
       <workItem from="1695604266666" duration="14438000" />
       <workItem from="1695623656524" duration="4259000" />
       <workItem from="1695650513920" duration="1039000" />
+      <workItem from="1695690513874" duration="9030000" />
+      <workItem from="1695737126732" duration="3185000" />
+      <workItem from="1695775768548" duration="5737000" />
+      <workItem from="1695782752500" duration="4496000" />
+      <workItem from="1695798007908" duration="10291000" />
+      <workItem from="1695828333026" duration="1223000" />
+      <workItem from="1695865499374" duration="4332000" />
+      <workItem from="1695869978411" duration="5333000" />
+      <workItem from="1695948706702" duration="13481000" />
+      <workItem from="1695969904496" duration="852000" />
+      <workItem from="1695970776921" duration="5463000" />
     </task>
     <task id="LOCAL-00001" summary="phan quyen">
       <created>1694589887433</created>

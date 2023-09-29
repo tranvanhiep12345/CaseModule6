@@ -2,7 +2,7 @@ import ListFoodUser from "./listFood";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getFood} from "../../service/foodsService";
+import {getFood, getFoodByType} from "../../service/foodsService";
 
 export default function Carousel(){
     const [showDetails, setShowDetails] = useState()
@@ -23,7 +23,6 @@ export default function Carousel(){
     const handleToList = (type) => {
         navigate(`list/${type}`)
     }
-
     return(
         <>
             <div>
@@ -101,7 +100,7 @@ export default function Carousel(){
                                         justifyContent: 'center',
                                         display: 'flex',
                                         flexDirection: 'column'}}
-                                         onClick={() => {handleToList('drink')}}
+                                         onClick={() => {handleToList('Cháo')}}
                                     >
                                         <img
                                             src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/128/Drink-Coke-icon.png"
@@ -111,7 +110,7 @@ export default function Carousel(){
                                             marginTop: '10px',
                                             textAlign: 'center',
                                             fontWeight: 'bold'
-                                        }}><button>Đồ uống</button></p>
+                                        }}><button>Cháo</button></p>
                                     </div>
                                     <div className="col-2" style={{
                                         height: '180px',
@@ -119,7 +118,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('food')}}>
+                                         onClick={() => {handleToList('Cơm rang')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/jamespeng/cuisine/128/Pork-Chop-Set-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -128,7 +127,7 @@ export default function Carousel(){
                                             marginTop: '10px',
                                             textAlign: 'center',
                                             fontWeight: 'bold'
-                                        }}><button>Đồ ăn</button></p>
+                                        }}><button>Cơm rang</button></p>
                                     </div>
                                     <div className="col-2" style={{
                                         height: '180px',
@@ -136,7 +135,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('vegan')}}>
+                                         onClick={() => {handleToList('Đồ chay')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Salad-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -153,7 +152,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('fruit')}}>
+                                         onClick={() => {handleToList('Đồ uống')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/iconarchive/fruit-illustration/256/Currant-Illustration-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -162,7 +161,7 @@ export default function Carousel(){
                                             marginTop: '10px',
                                             textAlign: 'center',
                                             fontWeight: 'bold'
-                                        }}><button>Hoa quả</button></p>
+                                        }}><button>Đồ uống</button></p>
                                     </div>
                                     <div className="col-2" style={{
                                         height: '180px',
@@ -170,7 +169,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('dessert')}}>
+                                         onClick={() => {handleToList('Bún'||'Phở')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Piece-of-cake-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -180,7 +179,7 @@ export default function Carousel(){
                                             textAlign: 'center',
                                             fontWeight: 'bold'
                                         }}>
-                                            <button>Đồ ngọt</button></p>
+                                            <button>Bún-Phở</button></p>
                                     </div>
                                     <div className="col-2" style={{
                                         height: '180px',

@@ -3,15 +3,18 @@ import imageFoodService from "../service/imageFoodService";
 
 class ImageFoodController {
     findAll = async (req: Request, res: Response) => {
-        let {foodId, foodName} = req.query
-        if (foodId == undefined && foodName == undefined) {
+        let {foodId, foodName, foodType} = req.query
+        if (foodId == undefined && foodName == undefined && foodType == undefined) {
             let data = await imageFoodService.findAll()
             res.json(data)
-        } else if (foodId != undefined && foodName == undefined) {
+        } else if (foodId != undefined && foodName == undefined && foodType == undefined) {
             let data = await imageFoodService.findAllByFoodId(foodId)
             res.json(data)
-        } else if (foodId == undefined && foodName != undefined) {
+        } else if (foodId == undefined && foodName != undefined && foodType == undefined) {
             let data = await imageFoodService.findAllByFoodName(foodName)
+            res.json(data)
+        } else if (foodId == undefined && foodName == undefined && foodType != undefined){
+            let data = await imageFoodService.findAllImageByFoodType(foodType)
             res.json(data)
         }
     }

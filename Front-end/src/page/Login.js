@@ -83,10 +83,10 @@ export default function Login() {
         dispatch(login(values)).then((response) => {
             const index = response.payload.data
             if (index.payload === "User is not exist"){
-                alert('tk k ton tai')
+                alert('Tài khoản không tồn tại')
                 navigate('/')
             } else if (index.payload === 'Password is wrong') {
-                alert('sai ten dang nhap hoac mat khau')
+                alert('Sai tên đăng nhập hoặc mật khẩu')
                 navigate('/')
             }else{
                 if(index.payload.role === 'admin'){
@@ -221,14 +221,24 @@ export default function Login() {
                     <div className="overlay-container">
                         <div className="overlay">
                             <div className="overlay-panel overlay-left">
-                                <div className="logo">Cooky</div>
+                                <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
+                                     alt="#"
+                                     style={{
+                                         width:"110px"
+                                     }}
+                                />
                                 <p>To keep connected with us please login with your personal info</p>
                                 <button className="ghost" id="signIn" onClick={handleSignInClick}>
                                     Đăng nhập
                                 </button>
                             </div>
                             <div className="overlay-panel overlay-right">
-                                <div className="logo">Cooky</div>
+                                <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
+                                     alt="#"
+                                     style={{
+                                         width:"110px"
+                                     }}
+                                />
                                 <p>Enter your personal details and start your journey with us</p>
                                 <button className="ghost" id="signUp" onClick={handleSignUpClick}>
                                     Đăng ký

@@ -27,6 +27,7 @@ class ImageFoodService {
     findAllByFoodName = async (foodName) => {
         return await this.repository.createQueryBuilder("imageFood")
             .leftJoinAndSelect("imageFood.food", "food")
+            .leftJoinAndSelect("food.restaurant", "restaurant")
             .where("food.name LIKE :name", { name: `%${foodName}%` })
             .getMany()
     }
@@ -34,7 +35,16 @@ class ImageFoodService {
     findAllByFoodId = async (foodId) => {
         return await this.repository.createQueryBuilder("imageFood")
             .leftJoinAndSelect("imageFood.food", "food")
+            .leftJoinAndSelect("food.restaurant", "restaurant")
             .where("food.id = :id", { id: foodId })
+            .getMany()
+    }
+
+    findAllImageByFoodType = async (foodType) => {
+        return await this.repository.createQueryBuilder("imageFood")
+            .leftJoinAndSelect("imageFood.food", "food")
+            .leftJoinAndSelect("food.restaurant", "restaurant")
+            .where("food.type LIKE :type", {type : `%${foodType}%`})
             .getMany()
     }
 }

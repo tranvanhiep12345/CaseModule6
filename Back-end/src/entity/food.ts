@@ -1,5 +1,6 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Restaurant} from "./restaurant";
+import {ImageFood} from "./imageFood";
 
 @Entity()
 export class Food {
@@ -21,8 +22,8 @@ export class Food {
     @Column({type: "int"})
     views: number;
 
-    @Column({type: "varchar", length: 255})
-    sale: string;
+    @Column({type: "int"})
+    sale: number;
 
     @Column({type: "longtext"})
     description: string;
@@ -38,4 +39,7 @@ export class Food {
 
     @ManyToOne(() => Restaurant, (restaurant) => restaurant.id)
     restaurant: Restaurant
+
+    @OneToMany(() => ImageFood, (imageFood) => imageFood.food)
+    imageFood: ImageFood[]
 }

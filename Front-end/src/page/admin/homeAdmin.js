@@ -13,17 +13,21 @@ export default function HomeAdmin() {
     useEffect(() => {
         dispatch(getRestaurant())
             .then((res) => {
-                console.log(res)
                 setList(res.payload.data)
         })
             .catch(e => {
                 console.log(e)
             })
-    }, [])
+    },[])
     const handle = (item) => {
         setSelectedRestaurant(item);
-        (showOnlySelected) ?
-            setShowOnlySelected(false) : setShowOnlySelected(true)
+        if(showOnlySelected){
+            setShowOnlySelected(false)
+            setSelectedRestaurant(null)
+        } else {
+            setShowOnlySelected(true)
+            setSelectedRestaurant(item)
+        }
     };
     const reload = () => {
         navigate("/homeAdmin")
@@ -73,10 +77,15 @@ export default function HomeAdmin() {
                                 {/*<td>DoanhThu</td>*/}
                                 <td>{item.startTime}</td>
                                 <td>{item.endTime}</td>
-                                <td>
+                                <td style={{
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                }}>
                                     <button type="button"
                                         onClick={()=>{handle(item)}}
-                                    style={{background: 'red'}}
+                                    style={{
+                                        background: 'red',
+                                    }}
                                     >xem thêm
                                     </button>
                                 </td>

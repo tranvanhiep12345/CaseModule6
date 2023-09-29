@@ -1,15 +1,16 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {getFoodById, getFoodByType} from "../../service/foodsService";
 import {useDispatch} from "react-redux";
+import {getAllImageByFoodId} from "../../service/imageService";
 
 export default function DetailProduct() {
     const {id} = useParams()
     const dispatch = useDispatch()
     const [food, setFood] = useState(null)
     useEffect(() => {
-        dispatch(getFoodById(id))
+        dispatch(getAllImageByFoodId(id))
             .then(res => {
+                console.log(res.payload.data[0])
                 setFood(res.payload.data[0])
             })
             .catch(e => {
@@ -24,25 +25,25 @@ export default function DetailProduct() {
                     <div className="row" style={{width: '100%', height: '50px', marginTop: '20px'}}>
                         <div className="col-5" style={{height: '400px'}}>
                             <img
-                                src="https://image.cooky.vn/posproduct/g0/24254/s1124x1124/ec60944d-f02e-49ae-894c-967e6b9cc792.jpeg"
+                                src={food?.image}
                                 style={{width: '100%', height: '100%'}}/>
                         </div>
                         <div className="col-7">
                             <div className="row" style={{fontSize: '30px', fontWeight: 'bold'}}>
-                                {food?.name}
+                                {food?.food.name}
                             </div>
                             <div className="row" style={{fontSize: '15px', color: '#acacac'}}>
-                                {food?.type}
+                                {food?.food.type}
                             </div>
                             <div className="row" style={{fontSize: '20px', fontWeight: 'bold'}}>
-                                {food?.price}
+                                {food?.food.price} Đ
                             </div>
 
                         <div className="row">
                             <button style={{
                                 height: '50px',
                                 width: '80%',
-                                background: 'deepskyblue',
+                                background: '#006fd2',
                                 color: 'white',
                                 border: 'none'
                             }}>
@@ -80,7 +81,7 @@ export default function DetailProduct() {
                             marginTop: '10px',
                             alignItems: 'center'
                         }}>
-                            {food?.description}
+                            {food?.food.description}
                         </div>
                     </div> </div>
                 </div>
