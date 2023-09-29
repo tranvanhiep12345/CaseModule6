@@ -82,16 +82,16 @@ export default function Login() {
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
             const index = response.payload.data
-            if (index.payload === "User is not exist"){
+            if (index?.payload === "User is not exist"){
                 alert('Tài khoản không tồn tại')
                 navigate('/')
-            } else if (index.payload === 'Password is wrong') {
+            } else if (index?.payload === 'Password is wrong') {
                 alert('Sai tên đăng nhập hoặc mật khẩu')
                 navigate('/')
             }else{
-                if(index.payload.role === 'admin'){
+                if(index?.payload.role === 'admin'){
                     navigate('/homeAdmin')
-                }else if (index.payload.role === 'merchant')  {
+                }else if (index?.payload.role === 'merchant')  {
                     navigate('/homeMerchant')
                 } else {
                     navigate('/')
