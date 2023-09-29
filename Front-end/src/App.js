@@ -23,28 +23,27 @@ import Carousel from "./page/user/carousel";
 function App() {
     return (
         <>
-            <div>
-                <div>
-                    <Routes>
-                        <Route path={'login'} element={<Login/>}></Route>
-                        <Route path={'homeMerchant'} element={<MerchantHome/>}>
-                            <Route path={''} element={<ListFoodMerchant/>}/>
-                            <Route path={'add_food'} element={<AddFood/>}/>
-                            <Route path={'update_food/:id'} element={<UpdateFood/>}/>
-                            <Route path={'add_restaurant'} element={<AddRestaurant/>}/>
-                            <Route path={'update_restaurant/:id'} element={<UpdateRestaurant/>}/>
-                        </Route>
-                        <Route path={'homeAdmin'} element={<Admin/>}>
-                            <Route path={''} element={<HomeAdmin/>}></Route>
-                        </Route>
+            <div style={{width:'100%', height:'auto'}}>
+                <Routes>
+                    <Route path={'login'} element={<Login/>}></Route>
+                    <Route path={'homeMerchant'} element={<MerchantHome/>}>
+                        <Route path={''} element={<ListFoodMerchant/>}/>
+                        <Route path={'add_food'} element={<AddFood/>}/>
+                        <Route path={'update_food/:id'} element={<UpdateFood/>}/>
+                        <Route path={'add_restaurant'} element={<AddRestaurant/>}/>
+                        <Route path={'update_restaurant/:id'} element={<UpdateRestaurant/>}/>
+                    </Route>
 
-                        <Route path={''} element={<UserHome/>}>
-                            <Route path={''} element={<Carousel/>}></Route>
-                            <Route path={'list/:type'} element={<ListFoodUser/>}></Route>
-                            <Route path={'list/:type/detailProduct/:id'} element={<DetailProduct/>}></Route>
-                        </Route>
-                    </Routes>
-                </div>
+                    <Route path={'homeAdmin'} element={<Admin/>}>
+                        <Route path={''} element={<HomeAdmin/>}></Route>
+                    </Route>
+
+                    <Route path={''} element={<UserHome/>}>
+                        <Route path={''} element={<Carousel/>}></Route>
+                        <Route path={'list/:type'} element={<ListFoodUser/>}></Route>
+                        <Route path={'list/:type/detailProduct/:id'} element={<DetailProduct/>}></Route>
+                    </Route>
+                </Routes>
             </div>
             <ToastContainer theme={"colored"} position={"top-center"} bodyStyle={{borderRadius:'10px'}} />
         </>

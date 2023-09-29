@@ -123,22 +123,24 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-image" aria-hidden='true'></i>
                             </span>
                             </div>
 
                             <div className="wrap-input100 validate-input" >
-                                <input value={formik.values.sale} onChange={formik.handleChange} className="input100" type="text" name="sale" placeholder="Sale" id="saleLog"/>
-                                <span className="focus-input100"></span>
-                                <span className="form-message2"></span>
+                                <select value={formik.values.sale} onChange={formik.handleChange} className="input100" type="text" name="sale" placeholder="Giảm giá" id="saleLog">
+                                    <option value={''}>Giảm giá</option>
+                                    <option value={'no'}>Không</option>
+                                    <option value={'yes'}>Có</option>
+                                </select>
+
                                 <span className="symbol-input100">
-                            <i className="fa-light fa-universal-access" aria-hidden="true"></i>
+                            <i className="fa-light fa-scale-unbalanced" aria-hidden="true"></i>
                             </span>
                             </div>
 
                             <div className="wrap-input100 validate-input" >
                                 <select value={formik.values.status} onChange={formik.handleChange} className="input100" type="text" name="status" placeholder="Status" id="statusLog">
-                                    <option value=''>none</option>
+                                    <option value=''>Trạng thái</option>
                                     <option value='available'>Còn hàng</option>
                                     <option value='out of stock'>Hết hàng</option>
 
@@ -151,11 +153,11 @@ export default function AddFood() {
                             </div>
 
                             <div className="wrap-input100 validate-input" >
-                                <input value={formik.values.note} onChange={formik.handleChange} className="input100" type="text" name="note" placeholder="Note" id="noteLog"/>
+                                <input value={formik.values.note} onChange={formik.handleChange} className="input100" type="text" name="note" placeholder="Ghi chú" id="noteLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
+                            <i className="fa-regular fa-note-sticky" aria-hidden="true"></i>
                             </span>
                             </div>
 
@@ -176,7 +178,7 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                            <i className="fa-light fa-tag" aria-hidden="true"></i>
                             </span>
                             </div>
 
@@ -195,7 +197,7 @@ export default function AddFood() {
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                           <i className="fa-light fa-money-bill" aria-hidden="true"></i>
                             </span>
                             </div>
 

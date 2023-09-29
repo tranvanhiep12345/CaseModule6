@@ -86,107 +86,112 @@ export default function UpdateFood() {
                         }}>
                     <Form style={{height: '300px', width: '100%'}}>
                         <div className='update-restaurant-form'>
-                            <div className='update-restaurant-left'>
-                                <div className='left-update-restaurant-form'>
-                                    <Field className="update-restaurant-input" type="text" name="name" placeholder="Tên món ăn"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
+
+                            <div className='update-body'>
+                                <div className='update-restaurant-left'>
+                                    <div className='left-update-restaurant-form'>
+                                        <Field className="update-restaurant-input" type="text" name="name" placeholder="Tên món ăn"/>
+                                        <span className="focus-input100"></span>
+                                        <span className="form-message2"></span>
+                                        <span className="symbol-input100">
                             <i className="fa-light fa-pot-food" aria-hidden="true"></i>
                             </span>
-                                </div>
+                                    </div>
 
-                                <div className="left-update-restaurant-form">
+                                    <div className="left-update-restaurant-form">
 
-                                </div>
+                                    </div>
 
-                                <div className="left-update-restaurant-form">
-                                    <Field className="update-restaurant-input" type="text" name="prepTime"
-                                           placeholder="Thời gian chuẩn bị"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
+                                    <div className="left-update-restaurant-form">
+                                        <Field className="update-restaurant-input" type="text" name="prepTime"
+                                               placeholder="Thời gian chuẩn bị"/>
+                                        <span className="focus-input100"></span>
+                                        <span className="form-message2"></span>
+                                        <span className="symbol-input100">
                             <i className="fa-light fa-universal-access" aria-hidden="true"></i>
                             </span>
-                                </div>
+                                    </div>
 
-                                <div className="left-update-restaurant-form">
-                                    <Field className="update-restaurant-input" type="text" name="serviceFee" placeholder="Phí dịch vụ"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
+                                    <div className="left-update-restaurant-form">
+                                        <Field className="update-restaurant-input" type="text" name="serviceFee" placeholder="Phí dịch vụ"/>
+                                        <span className="focus-input100"></span>
+                                        <span className="form-message2"></span>
+                                        <span className="symbol-input100">
                             <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
                             </span>
-                                </div>
+                                    </div>
 
-                                <div className="left-update-restaurant-form">
-                                    <Field className="update-restaurant-input" type="text" name="price" placeholder="Giá"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
+                                    <div className="left-update-restaurant-form">
+                                        <Field className="update-restaurant-input" type="text" name="price" placeholder="Giá"/>
+                                        <span className="focus-input100"></span>
+                                        <span className="form-message2"></span>
+                                        <span className="symbol-input100">
                             <i className="fa-sharp fa-light fa-notes" aria-hidden="true"></i>
                             </span>
+                                    </div>
+
                                 </div>
 
-                            </div>
-
-                            <div className='update-restaurant-right'>
-                                <div className="wrap-input1000 validate-input">
-                                    <Field className="update-restaurant-input" type="text" name="description"
-                                           placeholder="Mô tả"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
+                                <div className='update-restaurant-right'>
+                                    <div className="wrap-input1000 validate-input">
+                                        <Field className="update-restaurant-input" type="text" name="description"
+                                               placeholder="Mô tả"/>
+                                        <span className="focus-input100"></span>
+                                        <span className="form-message2"></span>
+                                        <span className="symbol-input100">
                             <i className="fa-light fa-clock" aria-hidden="true"></i>
                             </span>
-                                </div>
+                                    </div>
 
-                                <div className="wrap-input1000 validate-input">
-                                    <Field className="update-restaurant-input" type="text" name="status"
-                                           placeholder="Trạng thái"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
+                                    <div className="wrap-input1000 validate-input">
+                                        <Field className="update-restaurant-input" type="text" name="status"
+                                               placeholder="Trạng thái"/>
+                                        <span className="focus-input100"></span>
+                                        <span className="form-message2"></span>
+                                        <span className="symbol-input100">
                             <i className="fa fa-envelope" aria-hidden="true"></i>
                             </span>
-                                </div>
+                                    </div>
 
-                                <div className="wrap-input1000 validate-input">
-                                    <Field className="update-restaurant-input" type="text" name="note" placeholder="Ghi chú"/>
-                                    <span className="focus-input100"></span>
-                                    <span className="form-message2"></span>
-                                    <span className="symbol-input100">
+                                    <div className="wrap-input1000 validate-input">
+                                        <Field className="update-restaurant-input" type="text" name="note" placeholder="Ghi chú"/>
+                                        <span className="focus-input100"></span>
+                                        <span className="form-message2"></span>
+                                        <span className="symbol-input100">
                             </span>
 
 
-                                </div>
-
-
-                                <div>
-                                    <input type="file" className='update-restaurant-input' name={"imgURL"} placeholder={"tradeType"}
-                                           onChange={(event) => {
-                                               setImageUpload(event.target.files[0])
-                                           }}
-                                    />
-                                </div>
-                                {isLoading && (
-                                    <div className="progress">
-                                        <div className="progress-bar"
-                                             role="progressbar"
-                                             style={{width: `${percent}%`}}
-                                             aria-valuenow={percent}
-                                             aria-valuemin={0}
-                                             aria-valuemax={100}>
-                                            {percent}%
-                                        </div>
                                     </div>
-                                )}
 
-                                {urlFile && !isLoading}
 
+                                    <div>
+                                        <input type="file" className='update-restaurant-input' name={"imgURL"} placeholder={"tradeType"}
+                                               onChange={(event) => {
+                                                   setImageUpload(event.target.files[0])
+                                               }}
+                                        />
+                                    </div>
+                                    {isLoading && (
+                                        <div className="progress">
+                                            <div className="progress-bar"
+                                                 role="progressbar"
+                                                 style={{width: `${percent}%`}}
+                                                 aria-valuenow={percent}
+                                                 aria-valuemin={0}
+                                                 aria-valuemax={100}>
+                                                {percent}%
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {urlFile && !isLoading}
+
+
+                                </div>
+                            </div>
 
                             </div>
-                        </div>
+
                         <div className='update-restaurant-submit'>
                             <button type='submit' className='btn-save'>Save</button>
                         </div>

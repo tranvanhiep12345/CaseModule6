@@ -9,7 +9,6 @@ import {useFormik} from "formik";
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import AddFood from "./addFood";
 
@@ -89,28 +88,29 @@ export default function ListFoodMerchant() {
 
                     return (
                         <>
-                            <div className='container-restaurant'>
                                 <div className='description-restaurant'>
                                     <div className='image-restaurant'>
-                                        <img src={restaurant.imgUrl} style={{width: '50%', height:'70%'}} alt=''/>
+                                        <img src={restaurant.imgUrl} alt=''/>
                                     </div>
                                     <div className="information-restaurant">
-                                        <div style={{fontSize: '30px', fontWeight: 'bold'}}>{restaurant.name}
+                                        <div className='restaurant-name'>{restaurant.name}
 
                                         </div>
-                                        <div style={{fontWeight: "lighter"}}>{restaurant.address}</div>
+                                        <div style={{fontWeight: "normal", fontSize:'13px'}}>{restaurant.address}</div>
                                         <div style={{marginTop: '5px'}}>Liên hệ: {restaurant.phone}</div>
                                         <div style={{marginTop: '5px'}}>Email: {restaurant.email}</div>
                                         <div style={{marginTop: '5px'}}>Doanh Thu:</div>
                                         <div style={{marginTop: '10px', fontSize: '15px', color: '#acacac'}}>
-                                            <div>Giờ mở: {restaurant.startTime}</div>
-                                            <div>Giờ đóng: {restaurant.endTime}</div>
+                                            <div>Mở cửa: {restaurant.startTime}</div>
+                                            <div>Đóng cửa: {restaurant.endTime}</div>
                                         </div>
                                         <div style={{display:'flex'}}>
-                                                <i className="fa-light fa-plus"></i>
+
                                                 <div>
 
-                                                    <Button onClick={handleOpen} sx={{color:'black', textTransform:'none'}}>Thêm món ăn mới</Button>
+                                                    <Button onClick={handleOpen} sx={{color:'black', textTransform:'none', gap:'3px'}}>
+                                                        <i className="fa-light fa-plus"></i>
+                                                        Thêm món ăn mới</Button>
                                                     <Modal
                                                         open={open}
                                                         onClose={handleClose}
@@ -131,6 +131,8 @@ export default function ListFoodMerchant() {
                                         </div>
                                     </div>
                                 </div>
+                            <div style={{width:'50%', borderBottom:'0.5px solid', margin:'0 auto'}}>
+
                             </div>
 
                             <div className="title-list">

@@ -95,10 +95,10 @@ export default function Login() {
                 navigate('/login')
             }else{
                 if(user.payload.role === 'admin'){
-                    console.log(user.payload.role,'role')
                     toast.success('Login success')
                     navigate('/homeAdmin')
                 }else if (user.payload.role === 'merchant')  {
+                    console.log(user.payload.role)
                     toast.success('Login success')
                     navigate('/homeMerchant')
                 } else {
