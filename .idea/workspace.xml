@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong">
-      <change afterPath="$PROJECT_DIR$/Back-end/src/controller/orderController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/controller/orderDetailController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/entity/order.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/entity/orderDetail.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/router/orderDetailRouter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/router/orderRouter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/service/orderDetailService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/service/orderService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-end/src/redux/imageFood/imageFoodSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-end/src/service/imageService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/controller/imageFoodController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/controller/imageFoodController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/entity/food.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/entity/food.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/router/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/service/imageFoodService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/imageFoodService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/listFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +109,8 @@
       <workItem from="1695869978411" duration="5333000" />
       <workItem from="1695948706702" duration="13481000" />
       <workItem from="1695969904496" duration="852000" />
-      <workItem from="1695970776921" duration="5463000" />
+      <workItem from="1695970776921" duration="6469000" />
+      <workItem from="1696006065978" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="phan quyen">
       <created>1694589887433</created>
