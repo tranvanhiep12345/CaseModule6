@@ -86,9 +86,9 @@ export default function Login() {
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
             let user = response.payload.data
-            console.log(response.payload)
+            console.log(response.payload.data)
             if (user.payload === "User is not exist"){
-                toast.error('tk k ton tai')
+                toast.error('User is not exist')
                 navigate('/login')
             } else if (user.payload === 'Password is wrong') {
                 toast.error('Email or password incorrectly')

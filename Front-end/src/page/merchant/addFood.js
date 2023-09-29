@@ -137,7 +137,12 @@ export default function AddFood() {
                             </div>
 
                             <div className="wrap-input100 validate-input" >
-                                <input value={formik.values.status} onChange={formik.handleChange} className="input100" type="text" name="status" placeholder="Status" id="statusLog"/>
+                                <select value={formik.values.status} onChange={formik.handleChange} className="input100" type="text" name="status" placeholder="Status" id="statusLog">
+                                    <option value=''>none</option>
+                                    <option value='available'>Còn hàng</option>
+                                    <option value='out of stock'>Hết hàng</option>
+
+                                </select>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">

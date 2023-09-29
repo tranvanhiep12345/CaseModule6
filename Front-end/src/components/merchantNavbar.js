@@ -1,16 +1,39 @@
 import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
+import {current} from "@reduxjs/toolkit";
+import {useEffect, useState} from "react";
+import {getRestaurant} from "../service/restaurantsService";
+import {getFood} from "../service/foodsService";
 
 export default function NavbarMerchant(){
+
+    const [showAddRestaurantButton, setShowAddRestaurantButton] = useState(true);
+    useEffect(() => {
+        // Kiểm tra xem đã có cửa hàng hay chưa
+        setShowAddRestaurantButton(restaurants.length === 0);
+    }, []);
+
+
+
+    const dispatch = useDispatch()
     const navigate = useNavigate(false)
     const user = useSelector(state => {
         return state.user.currentUser
+
     })
+    const restaurants = useSelector(state => {
+        return state.restaurant.restaurant
+    })
+
     const logOut = () => {
         localStorage.clear()
         navigate('/login')
     }
+
+    useEffect(() => {
+        dispatch(getRestaurant())
+    }, [])
     return(
         <>
             <div className="row">
@@ -107,26 +130,35 @@ export default function NavbarMerchant(){
                             marginTop: '15px',
                             width:'100%'
                         }}>
-                            <Link to={'/homeMerchant/add_restaurant'}>
-                                <button style={{
-                                    width: '100%',
-                                    height: '50px',
-                                    borderRadius: '20px',
-                                    color: 'red',
-                                    background: 'white',
-                                    border: '1px solid white',
-                                    fontSize:'15px'
-                                }}>
-                                    Thêm cửa hàng
-                                </button>
-                            </Link>
+                            {showAddRestaurantButton && (
+                                <Link to={"/homeMerchant/add_restaurant"}>
+                                    <button
+                                        style={{
+                                            width: "100%",
+                                            height: "50px",
+                                            borderRadius: "20px",
+                                            color: "red",
+                                            background: "white",
+                                            border: "1px solid white",
+                                            fontSize: "15px",
+                                        }}
+                                    >
+                                        Thêm cửa hàng
+                                    </button>
+                                </Link>
+                            )}
                         </div>
+
+
+
+
                         <div className="col-2"
                              style={{
                                  height: '40px',
                                  marginTop: '15px',
                                  width:'100%'
                              }}>
+
                             {user != null ?
                                 <button style={{
                                     width: '100%',

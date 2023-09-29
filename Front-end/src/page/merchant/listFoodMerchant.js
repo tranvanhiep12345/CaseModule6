@@ -6,10 +6,32 @@ import '../../css/listFoodCss.css'
 import {getRestaurant} from "../../service/restaurantsService";
 import {toast} from "react-toastify";
 import {useFormik} from "formik";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import AddFood from "./addFood";
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 700,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+};
 
 
 
 export default function ListFoodMerchant() {
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     const {id} = useParams()
 
     const restaurants = useSelector((state) => {
@@ -22,7 +44,6 @@ export default function ListFoodMerchant() {
     })
 
     const foods = useSelector((state) => {
-        console.log(state)
         return state.food.food
     })
 
@@ -84,11 +105,22 @@ export default function ListFoodMerchant() {
                                             <div>Giờ mở: {restaurant.startTime}</div>
                                             <div>Giờ đóng: {restaurant.endTime}</div>
                                         </div>
-                                        <div>
-                                            <Link to={'/homeMerchant/add_food'}>
+                                        <div style={{display:'flex'}}>
                                                 <i className="fa-light fa-plus"></i>
-                                                Thêm món ăn mới
-                                            </Link>
+                                                <div>
+
+                                                    <Button onClick={handleOpen} sx={{color:'black', textTransform:'none'}}>Thêm món ăn mới</Button>
+                                                    <Modal
+                                                        open={open}
+                                                        onClose={handleClose}
+                                                        aria-labelledby="modal-modal-title"
+                                                        aria-describedby="modal-modal-description"
+                                                    >
+                                                        <Box sx={style}>
+                                                           <AddFood/>
+                                                        </Box>
+                                                    </Modal>
+                                                </div>
                                         </div>
                                         <div>
                                             <Link to={`/homeMerchant/update_restaurant/${restaurant.id}`}>
