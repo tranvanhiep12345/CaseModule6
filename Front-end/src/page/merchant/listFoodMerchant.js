@@ -86,12 +86,13 @@ export default function ListFoodMerchant() {
         <>
             {restaurants.map((restaurant, key) => {
                 if (restaurant.user.email === currentUser.payload.email) {
+
                     return (
                         <>
                             <div className='container-restaurant'>
                                 <div className='description-restaurant'>
                                     <div className='image-restaurant'>
-                                        <img src={restaurant.imgUrl} style={{width: '50%', height:'70%'}}/>
+                                        <img src={restaurant.imgUrl} style={{width: '50%', height:'70%'}} alt=''/>
                                     </div>
                                     <div className="information-restaurant">
                                         <div style={{fontSize: '30px', fontWeight: 'bold'}}>{restaurant.name}

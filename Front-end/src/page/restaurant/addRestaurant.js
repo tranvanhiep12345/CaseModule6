@@ -45,11 +45,11 @@ export default function AddRestaurant() {
 
     const handleAdd = (values) =>{
         values.imgUrl = urlFile
-        let data ={...values,user : {id : a.idUser}}
+        let data ={...values,user : {id : a.payload.idUser}}
         console.log(data,'âa')
         dispatch(addRestaurant(data)).then((res) => {
             dispatch(getRestaurant())
-            toast.success('them thanh cong')
+            toast.success('Add restaurant success')
             navigate("/homeMerchant")
         })
     }
