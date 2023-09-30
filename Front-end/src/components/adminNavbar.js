@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 export default function NavbarAdmin(){
     const navigate = useNavigate(false)
     const user = useSelector(state => {
-        console.log(state.user.currentUser)
         return state.user.currentUser
     })
     const logOut = () => {
@@ -35,15 +34,24 @@ export default function NavbarAdmin(){
                                  fontSize: '50px',
                                  color: 'white'
                              }}>
-                            <p style={{
+                            <button style={{
                                 display: 'flex',
                                 justifyContent: 'center',
-                                margin: '25px',
-                                fontSize:'50px'}}
-                               onClick={()=>{
-                                   navigate('')
-                               }}>
-                                Cooky</p>
+                                margin: '10px',
+                                fontSize:'25px',
+                                background: 'red',
+                                border: '10px red'
+                            }}
+                                    onClick={()=>{
+                                        navigate('')
+                                    }}>
+                                <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
+                                     alt="#"
+                                     style={{
+                                         width:"110px"
+                                     }}
+                                />
+                            </button>
                         </div>
                         <div className="col-7"
                              style={{

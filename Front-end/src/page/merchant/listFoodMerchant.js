@@ -90,19 +90,19 @@ export default function ListFoodMerchant() {
                         <>
                                 <div className='description-restaurant'>
                                     <div className='image-restaurant'>
-                                        <img src={restaurant.imgUrl} alt=''/>
+                                        <img src={restaurant?.imgUrl} alt=''/>
                                     </div>
                                     <div className="information-restaurant">
-                                        <div className='restaurant-name'>{restaurant.name}
+                                        <div className='restaurant-name'>{restaurant?.name}
 
                                         </div>
-                                        <div style={{fontWeight: "normal", fontSize:'13px'}}>{restaurant.address}</div>
-                                        <div style={{marginTop: '5px'}}>Liên hệ: {restaurant.phone}</div>
-                                        <div style={{marginTop: '5px'}}>Email: {restaurant.email}</div>
+                                        <div style={{fontWeight: "normal", fontSize:'13px'}}>{restaurant?.address}</div>
+                                        <div style={{marginTop: '5px'}}>Liên hệ: {restaurant?.phone}</div>
+                                        <div style={{marginTop: '5px'}}>Email: {restaurant?.email}</div>
                                         <div style={{marginTop: '5px'}}>Doanh Thu:</div>
                                         <div style={{marginTop: '10px', fontSize: '15px', color: '#acacac'}}>
-                                            <div>Mở cửa: {restaurant.startTime}</div>
-                                            <div>Đóng cửa: {restaurant.endTime}</div>
+                                            <div>Mở cửa: {restaurant?.startTime}</div>
+                                            <div>Đóng cửa: {restaurant?.endTime}</div>
                                         </div>
                                         <div style={{display:'flex'}}>
 

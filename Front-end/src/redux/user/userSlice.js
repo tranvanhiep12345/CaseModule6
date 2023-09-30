@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {login, register} from "../../service/userService";
-let user = localStorage.getItem('user') === '' ? null :localStorage.getItem('user')
+let user = localStorage.getItem('user') === ''?null:localStorage.getItem('user')
 const initialState = {
     currentUser: JSON.parse(user)
 }

@@ -32,10 +32,7 @@ const validateLogin = Yup.object({
         .min(6, 'Requires a minimum of 6 characters')
 })
 
-
-
 export default function Login() {
-
     const formikRegister = useFormik({
         initialValues:{
             name:'',
@@ -56,7 +53,6 @@ export default function Login() {
             password:''
         },validationSchema:validateLogin,
         onSubmit:(values) =>{
-            console.log(values)
             handleLogin(values)
         }
     })
@@ -85,20 +81,18 @@ export default function Login() {
     }
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
-            let user = response.payload.data
+            const index = response.payload.data
             console.log(response.payload.data)
-            if (user?.payload === "User is not exist"){
-                toast.error('User is not exist')
-                navigate('/login')
-            } else if (user?.payload === 'Password is wrong') {
-                toast.error('Email or password incorrectly')
-                navigate('/login')
+            if (index?.payload === "User is not exist"){
+                alert('Tài khoản không tồn tại')
+                navigate('/')
+            } else if (index?.payload === 'Password is wrong') {
+                alert('Sai tên đăng nhập hoặc mật khẩu')
+                navigate('/')
             }else{
-                if(user?.payload.role === 'admin'){
-                    toast.success('Login success')
+                if(index?.payload.role === 'admin'){
                     navigate('/homeAdmin')
-                }else if (user?.payload.role === 'merchant')  {
-                    toast.success('Login success')
+                }else if (index?.payload.role === 'merchant')  {
                     navigate('/homeMerchant')
                 } else {
                     navigate('/')
@@ -108,7 +102,6 @@ export default function Login() {
     };
     return (
         <>
-
             <div className='body-login'>
                 <div className={`container-login ${isSignUpActive ? "right-panel-active" : ""}`}>
                     <div className="form-container sign-up-container">
@@ -174,9 +167,6 @@ export default function Login() {
                             {formikRegister.errors.confirmPassword && formikRegister.touched.confirmPassword ? (
                                 <div className="text-danger">{formikRegister.errors.confirmPassword}</div>
                             ) : null}
-
-
-
                             <div className="wrap-input100 validate-input">
                                 <select value={formikRegister.values.role} onChange={formikRegister.handleChange} name="role" className="input100">
                                     <option value="">None</option>
@@ -191,15 +181,11 @@ export default function Login() {
                             {formikRegister.errors.role && formikRegister.touched.role ? (
                                 <div className="text-danger">{formikRegister.errors.role}</div>
                             ) : null}
-
                             <button type="submit" className="log">
                                 Đăng ký
                             </button>
-
                         </form>
                     </div>
-
-
                     <div className="form-container sign-in-container">
                         <form onSubmit={formikLogin.handleSubmit}>
                             <h1 className="log1">Đăng nhập</h1>
@@ -207,7 +193,6 @@ export default function Login() {
                                  data-validate="Valid email is required: ex@abc.xyz">
                                 <input value={formikLogin.values.email} onChange={formikLogin.handleChange} className="input100" type="email" name="email" placeholder="Email"
                                        id="emailLog"/>
-
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
                                 <span className="symbol-input100">
@@ -217,9 +202,7 @@ export default function Login() {
                             {formikLogin.errors.email && formikLogin.touched.email? (
                                 <div className="text-danger">{formikLogin.errors.email}</div>
                             ) : null}
-
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
-
                                 <input value={formikLogin.values.password} onChange={formikLogin.handleChange} className="input100" type="password" name="password" placeholder="Mật khẩu"
                                        id="passwordLog"/>
                                 <span className="focus-input100"></span>
@@ -239,26 +222,33 @@ export default function Login() {
                     <div className="overlay-container">
                         <div className="overlay">
                             <div className="overlay-panel overlay-left">
-                                <div className="logo">Cooky</div>
+                                <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
+                                     alt="#"
+                                     style={{
+                                         width:"110px"
+                                     }}
+                                />
                                 <p>To keep connected with us please login with your personal info</p>
                                 <button className="ghost" id="signIn" onClick={handleSignInClick}>
                                     Đăng nhập
                                 </button>
                             </div>
                             <div className="overlay-panel overlay-right">
-                                <div className="logo">Cooky</div>
+                                <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
+                                     alt="#"
+                                     style={{
+                                         width:"110px"
+                                     }}
+                                />
                                 <p>Enter your personal details and start your journey with us</p>
                                 <button className="ghost" id="signUp" onClick={handleSignUpClick}>
                                     Đăng ký
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
         </>
     );
 }
