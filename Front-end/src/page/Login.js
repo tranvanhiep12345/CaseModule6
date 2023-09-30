@@ -87,18 +87,17 @@ export default function Login() {
         dispatch(login(values)).then((response) => {
             let user = response.payload.data
             console.log(response.payload.data)
-            if (user.payload === "User is not exist"){
+            if (user?.payload === "User is not exist"){
                 toast.error('User is not exist')
                 navigate('/login')
-            } else if (user.payload === 'Password is wrong') {
+            } else if (user?.payload === 'Password is wrong') {
                 toast.error('Email or password incorrectly')
                 navigate('/login')
             }else{
-                if(user.payload.role === 'admin'){
+                if(user?.payload.role === 'admin'){
                     toast.success('Login success')
                     navigate('/homeAdmin')
-                }else if (user.payload.role === 'merchant')  {
-                    console.log(user.payload.role)
+                }else if (user?.payload.role === 'merchant')  {
                     toast.success('Login success')
                     navigate('/homeMerchant')
                 } else {

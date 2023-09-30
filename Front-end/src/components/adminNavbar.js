@@ -103,7 +103,7 @@ export default function NavbarAdmin(){
                                         marginTop: '0px',
                                         justifyContent:'center'
                                     }}>
-                                        {user.payload.email.split("@")[0]}
+                                        {user?.payload.email.split("@")[0]}
                                     </div>
                                 </button>
                                 :
