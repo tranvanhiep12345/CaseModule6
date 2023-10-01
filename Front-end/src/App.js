@@ -11,12 +11,8 @@ import MerchantHome from "./page/merchant/merchantHome";
 import UpdateRestaurant from "./page/restaurant/updateRestaurant";
 import Admin from "./page/admin/admin";
 import HomeAdmin from "./page/admin/homeAdmin";
-import {Menu} from "@mui/material";
-import {useSelector} from "react-redux";
-import RestaurantHome from "./page/restaurant/RestaurantHome";
-import {useState} from "react";
 import AddRestaurant from "./page/restaurant/addRestaurant";
-import ListFoodUser from "./page/user/listUserFood";
+import ListFoodUser from "./page/user/lisFood";
 import DetailProduct from "./page/user/detailProduct";
 import Carousel from "./page/user/carousel";
 

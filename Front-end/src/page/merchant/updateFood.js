@@ -190,7 +190,7 @@ export default function UpdateFood() {
                                 </div>
                             </div>
 
-                            </div>
+                        </div>
 
                         <div className='update-restaurant-submit'>
                             <button type='submit' className='btn-save'>Save</button>

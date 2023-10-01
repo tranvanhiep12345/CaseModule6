@@ -88,49 +88,49 @@ export default function ListFoodMerchant() {
 
                     return (
                         <>
-                                <div className='description-restaurant'>
-                                    <div className='image-restaurant'>
-                                        <img src={restaurant.imgUrl} alt=''/>
+                            <div className='description-restaurant'>
+                                <div className='image-restaurant'>
+                                    <img src={restaurant?.imgUrl} alt=''/>
+                                </div>
+                                <div className="information-restaurant">
+                                    <div className='restaurant-name'>{restaurant?.name}
+
                                     </div>
-                                    <div className="information-restaurant">
-                                        <div className='restaurant-name'>{restaurant.name}
+                                    <div style={{fontWeight: "normal", fontSize:'13px'}}>{restaurant?.address}</div>
+                                    <div style={{marginTop: '5px'}}>Liên hệ: {restaurant?.phone}</div>
+                                    <div style={{marginTop: '5px'}}>Email: {restaurant?.email}</div>
+                                    <div style={{marginTop: '5px'}}>Doanh Thu:</div>
+                                    <div style={{marginTop: '10px', fontSize: '15px', color: '#acacac'}}>
+                                        <div>Mở cửa: {restaurant?.startTime}</div>
+                                        <div>Đóng cửa: {restaurant?.endTime}</div>
+                                    </div>
+                                    <div style={{display:'flex'}}>
 
-                                        </div>
-                                        <div style={{fontWeight: "normal", fontSize:'13px'}}>{restaurant.address}</div>
-                                        <div style={{marginTop: '5px'}}>Liên hệ: {restaurant.phone}</div>
-                                        <div style={{marginTop: '5px'}}>Email: {restaurant.email}</div>
-                                        <div style={{marginTop: '5px'}}>Doanh Thu:</div>
-                                        <div style={{marginTop: '10px', fontSize: '15px', color: '#acacac'}}>
-                                            <div>Mở cửa: {restaurant.startTime}</div>
-                                            <div>Đóng cửa: {restaurant.endTime}</div>
-                                        </div>
-                                        <div style={{display:'flex'}}>
-
-                                                <div>
-
-                                                    <Button onClick={handleOpen} sx={{color:'black', textTransform:'none', gap:'3px'}}>
-                                                        <i className="fa-light fa-plus"></i>
-                                                        Thêm món ăn mới</Button>
-                                                    <Modal
-                                                        open={open}
-                                                        onClose={handleClose}
-                                                        aria-labelledby="modal-modal-title"
-                                                        aria-describedby="modal-modal-description"
-                                                    >
-                                                        <Box sx={style}>
-                                                           <AddFood/>
-                                                        </Box>
-                                                    </Modal>
-                                                </div>
-                                        </div>
                                         <div>
-                                            <Link to={`/homeMerchant/update_restaurant/${restaurant.id}`}>
-                                                <i className="fa-regular fa-pen-to-square"></i>
-                                                Sửa thông tin cửa hàng
-                                            </Link>
+
+                                            <Button onClick={handleOpen} sx={{color:'black', textTransform:'none', gap:'3px'}}>
+                                                <i className="fa-light fa-plus"></i>
+                                                Thêm món ăn mới</Button>
+                                            <Modal
+                                                open={open}
+                                                onClose={handleClose}
+                                                aria-labelledby="modal-modal-title"
+                                                aria-describedby="modal-modal-description"
+                                            >
+                                                <Box sx={style}>
+                                                    <AddFood/>
+                                                </Box>
+                                            </Modal>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <Link to={`/homeMerchant/update_restaurant/${restaurant.id}`}>
+                                            <i className="fa-regular fa-pen-to-square"></i>
+                                            Sửa thông tin cửa hàng
+                                        </Link>
                                     </div>
                                 </div>
+                            </div>
                             <div style={{width:'50%', borderBottom:'0.5px solid', margin:'0 auto'}}>
 
                             </div>

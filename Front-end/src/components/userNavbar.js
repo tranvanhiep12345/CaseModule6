@@ -35,15 +35,24 @@ export default function UserNavbar(){
                                  fontSize: '50px',
                                  color: 'white'
                              }}>
-                            <p style={{
+                            <button style={{
                                 display: 'flex',
                                 justifyContent: 'center',
-                                margin: '25px',
-                                fontSize:'50px'}}
+                                margin: '10px',
+                                fontSize:'25px',
+                                background: 'red',
+                                border: '10px red'
+                            }}
                                onClick={()=>{
                                    navigate('')
                                }}>
-                                Cooky</p>
+                                <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
+                                     alt="#"
+                                     style={{
+                                         width:"110px"
+                                     }}
+                                />
+                            </button>
                         </div>
                         <div className="col-3"
                              style={{
@@ -124,9 +133,15 @@ export default function UserNavbar(){
                                     fontSize:'15px',
                                     display:'flex'
                                 }}
+
                                         onClick={() => {
                                             logOut()
                                         }}>
+
+                                    onClick={() => {
+                                        logOut()
+                                    }}>
+
                                     <div style={{
                                         width: '60%',
                                         marginLeft: '-50px'

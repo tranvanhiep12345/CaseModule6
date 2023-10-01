@@ -30,4 +30,3 @@ export const updateRestaurant = createAsyncThunk(
     async (id) =>{
         return await customAxios.put(`/rests/${id}`)
     })
-

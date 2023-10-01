@@ -1,4 +1,4 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {getRestaurant} from "../../service/restaurantsService";
 import MerchantDetail from "./merchantDetail";
@@ -7,32 +7,38 @@ import {useNavigate} from "react-router-dom";
 export default function HomeAdmin() {
     const dispatch = useDispatch()
     const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-
     const [showOnlySelected, setShowOnlySelected] = useState(false);
-
+    const navigate = useNavigate(null)
     const [list, setList] = useState(null)
     useEffect(() => {
-        dispatch(getRestaurant()).then((res) => {
-            console.log(res)
-            setList(res.payload.data)
+        dispatch(getRestaurant())
+            .then((res) => {
+                setList(res.payload.data)
         })
-    }, [])
-    console.log(list)
+            .catch(e => {
+                console.log(e)
+            })
+    },[])
     const handle = (item) => {
         setSelectedRestaurant(item);
+<<<<<<< HEAD
         if (showOnlySelected){
             setShowOnlySelected(false)
             setSelectedRestaurant(null)
         }else {
+=======
+        if(showOnlySelected){
+            setShowOnlySelected(false)
+            setSelectedRestaurant(null)
+        } else {
+>>>>>>> 3e1cea85231fe70da3cea44bcedea37dbbb3ab45
             setShowOnlySelected(true)
             setSelectedRestaurant(item)
         }
     };
     const reload = () => {
-        window.location.reload()
+        navigate("/homeAdmin")
     }
-
-
     return (
         <>
             <div className="row" style={{marginTop: '20px'}}>
@@ -41,8 +47,8 @@ export default function HomeAdmin() {
                         <div style={{marginTop: '20px'}}>
                             <button onClick={()=>{
                                 reload()
-                            }}>
-                                Danh sách Merchant
+                            }}  style={{background: 'red'}}>
+                                Danh sách cửa hàng
                             </button>
                         </div>
                     </div>
@@ -61,7 +67,7 @@ export default function HomeAdmin() {
                             <th scope="col">Số điện thoại</th>
                             <th scope="col">Email</th>
                             <th scope="col">Địa chỉ</th>
-                            <th scope="col">Doanh thu</th>
+                            {/*<th scope="col">Doanh thu</th>*/}
                             <th scope="col">Giờ mở</th>
                             <th scope="col">Giờ đóng</th>
                             <th scope="col" colSpan={2} style={{textAlign: "center"}}>Chức năng</th>
@@ -75,12 +81,18 @@ export default function HomeAdmin() {
                                 <td>{item.phone}</td>
                                 <td>{item.email}</td>
                                 <td>{item.address}</td>
-                                <td>@mdo</td>
+                                {/*<td>DoanhThu</td>*/}
                                 <td>{item.startTime}</td>
                                 <td>{item.endTime}</td>
-                                <td>
+                                <td style={{
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                }}>
                                     <button type="button"
                                         onClick={()=>{handle(item)}}
+                                    style={{
+                                        background: 'red',
+                                    }}
                                     >xem thêm
                                     </button>
                                 </td>
@@ -93,7 +105,6 @@ export default function HomeAdmin() {
                         <MerchantDetail restaurant={selectedRestaurant} />
                     )}
                 </div>
-
             </div>
         </>
     )

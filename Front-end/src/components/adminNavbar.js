@@ -35,6 +35,7 @@ export default function NavbarAdmin(){
                                  fontSize: '50px',
                                  color: 'white'
                              }}>
+
                             <p style={{
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -44,6 +45,26 @@ export default function NavbarAdmin(){
                                    navigate('')
                                }}>
                                 Cooky</p>
+
+                            <button style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                margin: '10px',
+                                fontSize:'25px',
+                                background: 'red',
+                                border: '10px red'
+                            }}
+                                    onClick={()=>{
+                                        navigate('')
+                                    }}>
+                                <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
+                                     alt="#"
+                                     style={{
+                                         width:"110px"
+                                     }}
+                                />
+                            </button>
+
                         </div>
                         <div className="col-7"
                              style={{
@@ -103,7 +124,11 @@ export default function NavbarAdmin(){
                                         marginTop: '0px',
                                         justifyContent:'center'
                                     }}>
+
                                         {user.payload.email.split("@")[0]}
+
+                                        {user?.payload.email.split("@")[0]}
+
                                     </div>
                                 </button>
                                 :
