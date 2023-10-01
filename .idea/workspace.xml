@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/controller/orderController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/controller/orderController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/controller/orderDetailController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/controller/orderDetailController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/service/orderDetailService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/orderDetailService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +114,8 @@
       <workItem from="1695969904496" duration="852000" />
       <workItem from="1695970776921" duration="6469000" />
       <workItem from="1696006065978" duration="598000" />
+      <workItem from="1696143851129" duration="1195000" />
+      <workItem from="1696168429114" duration="6477000" />
     </task>
     <task id="LOCAL-00001" summary="phan quyen">
       <created>1694589887433</created>

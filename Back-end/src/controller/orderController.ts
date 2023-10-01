@@ -33,20 +33,17 @@ class OrderController {
             const hours = currentDate.getHours();
             const minutes = currentDate.getUTCMinutes();
             const formattedDate = `${hours}:${minutes} ${year}-${month}-${day}`;
-
             const order = new Order();
             order.date = formattedDate;
             order.address = req.body.address;
             order.status = req.body.status;
-            order.user.id = req.body.user.id;
-            order.orderDetail = req.body.orderDetail.map((index) => {
-                const orderDetail = new OrderDetail();
-                orderDetail.quantity = index.quantity;
-                orderDetail.food.id = index.food.id;
-                return orderDetail;
-            });
-
-            await orderService.add(order);
+            order.orderDetail = []
+            let user = req.body.user
+            let orderObj = {
+                ...order,
+                user
+            }
+            await orderService.add(orderObj);
             res.json(order);
         } catch (error) {
             res.status(500).json({ error: "Internal server error." });

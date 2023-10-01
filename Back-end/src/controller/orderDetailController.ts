@@ -3,12 +3,15 @@ import orderDetailService from "../service/orderDetailService";
 
 class OrderDetailController {
     findAll = async (req: Request, res: Response) => {
-        let {userId} = req.query
-        if (userId == undefined) {
+        let {userId, restId} = req.query
+        if (userId == undefined && restId == undefined) {
             let data = await orderDetailService.findAll()
             res.json(data)
-        } else if (userId != undefined) {
+        } else if (userId != undefined && restId == undefined) {
             let data = await orderDetailService.findAllByUserId(userId)
+            res.json(data)
+        } else if (userId == undefined && restId != undefined){
+            let data = await orderDetailService.findAllByRestId(restId)
             res.json(data)
         }
     }
@@ -24,7 +27,7 @@ class OrderDetailController {
             res.json('delete complete')
         } else if (restId != undefined && id == undefined){
             await orderDetailService.deleteByRestaurantId(restId)
-            res.json('delete complete')
+            res.json('delete complete 1')
         }
 
     }

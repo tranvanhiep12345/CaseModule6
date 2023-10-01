@@ -15,13 +15,10 @@ class OrderDetailService {
     }
 
     deleteByRestaurantId = async (restId) => {
-        return await this.repository.createQueryBuilder("orderDetail")
-            .leftJoinAndSelect("orderDetail.food", "food")
-            .leftJoinAndSelect("food.restaurant", "restaurant")
-            .delete()
-            .from("orderDetail")
-            .where("restaurant.id = :restId", { restId: restId })
-            .execute()
+        let data = await this.findAllByRestId(restId)
+        for (let index of data){
+            await this.delete(index.id)
+        }
     }
 
     add = async (data) => {
@@ -56,6 +53,20 @@ class OrderDetailService {
                 order: true
             }
         })
+    }
+
+    findAllByRestId = async (restId) => {
+        return await this.repository.createQueryBuilder("orderDetail")
+            .leftJoinAndSelect("orderDetail.food", "food")
+            .leftJoinAndSelect("food.restaurant", "restaurant")
+            .select([
+                "orderDetail.id",
+                "orderDetail.quantity",
+                "food.id",
+                "restaurant.id"
+            ])
+            .where("restaurant.id = :id", {id: restId})
+            .getMany()
     }
 }
 
