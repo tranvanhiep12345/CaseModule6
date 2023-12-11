@@ -14,24 +14,17 @@ export default function HomeAdmin() {
         dispatch(getRestaurant())
             .then((res) => {
                 setList(res.payload.data)
-        })
+            })
             .catch(e => {
                 console.log(e)
             })
     },[])
     const handle = (item) => {
         setSelectedRestaurant(item);
-<<<<<<< HEAD
-        if (showOnlySelected){
-            setShowOnlySelected(false)
-            setSelectedRestaurant(null)
-        }else {
-=======
         if(showOnlySelected){
             setShowOnlySelected(false)
             setSelectedRestaurant(null)
         } else {
->>>>>>> 3e1cea85231fe70da3cea44bcedea37dbbb3ab45
             setShowOnlySelected(true)
             setSelectedRestaurant(item)
         }
@@ -76,27 +69,27 @@ export default function HomeAdmin() {
                         {list && list.map((item) => (
                             <tbody key={item.id}>
                             {(!showOnlySelected || selectedRestaurant === item) && ( <tr>
-                                <th scope="row">{item.id}</th>
-                                <td>{item.name}</td>
-                                <td>{item.phone}</td>
-                                <td>{item.email}</td>
-                                <td>{item.address}</td>
-                                {/*<td>DoanhThu</td>*/}
-                                <td>{item.startTime}</td>
-                                <td>{item.endTime}</td>
-                                <td style={{
-                                    display: 'flex',
-                                    justifyContent: 'center'
-                                }}>
-                                    <button type="button"
-                                        onClick={()=>{handle(item)}}
-                                    style={{
-                                        background: 'red',
-                                    }}
-                                    >xem thêm
-                                    </button>
-                                </td>
-                            </tr>
+                                    <th scope="row">{item.id}</th>
+                                    <td>{item.name}</td>
+                                    <td>{item.phone}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.address}</td>
+                                    {/*<td>DoanhThu</td>*/}
+                                    <td>{item.startTime}</td>
+                                    <td>{item.endTime}</td>
+                                    <td style={{
+                                        display: 'flex',
+                                        justifyContent: 'center'
+                                    }}>
+                                        <button type="button"
+                                                onClick={()=>{handle(item)}}
+                                                style={{
+                                                    background: 'red',
+                                                }}
+                                        >xem thêm
+                                        </button>
+                                    </td>
+                                </tr>
                             )}
                             </tbody>
                         ))}

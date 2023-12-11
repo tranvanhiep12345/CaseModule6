@@ -1,21 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {getAllImageByFoodType} from "../../service/imageService";
-export default function ListFoodUser(){
+import {getFoodByType} from "../../service/foodsService";
+
+export default function ListUserFood(){
     const navigate = useNavigate()
     const {type} = useParams()
     const dispatch = useDispatch();
     const [listFood, setListFood] = useState([]);
     useEffect(()=> {
-        dispatch(getAllImageByFoodType(type))
+        dispatch(getFoodByType(type))
             .then(res => {
-                console.log(res.payload.data)
+                console.log(res.payload,1121)
                 setListFood(res.payload.data)
             }).catch(e => {
             console.log(e)
         })
     },[])
+    console.log(listFood)
     return(
         <>
             <div className="row">
@@ -72,8 +74,8 @@ export default function ListFoodUser(){
             <div className="row">
                 <div className="body col-12" style={{ display: 'flex',justifyContent: 'center'}}>
                     <div className="row-1 col-12" style={{ display: 'flex', height: '100%', flexWrap: 'wrap'}}>
-                        {listFood.map((item) => {
-                            if (item?.food.type === type) {
+                        {listFood?.map((item) => {
+                            if (item.type === type) {
                                 return (
                                     <div className="col-3"
                                          style={{
@@ -107,14 +109,14 @@ export default function ListFoodUser(){
                                                      alignItems:'center'
                                                  }}
                                             >
-                                                <Link to={`detailProduct/${item?.food.id}`}
+                                                <Link to={`detailProduct/${item?.id}`}
                                                       style={{
                                                           marginTop:'25px',
                                                           textDecoration: 'none'
                                                       }}
                                                 >
                                                     <h5 className="card-title">
-                                                        {item?.food.name}
+                                                        {item?.name}
                                                     </h5>
                                                 </Link>
                                             </div>
@@ -130,12 +132,12 @@ export default function ListFoodUser(){
                                                             fontSize: '12px',
                                                             color: '#acacac'
                                                         }}>
-                                                            {item?.food.description}
+                                                            {item?.description}
                                                         </p>
                                                         <p style={{
                                                             fontWeight: '700'
                                                         }}>
-                                                            {item?.food.price} VNĐ
+                                                            {item?.price} VNĐ
                                                         </p>
                                                     </div>
                                                     <i className="fa-solid fa-circle-plus"

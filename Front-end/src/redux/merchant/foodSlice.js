@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {addFood, deleteFood, getFood, getFoodByName, updateFood} from "../../service/foodsService";
+import {getAllImageByFoodType} from "../../service/imageService";
 
 const initialState = {
     food: []
@@ -23,6 +24,9 @@ const foodSlice =createSlice({
         })
         builder.addCase(updateFood.fulfilled, (state, action) =>{
             state.food.push(action.payload)
+        })
+        builder.addCase(getAllImageByFoodType.fulfilled, (state, action) =>{
+            state.food.push = action.payload.data
         })
     }
 })

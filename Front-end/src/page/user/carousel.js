@@ -1,4 +1,4 @@
-import ListFoodUser from "./listFood";
+import ListFoodUser from "./lisFood";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -15,6 +15,7 @@ export default function Carousel(){
     })
     const navigate = useNavigate()
     const listFood = useSelector(state => {
+        console.log(state,999)
         return state.food.food
     });
     useEffect(()=>{
@@ -100,7 +101,7 @@ export default function Carousel(){
                                         justifyContent: 'center',
                                         display: 'flex',
                                         flexDirection: 'column'}}
-                                         onClick={() => {handleToList('Cháo')}}
+                                         onClick={() => {handleToList('cháo')}}
                                     >
                                         <img
                                             src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/128/Drink-Coke-icon.png"
@@ -118,7 +119,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('Cơm rang')}}>
+                                         onClick={() => {handleToList('cơm rang')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/jamespeng/cuisine/128/Pork-Chop-Set-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -135,7 +136,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('Đồ chay')}}>
+                                         onClick={() => {handleToList('đồ chay')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Salad-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -152,7 +153,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('Đồ uống')}}>
+                                         onClick={() => {handleToList('đồ uống')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/iconarchive/fruit-illustration/256/Currant-Illustration-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
@@ -169,7 +170,7 @@ export default function Carousel(){
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
-                                         onClick={() => {handleToList('Bún'||'Phở')}}>
+                                         onClick={() => {handleToList('bún'||'phở')}}>
                                         <img
                                             src="https://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Piece-of-cake-icon.png"
                                             style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>

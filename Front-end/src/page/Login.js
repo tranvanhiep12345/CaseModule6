@@ -34,25 +34,25 @@ const validateLogin = Yup.object({
 
 export default function Login() {
     const formikRegister = useFormik({
-        initialValues:{
-            name:'',
-            phone:'',
-            email:'',
-            password:'',
-            confirmPassword:'',
-            role:''
+        initialValues: {
+            name: '',
+            phone: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            role: ''
         }, validationSchema: validateRegister,
-        onSubmit:(values)=>{
+        onSubmit: (values) => {
             handleRegister(values)
         }
     })
 
     const formikLogin = useFormik({
-        initialValues:{
-            email:'',
-            password:''
-        },validationSchema:validateLogin,
-        onSubmit:(values) =>{
+        initialValues: {
+            email: '',
+            password: ''
+        }, validationSchema: validateLogin,
+        onSubmit: (values) => {
             handleLogin(values)
         }
     })
@@ -69,9 +69,9 @@ export default function Login() {
         setIsSignUpActive(false);
     };
 
-    const handleRegister =  (values) =>{
-        dispatch(register(values)).then((a)=>{
-            if (a.payload.data === 'Username already exists'){
+    const handleRegister = (values) => {
+        dispatch(register(values)).then((a) => {
+            if (a.payload.data === 'Username already exists') {
                 toast.error('Account already exists')
             } else {
                 toast.success('Register Success')
@@ -82,16 +82,16 @@ export default function Login() {
     const handleLogin = (values) => {
         dispatch(login(values)).then((response) => {
             const index = response.payload.data
-            if (index?.payload === "User is not exist"){
+            if (index?.payload === "User is not exist") {
                 alert('Tài khoản không tồn tại')
                 navigate('/')
             } else if (index?.payload === 'Password is wrong') {
                 alert('Sai tên đăng nhập hoặc mật khẩu')
                 navigate('/')
-            }else{
-                if(index?.payload.role === 'admin'){
+            } else {
+                if (index?.payload.role === 'admin') {
                     navigate('/homeAdmin')
-                }else if (index?.payload.role === 'merchant')  {
+                } else if (index?.payload.role === 'merchant') {
                     navigate('/homeMerchant')
                 } else {
                     navigate('/')
@@ -107,17 +107,20 @@ export default function Login() {
                         <form onSubmit={formikRegister.handleSubmit}>
                             <h1 className="log1">Đăng ký</h1>
                             <div className="wrap-input100 validate-input">
-                                <input value={formikRegister.values.name} onChange={formikRegister.handleChange} className="input100" type="text" name="name" placeholder="Tên người dùng"/>
+                                <input value={formikRegister.values.name} onChange={formikRegister.handleChange}
+                                       className="input100" type="text" name="name" placeholder="Tên người dùng"/>
 
                                 <span className="focus-input100"></span>
-                                <span className="symbol-input100"><i className="fa fa-user" aria-hidden="true"></i></span>
+                                <span className="symbol-input100"><i className="fa fa-user"
+                                                                     aria-hidden="true"></i></span>
                             </div>
                             {formikRegister.errors.name && formikRegister.touched.name ? (
                                 <div className="text-danger">{formikRegister.errors.name}</div>
                             ) : null}
                             <div className="wrap-input100 validate-input"
                                  data-validate="Valid email is required: ex@abc.xyz">
-                                <input value={formikRegister.values.email} onChange={formikRegister.handleChange} className="input100" type="email" name="email" placeholder="Email"
+                                <input value={formikRegister.values.email} onChange={formikRegister.handleChange}
+                                       className="input100" type="email" name="email" placeholder="Email"
                                        id="email"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message"></span>
@@ -128,20 +131,24 @@ export default function Login() {
                             ) : null}
 
                             <div className="wrap-input100 validate-input">
-                                <input value={formikRegister.values.phone} onChange={formikRegister.handleChange} className="input100" type="text" name="phone" placeholder="Số điện thoại"/>
+                                <input value={formikRegister.values.phone} onChange={formikRegister.handleChange}
+                                       className="input100" type="text" name="phone" placeholder="Số điện thoại"/>
                                 <span className="focus-input100"></span>
-                                <span className="symbol-input100"><i className="fa fa-user" aria-hidden="true"></i></span>
+                                <span className="symbol-input100"><i className="fa fa-user"
+                                                                     aria-hidden="true"></i></span>
                             </div>
-                            {formikRegister.errors.phone && formikRegister.touched.phone? (
+                            {formikRegister.errors.phone && formikRegister.touched.phone ? (
                                 <div className="text-danger">{formikRegister.errors.phone}</div>
                             ) : null}
 
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
-                                <input value={formikRegister.values.password} onChange={formikRegister.handleChange} className="input100" type="password" name="password" placeholder="Mật khẩu"
+                                <input value={formikRegister.values.password} onChange={formikRegister.handleChange}
+                                       className="input100" type="password" name="password" placeholder="Mật khẩu"
                                        id="password"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message"></span>
-                                <span className="symbol-input100"><i className="fa fa-lock" aria-hidden="true"></i></span>
+                                <span className="symbol-input100"><i className="fa fa-lock"
+                                                                     aria-hidden="true"></i></span>
                             </div>
                             {formikRegister.errors.password && formikRegister.touched.password ? (
                                 <div className="text-danger">{formikRegister.errors.password}</div>
@@ -167,7 +174,8 @@ export default function Login() {
                                 <div className="text-danger">{formikRegister.errors.confirmPassword}</div>
                             ) : null}
                             <div className="wrap-input100 validate-input">
-                                <select value={formikRegister.values.role} onChange={formikRegister.handleChange} name="role" className="input100">
+                                <select value={formikRegister.values.role} onChange={formikRegister.handleChange}
+                                        name="role" className="input100">
                                     <option value="">None</option>
                                     <option value="merchant">Merchant</option>
                                     <option value="user">User</option>
@@ -175,7 +183,8 @@ export default function Login() {
 
                                 <span className="focus-input100"></span>
                                 <span className="form-message"></span>
-                                <span className="symbol-input100"><i className="fa-light fa-check" aria-hidden="true"></i></span>
+                                <span className="symbol-input100"><i className="fa-light fa-check"
+                                                                     aria-hidden="true"></i></span>
                             </div>
                             {formikRegister.errors.role && formikRegister.touched.role ? (
                                 <div className="text-danger">{formikRegister.errors.role}</div>
@@ -190,7 +199,8 @@ export default function Login() {
                             <h1 className="log1">Đăng nhập</h1>
                             <div className="wrap-input100 validate-input"
                                  data-validate="Valid email is required: ex@abc.xyz">
-                                <input value={formikLogin.values.email} onChange={formikLogin.handleChange} className="input100" type="email" name="email" placeholder="Email"
+                                <input value={formikLogin.values.email} onChange={formikLogin.handleChange}
+                                       className="input100" type="email" name="email" placeholder="Email"
                                        id="emailLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
@@ -198,11 +208,12 @@ export default function Login() {
                 <i className="fa fa-envelope" aria-hidden="true"></i>
               </span>
                             </div>
-                            {formikLogin.errors.email && formikLogin.touched.email? (
+                            {formikLogin.errors.email && formikLogin.touched.email ? (
                                 <div className="text-danger">{formikLogin.errors.email}</div>
                             ) : null}
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
-                                <input value={formikLogin.values.password} onChange={formikLogin.handleChange} className="input100" type="password" name="password" placeholder="Mật khẩu"
+                                <input value={formikLogin.values.password} onChange={formikLogin.handleChange}
+                                       className="input100" type="password" name="password" placeholder="Mật khẩu"
                                        id="passwordLog"/>
                                 <span className="focus-input100"></span>
                                 <span className="form-message2"></span>
@@ -210,7 +221,7 @@ export default function Login() {
                 <i className="fa fa-lock" aria-hidden="true"></i>
               </span>
                             </div>
-                            {formikLogin.errors.password && formikLogin.touched.password? (
+                            {formikLogin.errors.password && formikLogin.touched.password ? (
                                 <div className="text-danger">{formikLogin.errors.password}</div>
                             ) : null}
                             <button type="submit" className="log">
@@ -224,7 +235,7 @@ export default function Login() {
                                 <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
                                      alt="#"
                                      style={{
-                                         width:"110px"
+                                         width: "110px"
                                      }}
                                 />
                                 <p>To keep connected with us please login with your personal info</p>
@@ -236,7 +247,7 @@ export default function Login() {
                                 <img src="https://www.cooky.vn/React/Images/Logos/logo.svg"
                                      alt="#"
                                      style={{
-                                         width:"110px"
+                                         width: "110px"
                                      }}
                                 />
                                 <p>Enter your personal details and start your journey with us</p>

@@ -21,6 +21,7 @@ const style = {
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
+    borderRadius: '10px'
 };
 
 
@@ -36,7 +37,6 @@ export default function ListFoodMerchant() {
     const restaurants = useSelector((state) => {
         return state.restaurant.restaurant
     })
-
 
     const currentUser = useSelector((state) => {
         return state.user.currentUser
@@ -107,7 +107,6 @@ export default function ListFoodMerchant() {
                                     <div style={{display:'flex'}}>
 
                                         <div>
-
                                             <Button onClick={handleOpen} sx={{color:'black', textTransform:'none', gap:'3px'}}>
                                                 <i className="fa-light fa-plus"></i>
                                                 Thêm món ăn mới</Button>
@@ -122,6 +121,7 @@ export default function ListFoodMerchant() {
                                                 </Box>
                                             </Modal>
                                         </div>
+
                                     </div>
                                     <div>
                                         <Link to={`/homeMerchant/update_restaurant/${restaurant.id}`}>
@@ -149,7 +149,7 @@ export default function ListFoodMerchant() {
                                             return (
                                                 <div className="card-home">
                                                     <div className="row-1 col-10">
-                                                        <div className="col-2" style={{height: '200px'}}>
+                                                        <div className="col-2" style={{height: '200px', marginLeft:'25px'}}>
 
                                                             <div className="card" style={{width: '200px'}}>
                                                                 <div className='food-img'>

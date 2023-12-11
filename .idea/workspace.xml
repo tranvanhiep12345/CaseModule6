@@ -5,51 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0c38d04-9135-427e-b06c-800ec0b49db2" name="Changes" comment="merge xong">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/controller/orderController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/controller/orderDetailController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/entity/order.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/entity/orderDetail.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/router/orderDetailRouter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/router/orderRouter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/service/orderDetailService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back-end/src/service/orderService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-end/src/redux/imageFood/imageFoodSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front-end/src/service/imageService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CaseModule6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HieuHiepNghia.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/controller/imageFoodController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/controller/imageFoodController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/entity/food.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/entity/food.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/entity/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/entity/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/entity/imageFood.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/entity/imageFood.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/router/foodRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/foodRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/router/restRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/restRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/router/imageFoodRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/imageFoodRouter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/router/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/router/router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/service/imageFoodService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/imageFoodService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Back-end/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Back-end/src/service/userService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/adminNavbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/merchantNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/components/userNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/css/addFoodCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/css/addFoodCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/admin/homeAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/addFood.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/listFoodMerchant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/listFoodMerchant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/merchant/updateFood.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/RestaurantHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/addRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/restaurant/updateRestaurant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/detailProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/listUserFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/listUserFood.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/userHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/user/userSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/service/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/page/user/lisFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/page/user/lisFood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/src/redux/merchant/foodSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/redux/merchant/foodSlice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/service/foodsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,22 +57,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging nghia",
-    "last_opened_file_path": "D:/WebstormPJ/HieuHiepNghia",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\admin\\WebstormProjects\\untitled\\CaseModule6\\Back-end\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;nghia&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nghia/Code/CaseModule6&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/nghia/Code/CaseModule6/Back-end/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\WebstormPJ\HieuHiepNghia\Front-end\public" />
@@ -158,6 +131,25 @@
       <workItem from="1696006065978" duration="598000" />
       <workItem from="1696143851129" duration="1195000" />
       <workItem from="1696168429114" duration="6477000" />
+      <workItem from="1696205022107" duration="216000" />
+      <workItem from="1696229529159" duration="6096000" />
+      <workItem from="1696608085392" duration="16000" />
+      <workItem from="1696608109197" duration="1346000" />
+      <workItem from="1696703093268" duration="68000" />
+      <workItem from="1698820148335" duration="2052000" />
+      <workItem from="1698830880943" duration="629000" />
+      <workItem from="1698832072349" duration="270000" />
+      <workItem from="1698832471353" duration="154000" />
+      <workItem from="1698888737925" duration="48000" />
+      <workItem from="1698905636635" duration="1235000" />
+      <workItem from="1698916639138" duration="1454000" />
+      <workItem from="1698920312747" duration="199000" />
+      <workItem from="1698978804880" duration="9000" />
+      <workItem from="1698982638322" duration="750000" />
+      <workItem from="1698992178558" duration="603000" />
+      <workItem from="1701853674314" duration="350000" />
+      <workItem from="1701918941776" duration="828000" />
+      <workItem from="1701936517990" duration="608000" />
     </task>
     <task id="LOCAL-00001" summary="phan quyen">
       <created>1694589887433</created>
@@ -183,7 +175,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/newNavbarMerchant" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>

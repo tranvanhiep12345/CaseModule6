@@ -20,7 +20,7 @@ export default function RestaurantHome(){
                         aria-describedby="modal-modal-description"
                     >
                         <div style={{width:'50%', margin:'0 auto', padding:'40px', marginTop:'100px'}}>
-                            <AddRestaurant></AddRestaurant>
+                            <AddRestaurant/>
                         </div>
                     </Modal>
                 </div>

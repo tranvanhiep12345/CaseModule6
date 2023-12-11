@@ -39,8 +39,8 @@ export const updateFood = createAsyncThunk(
     })
 export const getFoodByType = createAsyncThunk(
     'food/getFoodByType',
-    async (data) => {
-        return await customAxios.get(`/foods/?type=${data}`);
+    async (type) => {
+        return await customAxios.get(`/foods/?type=${type}`);
     }
 )
 export const getFoodById = createAsyncThunk(
